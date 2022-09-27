@@ -1,60 +1,70 @@
-<style>
-  #me {
-    max-width: 30%;
-    max-height: 30%;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="en">
 
-<h1> Hi, I am Adam </h1>
+<head>
+  <style>
+    #me {
+      max-width: 30%;
+      max-height: 30%;
+    }
+  </style>
 
-<div>
-  <img id='me' src="image/scholar.jpeg">
-</div>
+  <title>My IS216 Journey</title>
+</head>
 
-<br><br>
-Hi all! I am Adam, a second year student at SMU pursuing a degree in Information Systems.
-<br>
-Web Application Development is my passion.
-<br><br>
+<body>
+  <h1> Hi, I am Adam </h1>
 
+  <div>
+    <img id='me' src="image/scholar.jpeg">
+  </div>
+  
+  <br><br>
+  Hi all! I am Adam, a second year student at SMU pursuing a degree in Information Systems.
+  <br>
+  Web Application Development is my passion.
+  <br><br>
+  
+  <form>
+    <table border="1">
+      <tr>
+        <th colspan="2"> Tell me about yourself </th>
+      </tr>
+      
+      <tr>
+        <td> Name: </td>
+        <td> <input type="text" name="name" size="20"/> </td>
+      </tr>
+      
+      <tr>
+        <th colspan = "2"> Relationship Status: </th>
+      </tr>
+      
+      <tr>
+        <td colspan="2">
+          <label> <input name="color" type="radio" value="single" checked/> Single </label>
+          <label> <input name="color" type="radio" value="relationship"/> In a Relationship </label>
+        </td>
+      </tr>
+      
+      <tr>
+        <td rowspan = "2"> Favourite fruits: </td>
+        <td> 
+          <label><input name="fruits[]" type="checkbox" value="apple"/>Apple</label>
+          <label><input name="fruits[]" type="checkbox" value="orange"/> Orange</label> 
+        </td>
+      </tr>
+      
+      <tr>
+        <td> 
+          <label><input name="fruits[]" type="checkbox" value="banana"/> Banana</label>
+          <label><input name="fruits[]" type="checkbox" value="mango"/> Mango</label>
+        </td>
+      </tr>
+      
+    </table>
+   <input type="submit" value="Submit" name="submit"/>
+  </form>
+</body>
 
-<form>
-  <table border="1">
-    <tr>
-      <th colspan="2"> Tell me about yourself </th>
-    </tr>
-    
-    <tr>
-      <td> Name: </td>
-      <td> <input type="text" name="name" size="20"/> </td>
-    </tr>
-    
-    <tr>
-      <th colspan = "2"> Relationship Status: </th>
-    </tr>
-    
-    <tr>
-      <td colspan="2">
-        <label> <input name="color" type="radio" value="single" checked/> Single </label>
-        <label> <input name="color" type="radio" value="relationship"/> In a Relationship </label>
-      </td>
-    </tr>
-    
-    <tr>
-      <td rowspan = "2"> Favourite fruits: </td>
-      <td> 
-        <label><input name="fruits[]" type="checkbox" value="apple"/>Apple</label>
-        <label><input name="fruits[]" type="checkbox" value="orange"/> Orange</label> 
-      </td>
-    </tr>
-    
-    <tr>
-      <td> 
-        <label><input name="fruits[]" type="checkbox" value="banana"/> Banana</label>
-        <label><input name="fruits[]" type="checkbox" value="mango"/> Mango</label>
-      </td>
-    </tr>
-    
-  </table>
- <input type="submit" value="Submit" name="submit"/>
-</form>
+</html>
