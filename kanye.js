@@ -10,8 +10,8 @@ function call_quote() {
             quoteSection = document.getElementById('quote')
             quoteSection.innerHTML = `
                                     <div style="cursor:pointer; float:right;"<i class="bi bi-arrow-clockwise" onclick="call_quote()"></i></div>
-                                    <p style="font-family: Lato, sans-serif; font-size: 1rem; text-align:center;">"${quote}"</p>
-                                    <p style="font-family: Lato, sans-serif; font-size: 0.85rem; text-align: right; padding-right:150px">- Kanye West</p>
+                                    <p style="font-family: Nunito, sans-serif; font-size: 1rem; text-align:center; color:black;">"${quote}"</p>
+                                    <p style="font-family: Nunito, sans-serif; font-size: 0.85rem; text-align: right; padding-right:150px">- Kanye West</p>
                                     `
         })
 
