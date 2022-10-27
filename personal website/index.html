@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Adam Teng</title>
+</head>
+
+
+
+<body class="navbar-custom" onload="call_quote()">
+
+    <!-- Navigation Bar -->
+    <div class="row g-4">
+    <a href="#" class="navbar-brand header" style="transform: translateX(-50%); left:50%; position: absolute; padding-top: 30px;">Adam Teng</a>
+    </div>
+
+    <div class="row g-4" style="padding-top: 100px;">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+
+          <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navmenu"
+          >
+          <span class="navbar-toggler-icon" style="color: black;"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navmenu">
+              <ul class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                      <a href="#imageShowcase" class="nav-link navletter">Portfolio</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="#about" class="nav-link navletter">About</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="#faq" class="nav-link navletter">FAQ</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="#contact" class="nav-link navletter">Contact</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+</div>
+    <!-- Kanye Quotes -->
+    <section class="p-5">
+        <div class="row g-4">
+            <div class="col-2"></div>
+            <div class="col-8" id="quote"></div>
+            <div class="col-2"></div>
+        </div>
+    </section>
+
+    <!-- Image Showcase -->
+    <div id="imageShowcase" class="carousel slide carousel-fade" data-interval="false" style="bottom:90px">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/img1.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="images/img2.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="images/img3.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="images/img4.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="images/img5.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="images/img6.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="images/img7.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="images/img8.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="images/img9.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="images/img10.jpg" class="d-block w-100">
+            </div>
+        </div>
+
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="0" class="active">
+                <img src="images/img1.jpg" class="d-block w-100">
+            </button>
+            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="1">
+                <img src="images/img2.jpg" class="d-block w-100">
+            </button>
+            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="2">
+                <img src="images/img3.jpg" class="d-block w-100">
+            </button>
+            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="3">
+                <img src="images/img4.jpg" class="d-block w-100">
+            </button>
+            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="4">
+                <img src="images/img5.jpg" class="d-block w-100">
+            </button>
+            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="5">
+                <img src="images/img6.jpg" class="d-block w-100">
+            </button>
+            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="6">
+                <img src="images/img7.jpg" class="d-block w-100">
+            </button>
+            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="7">
+                <img src="images/img8.jpg" class="d-block w-100">
+            </button>
+            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="8">
+                <img src="images/img9.jpg" class="d-block w-100">
+            </button>
+            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="9">
+                <img src="images/img10.jpg" class="d-block w-100">
+            </button>
+        </div>
+    </div>
+
+    <!-- Bio -->
+    <section id="about"class="p-5" style="margin-top:120px">
+         <div class="container">
+            <div class="row g-4">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <h3 style="font-family: Lato, sans-serif; font-weight:bold; color:black;">About Me</h3>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+            <!-- Bio Text -->
+            <div class="row g-4">
+                <div class="col-md-2"></div>
+
+                <div class="col-md-8">
+                    <p style="text-justify: inter-word; text-align:justify; font-size:1.05rem;">
+                    Sophomore at Singapore Management University studying Information Systems. Aside from web development, I am passionate in photography. Becoming a photographer gives you an entirely new perspective on everyday life. It lets you turn anything you find beautiful into a work of art. One photograph is powerful enough to not only remind you of an event or detail, but can bring you right back to the feelings, sounds, and even smells of the moment.
+                    </p>
+                    <br>
+                    <p style="text-justify: inter-word; text-align:justify; font-size:1.05rem;"> I have shot innumerable Pulitzer Prize winning photos which led to me attaining worldwide fame and fortune. Many have said that my masterfully captured shots have something in it that goes beyond the ordinary. Those fortunate enough to have seen my work often find themselves overwhelmed by their emotions and shed grateful tears.</p>
+                </div>
+
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </section>
+
+            <!-- Hobbies Title-->
+    <section>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md" style="margin: 50px;">
+                    <h4 style="font-family: Lato, sans-serif; font-weight:bold; color:black;">Things I enjoy doing</h4>
+                </div>
+            </div>
+
+            <!--Hobbies Card  -->
+            <div class="row g-4">
+
+                <div class="card col-md-4" style="margin:auto; padding: 9rem 0 0;">
+                    <div class="card-content">
+                        <h2 class="card-title">
+                            Photography
+                        </h2>
+                        <p class="card-body">
+                            The ability to capture the world as you see it - sharing the things you care about and what excites you is what makes photography special to me.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card col-md-4" style="margin:auto; background-image: url(images/card4.jpg);">
+                    <div class="card-content">
+                        <h2 class="card-title">
+                            Hiking
+                        </h2>
+                        <p class="card-body">Hiking lets me leave my worries about time and other stressors far behind and reawaken my sense of wonder.</p>
+                    </div>
+                </div>
+
+                <div class="card col-md-4" style="margin:auto; background-image: url(images/card3.jpg);">
+                    <div class="card-content">
+                        <h2 class="card-title">
+                            Pottery
+                        </h2>
+                        <p class="card-body">
+                            Pottery helps me express my creativity. It allows me to create beautiful, sculptural and functional pieces with my own hands.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <div id="faq" class="row g-4" style="padding:200px 100px;">
+    <h3 style="font-family: Lato, sans-serif; font-weight:bold; color:black;">Frequently Asked Questions</h3>
+    <div class="accordion" id="FAQ">
+        <div class="accordion-item navbar-custom">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button navbar-custom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <p style="font-size: 1.05rem;">Hi, I love your work! Is it possible to book you to shoot my wedding/birthday party/event?</p>
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#FAQ">
+            <div class="accordion-body">
+              <p>No thanks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <section class="p-5">
+        <div class="container" style="padding-top: 50px;">
+            <div class="row g-4">
+                <div class="col-md">
+                    <img id="contact" src="images/scholar.jpeg" class="img-fluid" style="width: 450px; border-radius: 30px;">
+                </div>
+                <div class="col-md">
+                    <h3 class="mb-4" style="font-family: Lato, sans-serif; font-weight:bold; color:black">Have a Question?</h3>
+                    <div class="mb-3">
+                        <input type="email" class="form-control formLetter" id="nameInput" placeholder="Name">
+                      </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control formLetter" id="emailInput" placeholder="Email">
+                      </div>
+                      <div class="mb-3">
+                        <textarea class="form-control formLetter" id="msgInput" rows="3" placeholder="Message"></textarea>
+                      </div>
+                    <button type="submit" class="btn btn-custom formSend">Send</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="p-5 text-center position-relative">
+        <div class="container">
+            <a href="#" class="position-absolute bottom-0 end-0 p-5">
+                <p>Return to the top</p>
+            </a>
+        </div>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"> </script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="kanye.js"></script>
+
+</body>
+</html>

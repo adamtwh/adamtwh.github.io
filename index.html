@@ -1,264 +1,297 @@
 <!DOCTYPE html>
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
-    <title>Adam Teng</title>
+
+    <!-- Lato (sans serif) Font -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+    <title>HomeMate Singapore | Hire The Best Contractors</title>
 </head>
+<body>
+
+    <section id="bg-image">
+        <nav class="navbar navbar-expand-sm navbar-dark">
+
+            <div class="container">
+                <!-- Logo from Bootstrap Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+                    <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                  </svg>
+                <!-- Brand Name -->
+                <a href="#" class="navbar-brand" >
+                    <p class="text-navbar" style="margin-top: 8px; font-size: 24px;">&nbsp;homemate</p>
+                </a>
+
+                <!-- Navbar Toggler Icon for smaller devices -->
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                class="navbar-toggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar Options -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a href="#services" class="nav-link text-navbar">
+                                Our Services
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link text-navbar">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-navbar">
+                                Contact Us
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Tag Line -->
+        <div class="middle container" style="padding-bottom: 120px;">
+            <h1 class="text-white display-3 fw-bold">
+                Looking for the best
+                <span class="pri-color" id="tagline">painters</span>?
+            <br>
+            <button class="btn rounded-pill" style="width: 150px; font-weight: bold; background-color: #5E02E6; color:white">Get Started</button>
+            </h1>
+        </div>
 
 
 
-<body class="navbar-custom" onload="call_quote()">
+    </section>
 
-    <!-- Navigation Bar -->
-    <div class="row g-4">
-    <a href="#" class="navbar-brand header" style="transform: translateX(-50%); left:50%; position: absolute; padding-top: 30px;">Adam Teng</a>
-    </div>
-
-    <div class="row g-4" style="padding-top: 100px;">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
-
-          <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navmenu"
-          >
-          <span class="navbar-toggler-icon" style="color: black;"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navmenu">
-              <ul class="navbar-nav mx-auto">
-                  <li class="nav-item">
-                      <a href="#imageShowcase" class="nav-link navletter">Portfolio</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="#about" class="nav-link navletter">About</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="#faq" class="nav-link navletter">FAQ</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="#contact" class="nav-link navletter">Contact</a>
-                  </li>
-              </ul>
-          </div>
-      </div>
-  </nav>
-</div>
-    <!-- Kanye Quotes -->
+    <!-- Testimonial -->
     <section class="p-5">
-        <div class="row g-4">
-            <div class="col-2"></div>
-            <div class="col-8" id="quote"></div>
-            <div class="col-2"></div>
+
+        <div class="container" style="text-align: center;">
+            <h2 class="text-header" style="color:#4D1899;">Testimonials</h2>
+            <h5 style="font-weight: bold; padding-top: 20px;">
+                Using our portal, 
+                <span style="color:#5E02E6;">millions</span>
+                of lucky Singaporeans have found and hired the
+                <span style="color:#5E02E6;">best possible contractors</span>
+                on this earth.
+            </h5>
+            
+            <!-- Testimonial Cards -->
+            <div class="row text-center" style="padding-top: 50px;">
+                
+                <div class="col-md-4 mb-5 mb-md-0">
+                  <div class="d-flex justify-content-center mb-4">
+                    <img src="images/creator.png"
+                      class="rounded-circle shadow-1-strong" width="150" height="150" />
+                  </div>
+                  <h5 class="mb-3 text-header">Natasha Lim</h5>
+                  <h6>Booked <span class="text-testimonial">Plumbing Services</span></h6>
+
+                  <!-- These are stars -->
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-half pri-color"></i>
+
+                  <p class="px-xl-3" style="font-style: italic;">
+                    "Very professional. They made sure that they place is not messed up after the service.
+                    Gave good and sincere advice on pipe maintenance. Very satisfied."
+                  </p>
+                </div>
+
+                <div class="col-md-4 mb-5 mb-md-0">
+                  <div class="d-flex justify-content-center mb-4">
+                    <img src="images/kyong.png"
+                      class="rounded-circle shadow-1-strong" width="150" height="150" />
+                  </div>
+                  <h5 class="mb-3 text-header">Song Hye-kyo</h5>
+                  <h6>Booked <span class="text-testimonial">Painting Services</span></h6>
+
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+
+                  <p class="px-xl-3" style="font-style: italic;">
+                    "HomeMate completely changed my life. There is everything I need in one app.
+                    Very convenient, useful, and very helpful customer service team."
+                  </p>
+                </div>
+
+                <div class="col-md-4 mb-0">
+                  <div class="d-flex justify-content-center mb-4">
+                    <img src="images/sean.png"
+                      class="rounded-circle shadow-1-strong" width="150" height="150" />
+                  </div>
+                  <h5 class="mb-3 text-header">Shaun Dan</h5>
+                  <h6>Booked <span class="text-testimonial">Drilling Services</span></h6>
+
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-half pri-color"></i>
+
+                  <p class="px-xl-3" style="font-style: italic;">
+                    "Very quick, professional, and knowledgeable. Came in, diagnosed the issue and rectify immediately, all while providing constant updates about what they were doing. Will definitely use again. Thumbs up. Thanks HomeMate."
+                  </p>
+                </div>
+              </div>
+
+        </div>
+
+    </section>
+
+    <!-- Our Services -->
+    <section class="p-5" style="text-align: center;">
+        <div class="container">
+                <h2 style="font-weight: bold; padding-top: 20px;" id="services">
+                    We cater to 
+                    <span style="color:#5E02E6;">all</span>
+                    your home servicing needs.
+                </h2>
+
+                <h5>
+                    Book experienced contractors instantly at fair prices, or get quotations to compare.
+                </h5>
+
+                <!-- Service Cards -->
+                <div class="row pb-3" style="padding:50px">
+
+                    <div class="col-lg-4 mb-3">
+                        <div class="card text-center py-3">
+                            <div class="card-body">
+                                <div class="circle">
+                                    <span><i class="bi bi-paint-bucket"></i></span>
+                                </div>
+                                <h5>Painting</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id labore fugiat corporis nulla. Minus corrupti, pariatur quia reiciendis voluptas nisi.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-3">
+                        <div class="card text-center py-3">
+                            <div class="card-body">
+                                <div class="circle">
+                                    <span><i class="bi bi-wrench-adjustable"></i></span>
+                                </div>
+                                <h5>Plumbing</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id labore fugiat corporis nulla. Minus corrupti, pariatur quia reiciendis voluptas nisi.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-3">
+                        <div class="card text-center py-3">
+                            <div class="card-body">
+                                <div class="circle">
+                                    <span><i class="bi bi-wind"></i></span>
+                                </div>
+                                <h5>Air Conditioning</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id labore fugiat corporis nulla. Minus corrupti, pariatur quia reiciendis voluptas nisi.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-3">
+                        <div class="card text-center py-3">
+                            <div class="card-body">
+                                <div class="circle">
+                                    <span><i class="bi bi-lightning-fill"></i></i></span>
+                                </div>
+                                <h5>Electrical</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id labore fugiat corporis nulla. Minus corrupti, pariatur quia reiciendis voluptas nisi.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-3">
+                        <div class="card text-center py-3">
+                            <div class="card-body">
+                                <div class="circle">
+                                    <span><i class="bi bi-hammer"></i></span>
+                                </div>
+                                <h5>Drilling</h5>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi enim quae eum, possimus eligendi voluptates.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-3">
+                        <div class="card text-center py-3">
+                            <div class="card-body">
+                                <div class="circle">
+                                    <span><i class="bi bi-car-front-fill"></i></span>
+                                </div>
+                                <h5>Moving</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore odit exercitationem, ipsam assumenda ipsum quia repellat ducimus?
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
         </div>
     </section>
 
-    <!-- Image Showcase -->
-    <div id="imageShowcase" class="carousel slide carousel-fade" data-interval="false" style="bottom:90px">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="images/img1.jpg" class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-                <img src="images/img2.jpg" class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-                <img src="images/img3.jpg" class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-                <img src="images/img4.jpg" class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-                <img src="images/img5.jpg" class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-                <img src="images/img6.jpg" class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-                <img src="images/img7.jpg" class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-                <img src="images/img8.jpg" class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-                <img src="images/img9.jpg" class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-                <img src="images/img10.jpg" class="d-block w-100">
-            </div>
-        </div>
+    <!-- Wave -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#19A0E6" fill-opacity="1" d="M0,256L48,224C96,192,192,128,288,117.3C384,107,480,149,576,181.3C672,213,768,235,864,240C960,245,1056,235,1152,213.3C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
 
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="0" class="active">
-                <img src="images/img1.jpg" class="d-block w-100">
-            </button>
-            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="1">
-                <img src="images/img2.jpg" class="d-block w-100">
-            </button>
-            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="2">
-                <img src="images/img3.jpg" class="d-block w-100">
-            </button>
-            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="3">
-                <img src="images/img4.jpg" class="d-block w-100">
-            </button>
-            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="4">
-                <img src="images/img5.jpg" class="d-block w-100">
-            </button>
-            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="5">
-                <img src="images/img6.jpg" class="d-block w-100">
-            </button>
-            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="6">
-                <img src="images/img7.jpg" class="d-block w-100">
-            </button>
-            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="7">
-                <img src="images/img8.jpg" class="d-block w-100">
-            </button>
-            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="8">
-                <img src="images/img9.jpg" class="d-block w-100">
-            </button>
-            <button type="button" data-bs-target="#imageShowcase" data-bs-slide-to="9">
-                <img src="images/img10.jpg" class="d-block w-100">
-            </button>
-        </div>
-    </div>
+    <!-- About Us -->
+    <section class="p-5" style="background-color: #19A0E6;">
+        <div class="container">
 
-    <!-- Bio -->
-    <section id="about"class="p-5" style="margin-top:120px">
-         <div class="container">
-            <div class="row g-4">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <h3 style="font-family: Lato, sans-serif; font-weight:bold; color:black;">About Me</h3>
-                </div>
-                <div class="col-md-2"></div>
-            </div>
+            <div class="d-sm-flex align-items-center justify-content-between" id="about">
+                <div>
+                    <h3 class="text-header">Transform your house into a
+                        <span class="pri-color">home</span>
+                    today.
+                    </h3>
 
-            <!-- Bio Text -->
-            <div class="row g-4">
-                <div class="col-md-2"></div>
-
-                <div class="col-md-8">
-                    <p style="text-justify: inter-word; text-align:justify; font-size:1.05rem;">
-                    Sophomore at Singapore Management University studying Information Systems. Aside from web development, I am also passionate in photography. Becoming a photographer gives you an entirely new perspective on everyday life. It lets you turn anything you find beautiful into a work of art. One photograph is powerful enough to not only remind you of an event or detail, but can bring you right back to the feelings, sounds, and even smells of the moment.
+                    <p style="text-align:justify; font-size: 18px;">
+                        <span class="text-navbar" style="font-size:22px; color:black;">homemate</span>
+                        is the leading web-based, one-stop portal for homeowners wanting to source for the most reliable contractors.
+                        Using our portal provides a smooth selection process to both users and contractors alike, and facilitates 2-way communication between both parties. 
                     </p>
-                    <br>
-                    <p style="text-justify: inter-word; text-align:justify; font-size:1.05rem;"> I have shot innumerable Pulitzer Prize winning photos which has given me worldwide fame and fortune. Many have said that my masterfully captured shots have something in it that goes beyond the ordinary. Those fortunate enough to have seen my work often find themselves overwhelmed by their emotions and shed grateful tears.</p>
-                </div>
 
-                <div class="col-md-2"></div>
+                    <button class="btn btn-lg rounded-pill" style="width: 200px; font-weight: bold; background-color: #e6b30e; color:white">
+                        Book Now
+                    </button>
+                </div>
+                
+                <img src="images/workers.svg" class="img-fluid d-none d-sm-block" style="width: 45%;">
+
             </div>
+
+
         </div>
     </section>
 
-            <!-- Hobbies Title-->
-    <section>
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md" style="margin: 50px;">
-                    <h4 style="font-family: Lato, sans-serif; font-weight:bold; color:black;">Things I enjoy doing</h4>
-                </div>
-            </div>
+    <!-- Contact
+    <section class="p-5" style="background-color: #19A0E6;">
+        <h1>contact info/footer goes here</h1>
+    </section> -->
 
-            <!--Hobbies Card  -->
-            <div class="row g-4">
-
-                <div class="card col-md-4" style="margin:auto; padding: 9rem 0 0;">
-                    <div class="card-content">
-                        <h2 class="card-title">
-                            Photography
-                        </h2>
-                        <p class="card-body">
-                            The ability to capture the world as you see it - sharing the things you care about and what excites you is what makes photography special to me.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="card col-md-4" style="margin:auto; background-image: url(images/card4.jpg);">
-                    <div class="card-content">
-                        <h2 class="card-title">
-                            Hiking
-                        </h2>
-                        <p class="card-body">Hiking lets me leave my worries about time and other stressors far behind and reawaken my sense of wonder.</p>
-                    </div>
-                </div>
-
-                <div class="card col-md-4" style="margin:auto; background-image: url(images/card3.jpg);">
-                    <div class="card-content">
-                        <h2 class="card-title">
-                            Pottery
-                        </h2>
-                        <p class="card-body">
-                            Pottery helps me express my creativity. It allows me to create beautiful, sculptural and functional pieces with my own hands.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <div id="faq" class="row g-4" style="padding:200px 100px;">
-    <h3 style="font-family: Lato, sans-serif; font-weight:bold; color:black;">Frequently Asked Questions</h3>
-    <div class="accordion" id="FAQ">
-        <div class="accordion-item navbar-custom">
-          <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button navbar-custom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              <p style="font-size: 1.05rem;">Hi, I love your work! Is it possible to book you to shoot my wedding/birthday party/event?</p>
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#FAQ">
-            <div class="accordion-body">
-              <p>No thanks.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Contact -->
-    <section class="p-5">
-        <div class="container" style="padding-top: 50px;">
-            <div class="row g-4">
-                <div class="col-md">
-                    <img id="contact" src="images/scholar.jpeg" class="img-fluid" style="width: 450px; border-radius: 30px;">
-                </div>
-                <div class="col-md">
-                    <h3 class="mb-4" style="font-family: Lato, sans-serif; font-weight:bold; color:black">Have a Question?</h3>
-                    <div class="mb-3">
-                        <input type="email" class="form-control formLetter" id="nameInput" placeholder="Name">
-                      </div>
-                    <div class="mb-3">
-                        <input type="email" class="form-control formLetter" id="emailInput" placeholder="Email">
-                      </div>
-                      <div class="mb-3">
-                        <textarea class="form-control formLetter" id="msgInput" rows="3" placeholder="Message"></textarea>
-                      </div>
-                    <button type="submit" class="btn btn-custom formSend">Send</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="p-5 text-center position-relative">
-        <div class="container">
-            <a href="#" class="position-absolute bottom-0 end-0 p-5">
-                <p>Return to the top</p>
-            </a>
-        </div>
-    </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"> </script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="kanye.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
+    <script src="script.js"></script>
 </body>
 </html>
