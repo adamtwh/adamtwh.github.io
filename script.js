@@ -23,7 +23,12 @@ function loginSwap() {
                                 </div>
 
                                 <div class="form-row">
-                                    <button type="button" class="btn-login">Login</button>
+                                    <a href="#">
+                                    <button type="button" class="btn-login">
+                                    Login
+                                    <i class="bi bi-box-arrow-in-right"></i>
+                                    </button>
+                                    <a>
                                 </div>
 
                                 <a class="fw-bold" href="#">Forgot Password?</a>

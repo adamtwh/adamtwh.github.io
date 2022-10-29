@@ -106,6 +106,7 @@ h6 {
 
 .btn-login:hover {
     background-color: var(--sec1);
+    transition: 0.2s;
 }
 
 .form-row{
