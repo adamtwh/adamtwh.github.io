@@ -1,9 +1,21 @@
-* {
+:root {
+    --pri: #e6b30e;
+    --sec1: #4D1899;
+    --sec2: #5E02E6;
+}
+body {
     font-family: Lato, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
   }
 
+h6 {
+    font-weight: bold;
+}
+
 #bg-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 700px, white),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 800px, white),
       url("images/landing-img.jpg");
     background-position: center;
     background-size: cover;
@@ -11,8 +23,8 @@
     height: 100vh;
   }
 
-.navbar {
-    color:#e6b30e;
+.pri-color {
+    color: var(--pri);
 }
 
 .middle {
@@ -23,9 +35,7 @@
     width: 70%;
     }
 
-.pri-color {
-    color: #e6b30e;
-}
+
 
 .text-navbar {
     font-family: Futura, "Trebuchet MS", Arial, sans-serif;
@@ -44,10 +54,6 @@
 .text-testimonial {
     font-weight: bold;
     color: #e6b30e;
-}
-
-h6 {
-    font-weight: bold;
 }
 
 .card {
@@ -86,3 +92,35 @@ h6 {
     font-size: 35px;
     padding: 50px;
 }
+
+.btn-login {
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    background-color: var(--sec2);
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.btn-login:hover {
+    background-color: var(--sec1);
+}
+
+.form-row{
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+  }
+
+.form-row input{
+    border: none;
+    outline: none;
+    font-size: 18px;
+    width: 80%;
+    float: left;
+    margin: 0 10px;
+  }
