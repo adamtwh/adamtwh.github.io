@@ -69,7 +69,8 @@ const app = Vue.createApp({
                     <i class="bi bi-star-fill pri-color"></i>
                     <i class="bi bi-star-fill pri-color"></i>
                     <i class="bi bi-star-half pri-color"></i>`,
-                    "HDB,Condominium,Landed"
+                    "HDB,Condominium,Landed",
+                    "../AhBeng/ahbeng.html"
                 ],
                 "Beng Huat Painting": [
                     "../../images/contractorpic2.jpg",
@@ -80,7 +81,8 @@ const app = Vue.createApp({
                     <i class="bi bi-star-fill pri-color"></i>
                     <i class="bi bi-star-fill pri-color"></i>
                     <i class="bi bi-star-fill pri-color"></i>`,
-                    "HDB,Condominium,Landed,Commercial"
+                    "HDB,Condominium,Landed,Commercial",
+                    "../BengHuat/benghuat.html"
                 ],
                 "Seng Choo Pte Ltd": [
                     "../../images/contractorpic3.jpg",
@@ -91,7 +93,8 @@ const app = Vue.createApp({
                     <i class="bi bi-star-fill pri-color"></i>
                     <i class="bi bi-star"></i>
                     <i class="bi bi-star"></i>`,
-                    "HDB,Condominium"
+                    "HDB,Condominium",
+                    "../SengChoo/sengchoo.html"
                 ],
                 "HomeID Painting Co.": [
                     "../../images/contractorpic4.jpeg",
@@ -102,7 +105,8 @@ const app = Vue.createApp({
                     <i class="bi bi-star-fill pri-color"></i>
                     <i class="bi bi-star-fill pri-color"></i>
                     <i class="bi bi-star"></i>`,
-                    "HDB,Condominium,Commercial"
+                    "HDB,Condominium,Commercial",
+                    "../HomeIDPainting/homeidpainting.html"
                 ],
             },
 

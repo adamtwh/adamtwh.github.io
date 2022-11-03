@@ -136,11 +136,11 @@
           <img class="card-img-top mx-auto w-50" v-bind:src="each[0]" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{name}}</h5>
-            <p class="card-text">Delivery Time: {{each[1]}}</p>
-            <p class="card-text">Response Rate: {{each[2]}}</p>
+            <p class="card-text"><i class="bi bi-lightning-charge"></i> Delivery Time: {{each[1]}}</p>
+            <p class="card-text"><i class="bi bi-chat-right-dots"></i> Response Rate: {{each[2]}}</p>
             <p class="card-text">Rating: <span v-html="each[3]"></span></p>
-            <a href="#">
-              <button class="btn rounded-pill" style="font-weight: bold; background-color: #e6b30e; color:white">More Details  <i class="bi bi-arrow-right"></i></button>
+            <a :href="each[5]">
+              <button class="btn rounded-pill" style="font-weight: bold; background-color: #e6b30e; color:white">More Details<i class="bi bi-arrow-right"></i></button>
             </a>
           </div>
         </div>
