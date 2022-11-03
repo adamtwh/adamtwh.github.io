@@ -1,3 +1,45 @@
+const firebaseConfig = {
+    apiKey: "AIzaSyAgc4cPFAh8WSRRq-_vmNHhn_eu1oJrUd4",
+    authDomain: "ttj-7-7cd30.firebaseapp.com",
+    databaseURL: "https://ttj-7-7cd30-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "ttj-7-7cd30",
+    storageBucket: "ttj-7-7cd30.appspot.com",
+    messagingSenderId: "907698280256",
+    appId: "1:907698280256:web:529dcb3bdd2673f0360ca5",
+    measurementId: "G-RJ3J8HV2SH"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+    var users = firebase.database().ref('users');
+    users.on('child_added', (snapshot) =>{
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = mm + '/' + dd + '/' + yyyy;
+        document.getElementById("latest").innerText = "Last user registered at " + today;
+});
+
+function loginIfUserExists(userId, userEmail) {
+    var user = firebase.database().ref('users/' + userId);
+    var email = firebase.database().ref('users/' + userId + "/" + 'email');
+
+    user.once('value').then((snapshot1) => {
+        email.once('value').then((snapshot2) => {
+            if(snapshot1.exists() && snapshot2.exists()) {
+                        window.location.href='components/homepage/homepage.html'
+            }
+            else {
+                document.getElementById("status").innerText = "Login Details are incorrect!";
+            }
+        })
+        
+    });
+}
+
+
+
 $(function () { 
     count = 0; 
     wordsArray = ["painters", "plumbers", "electricians", "movers", "contractors", "technicians"]; 
@@ -15,24 +57,25 @@ function loginSwap() {
                             <h4 class="text-header text-white">Sign in to your account</h4>
                             <form>
                                 <div class="form-row" style="border-bottom: 1px solid var(--pri)">
-                                    <input type="email" placeholder="Username or email address" class="form-control bg-transparent text-white text-wrap fw-bold">
+                                    <input id="id" type="text" placeholder="Username or email address" class="form-control bg-transparent text-white text-wrap fw-bold">
                                 </div>
 
                                 <div class="form-row" style="border-bottom: 1px solid var(--pri)">
-                                    <input type="password" placeholder="Password" class="form-control bg-transparent text-white fw-bold">
+                                    <input id="email" type="password" placeholder="Password" class="form-control bg-transparent text-white fw-bold">
                                 </div>
 
                                 <div class="form-row">
-                                    <a href="components/homepage/homepage.html">
-                                    <button type="button" class="btn-login">
-                                    Login
-                                    <i class="bi bi-box-arrow-in-right"></i>
+                                    
+
+                                    <button type="button" class="btn-login" onclick="loginIfUserExists(document.getElementById('id').value, document.getElementById('email').value)">
+                                        Login <i class="bi bi-box-arrow-in-right"></i>
                                     </button>
-                                    <a>
+
                                 </div>
 
                                 <a class="fw-bold" href="#">Forgot Password?</a>
                                 <p class="fw-bold text-white">Don't have an account? <a href="#">Register here</a></p>
+                                <p id="status" style="color: red;"></p>
                             </form>
                         </div>
                     </div>
