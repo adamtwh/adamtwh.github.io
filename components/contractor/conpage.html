@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="hpstyle.css">
+    <link rel="stylesheet" href="../homepage/hpstyle.css">
     <link rel="stylesheet" href="contractor.css">
 
     <!-- Lato (sans serif) Font -->
@@ -17,7 +17,11 @@
     <!-- vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
+    <!-- font-awesome icons -->
+    <script src="https://kit.fontawesome.com/2106885bd0.js" crossorigin="anonymous"></script>
+
     <title>HomeMate Singapore | Hire The Best Contractors</title>
+    <link rel="shortcut icon" href="../../images/favicon_io/favicon.ico">
 </head>
 <body>
 
@@ -30,7 +34,7 @@
               <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
           </svg>
           <!-- Brand Name -->
-          <a href="index.html" class="navbar-brand" >
+          <a href="../../index.html" class="navbar-brand" >
               <p class="text-navbar" style="margin-top: 8px; font-size: 24px;">&nbsp;homemate</p>
           </a>
 
@@ -79,10 +83,11 @@
       </div>
   </nav>
 
-  <div class="dropdown" style="margin-left:100px">
-    <button onclick="myFunction()" class="dropbtn">Filter By <i class="bi bi-filter"></i></button>
+  <div class="container mx-auto">
+    <div class="dropdown ms-3">
+    <button onclick="myFunction()" class="dropbtn">Filter By <i class="bi bi-funnel"></i></button>
     <div id="myDropdown" class="dropdown-content">
-      <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+      <!-- <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"> -->
       <!-- <a href="#about">About</a>
       <a href="#base">Base</a>
       <a href="#blog">Blog</a>
@@ -97,29 +102,90 @@
           {{eachfilter}}
         </label>
       </div>
-
-      
     </div>
+
+    <div class="dropdown ms-3">
+      <button onclick="myFunction2()" class="dropbtn">Sort By <i class="bi bi-filter"></i></button>
+      <div id="myDropdown2" class="dropdown-content2">
+        <!-- <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"> -->
+        <!-- <a href="#about">About</a>
+        <a href="#base">Base</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+        <a href="#custom">Custom</a>
+        <a href="#support">Support</a>
+        <a href="#tools">Tools</a> -->
+        
+        <div class="form-check" v-for="(eachsort) in painting_sorts">
+          <input class="form-check-input" type="checkbox" value="{{eachsort}}" id="{{eachsort}}">
+          <label class="form-check-label" for="{{eachsort}}">
+            {{eachsort}}
+          </label>
+        </div>
+  
+        
+      </div>
   </div>
 
+  </div>
+  
   <div class="container">
-    <div class="row" v-for="each, name in painter_information">
-      <div class="card p-5">
-        <img class="card-img-top" v-bind:src="each[0]" alt="Card image cap" style="width:200px">
-        <div class="card-body">
-          <h5 class="card-title">{{name}}</h5>
-          <p class="card-text">Delivery Time: {{each[1]}}</p>
-          <p class="card-text">Response Rate: {{each[2]}}</p>
-          <p class="card-text">Rating: <span v-html="each[3]"></span></p>
-          <a href="#" class="btn btn-primary">More Details<i class="bi bi-arrow-right"></i></a>
+    <div class="row m-3">
+      <div class="col" v-for="each, name in painter_information">
+        <div class="card p-5 text-center" style="width: 23rem;">
+          <img class="card-img-top mx-auto w-50" v-bind:src="each[0]" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text">Delivery Time: {{each[1]}}</p>
+            <p class="card-text">Response Rate: {{each[2]}}</p>
+            <p class="card-text">Rating: <span v-html="each[3]"></span></p>
+            <a href="#">
+              <button class="btn rounded-pill" style="font-weight: bold; background-color: #e6b30e; color:white">More Details  <i class="bi bi-arrow-right"></i></button>
+            </a>
+          </div>
         </div>
       </div>
+      
     </div>
   </div>
   </div>
       
     <!-- Wave -->
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#19A0E6" fill-opacity="1" d="M0,256L48,224C96,192,192,128,288,117.3C384,107,480,149,576,181.3C672,213,768,235,864,240C960,245,1056,235,1152,213.3C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+
+    <!-- About Us -->
+    <section class="p-5" style="background-color: #19A0E6;">
+
+      <!-- Contact Footer -->
+          <div class="container" id="contact">
+              <div class="row mx-auto">
+                  <div class="contact-left mx-auto">
+                      <h1 class="sub-title">Contact Us!</h1>
+                      <p><i class="fa-sharp fa-solid fa-paper-plane"></i>homemate@gmail.com</p>
+                      <p><i class="fa-solid fa-square-phone"></i>+65 9432 4534</p>
+                      <div class="social-icons">
+                      <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                      </div>
+
+                  </div>
+                  <div class="contact-right mx-auto">
+                      <form name="submit-to-google-sheet">
+                      <input type="text" name="Name" placeholder="Your Name" required>
+                      <input type="email" name="Email" placeholder="Your Email" required>
+                      <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                      <button class="btn btn-lg rounded-pill" style="width: 200px; font-weight: bold; background-color: #e6b30e; color:white">
+                          Submit
+                      </button>
+                      </form>
+                      
+                      <p id="msg"></p>
+
+                  </div>
+              </div>
+          </div>
+  </section>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
