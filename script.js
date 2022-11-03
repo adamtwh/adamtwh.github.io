@@ -73,8 +73,8 @@ function loginSwap() {
 
                                 </div>
 
-                                <a class="fw-bold" href="#">Forgot Password?</a>
-                                <p class="fw-bold text-white">Don't have an account? <a href="#">Register here</a></p>
+                                <a class="fw-bold" href="components/profile/register.html">Forgot Password?</a>
+                                <p class="fw-bold text-white">Don't have an account? <a href="components/profile/register.html">Register here</a></p>
                                 <p id="status" style="color: red;"></p>
                             </form>
                         </div>

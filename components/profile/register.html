@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<head>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../homepage/hpstyle.css">
+
+    <!-- Lato (sans serif) Font -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- font-awesome icons -->
+    <script src="https://kit.fontawesome.com/2106885bd0.js" crossorigin="anonymous"></script>
+
+    <title>HomeMate Singapore | Hire The Best Contractors</title>
+    <link rel="shortcut icon" href="../../images/favicon_io/favicon.ico">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script> 
+    <!-- This is the API from Firebase Realtime Database -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script> 
+</head>
+<body>
+
+        <nav class="navbar navbar-expand-sm navbar-dark">
+
+            <div class="container">
+                <!-- Logo from Bootstrap Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+                    <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                </svg>
+                <!-- Brand Name -->
+                <a href="../../index.html" class="navbar-brand" >
+                    <p class="text-navbar" style="margin-top: 8px; font-size: 24px;">&nbsp;homemate</p>
+                </a>
+
+                <!-- Navbar Toggler Icon for smaller devices -->
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                class="navbar-toggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar Options -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a href="#services" class="nav-link text-navbar">
+                                Our Services
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link text-navbar">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link text-navbar">
+                                Contact Us
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container w-50 mt-5 mx-auto text-center"> 
+            <h3 class="h3 mb-4">User Registration</h3>
+
+            <div class="input-group mb-1">
+                <span class="input-group-text" id="basic-addon1">User ID:</span>
+                <input id="id" type="text" class="form-control me-3" placeholder="User ID" aria-label="User ID" aria-describedby="basic-addon1">
+                <button class="btn rounded-pill" style="font-weight: bold; background-color: #19a0e6; color:white;" onclick="checkIfUserExists(document.getElementById('id').value)">Available?</button>
+            </div>
+            
+            <br>
+
+            <div class="input-group mb-1">
+                <span class="input-group-text" id="basic-addon1">Username:</span>
+                <input id="name" type="text" class="form-control me-3" placeholder="Username (same as User ID)" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+
+            <br>
+
+            <div class="input-group mb-1">
+                <span class="input-group-text" id="basic-addon1">Email:</span>
+                <input id="email" type="text" class="form-control me-3" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+            </div>
+
+            <br>
+            
+            <br>
+            
+            <button class="btn rounded-pill" style="font-weight: bold; background-color: #19a0e6; color:white;"  onclick="register()">Register</button> 
+            <button class="btn rounded-pill" style="font-weight: bold; background-color: #19a0e6; color:white;"  onclick="deregister(document.getElementById('id').value)">De-Register</button> 
+            <button class="btn rounded-pill" style="font-weight: bold; background-color: #19a0e6; color:white;"  onclick="updateEmail()">Update Email</button> 
+            
+            <p id="status" class="mt-2"></p>
+            <p id="latest"></p>
+        </div>
+
+    
+        <!-- Wave -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#19A0E6" fill-opacity="1" d="M0,256L48,224C96,192,192,128,288,117.3C384,107,480,149,576,181.3C672,213,768,235,864,240C960,245,1056,235,1152,213.3C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+
+    <!-- About Us -->
+    <section class="p-5" style="background-color: #19A0E6;">
+        <div class="container">
+
+            <div class="d-sm-flex align-items-center justify-content-between" id="about">
+                <div>
+                    <h3 class="text-header">Transform your house into a
+                        <span class="pri-color">home</span>
+                    today.
+                    </h3>
+
+                    <p style="text-align:justify; font-size: 18px;">
+                        <span class="text-navbar" style="font-size:22px; color:black;">homemate</span>
+                        is the leading web-based, one-stop portal for homeowners wanting to source for the most reliable contractors.
+                        Using our portal provides a smooth selection process to both users and contractors alike, and facilitates 2-way communication between both parties. 
+                    </p>
+
+                    <a href="#"><button onclick="loginSwap()" class="btn btn-lg rounded-pill" style="width: 200px; font-weight: bold; background-color: #e6b30e; color:white">
+                        Book Now
+                    </button></a>
+                </div>
+                
+                <img src="../../images/workers.svg" class="img-fluid d-none d-sm-block" style="width: 45%;">
+
+            </div>
+
+
+        </div>
+
+        <!-- Contact Footer -->
+        <div id="contact" style="margin-top: 100px;">
+            <div class="container">
+                <div class="row mx-auto">
+                    <div class="contact-left mx-auto">
+                        <h1 class="sub-title">Contact Us!</h1>
+                        <p><i class="fa-sharp fa-solid fa-paper-plane"></i>homemate@gmail.com</p>
+                        <p><i class="fa-solid fa-square-phone"></i>+65 9432 4534</p>
+                        <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+
+                    </div>
+                    <div class="contact-right mx-auto">
+                        <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button class="btn btn-lg rounded-pill" style="width: 200px; font-weight: bold; background-color: #e6b30e; color:white">
+                            Submit
+                        </button>
+                        </form>
+                        
+                        <p id="msg"></p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
+
+    <script src="register.js"></script>
+</body>
+</html>
