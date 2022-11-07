@@ -188,7 +188,7 @@ form .btn2 {
 
 /* Featured Contractors Background Image */
 #featured {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7) 700px, white),
     url("../../images/featuredBG.jpg");
     background-position: center;
     background-size: cover;
