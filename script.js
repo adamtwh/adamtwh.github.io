@@ -31,7 +31,7 @@ function loginIfUserExists(userId, userEmail) {
                         window.location.href='components/homepage/homepage.html'
             }
             else {
-                document.getElementById("status").innerText = "Login Details are incorrect!";
+                document.getElementById("status").innerText = "Sorry, your password was incorrect. \n Please double-check your password.";
             }
         })
         
@@ -39,7 +39,7 @@ function loginIfUserExists(userId, userEmail) {
 }
 
 
-
+// changing words
 $(function () { 
     count = 0; 
     wordsArray = ["painters", "plumbers", "electricians", "movers", "contractors", "technicians"]; 
@@ -51,6 +51,7 @@ $(function () {
     }, 3000); 
 });
 
+// login form on button click
 function loginSwap() {
     loginHTML = `    <div class="middle container justify-content-center">
                         <div class="col-md-6">
