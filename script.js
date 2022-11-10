@@ -143,14 +143,21 @@ function loginSwap() {
 
                                 <a class="fw-bold" href="components/profile/register.html">Forgot Password?</a>
                                 <p class="fw-bold text-white">Don't have an account? <a href="components/profile/register.html">Register here</a></p>
+
                                 <br>
-                                <p class="fw-bold text-white">Are you a <span style="color: var(--pri)">contractor</span>?
+                                
+                                <div class="form-row">
+                                    
+
+                                    <p class="fw-bold text-white">Are you a <span style="color: var(--pri)">contractor</span>?
                                     <button type="button" class="btn-login" onclick="contractorSwap()">
                                     Click Here &nbsp; <i class="bi bi-arrow-repeat"></i>
-                                </button>
-                                </p>
+                                    </button>
+                                    </p>
 
-                                <p id="status" style="color: red;"></p>
+                                    <p id="status" style="color: red;"></p>
+
+                                </div>
                             </form>
                         </div>
                     </div>
