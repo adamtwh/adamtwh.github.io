@@ -1,3 +1,14 @@
+// for user welcome dynamic
+
+function welcUser() {
+    var curr_user = sessionStorage.getItem('user');
+
+    var to_replace = document.getElementById("welcUser");
+
+    to_replace.innerText = `Welcome ${curr_user}!`;
+}
+
+
 // -- for news API --
 // function formatDate(date) {
 //     var d = new Date(date),
