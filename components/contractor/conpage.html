@@ -97,7 +97,7 @@
       <a href="#tools">Tools</a> -->
       
       <div class="form-check" v-for="(eachfilter) in painting_filters">
-        <input class="form-check-input" type="checkbox" value="{{eachfilter}}" id="{{eachfilter}}">
+        <input class="form-check-input" type="checkbox" value="{{eachfilter}}" id="{{eachfilter}}" v-on:click="addselection(eachfilter)">
         <label class="form-check-label" for="{{eachfilter}}">
           {{eachfilter}}
         </label>
@@ -128,8 +128,10 @@
   </div>
 
   </div>
+
+  <!-- if no filter selected -->
   
-  <div class="container">
+  <div class="container" v-if="selected_filters.length == 0">
     <div class="row m-3">
       <div class="col" v-for="each, name in painter_information">
         <div class="card p-5 text-center" style="width: 23rem;">
@@ -148,6 +150,28 @@
       
     </div>
   </div>
+
+  <!-- with filters selected -->
+  <div class="container" v-else>
+    <div class="row m-3">
+      <div class="col" v-for="each, name in shown_contractors">
+        <div class="card p-5 text-center" style="width: 23rem;">
+          <img class="card-img-top mx-auto w-50" v-bind:src="each[0]" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text"><i class="bi bi-lightning-charge"></i> Delivery Time: {{each[1]}}</p>
+            <p class="card-text"><i class="bi bi-chat-right-dots"></i> Response Rate: {{each[2]}}</p>
+            <p class="card-text">Rating: <span v-html="each[3]"></span></p>
+            <a :href="each[5]">
+              <button class="btn rounded-pill" style="font-weight: bold; background-color: #e6b30e; color:white">More Details<i class="bi bi-arrow-right"></i></button>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
   </div>
       
     <!-- Wave -->

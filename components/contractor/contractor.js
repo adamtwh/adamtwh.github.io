@@ -110,13 +110,59 @@ const app = Vue.createApp({
                 ],
             },
 
-            selected_filters: []
+            selected_filters: [],
+
+            shown_contractors: {}
 
         }
     },
 
     methods: {
-    
+
+      addselection(eachfilter){
+        console.log(eachfilter)
+
+        //if eachfilter not in selected_filters, append
+
+        if (this.selected_filters.includes(eachfilter) === false){
+          this.selected_filters.push(eachfilter)
+        }
+
+        //else if eachfilter in selected_filters, remove
+        else {
+          const efindex = this.selected_filters.indexOf(eachfilter);
+          if (efindex > -1) { 
+            this.selected_filters.splice(efindex, 1); 
+            }
+        }
+
+        console.log(this.selected_filters)
+
+        var selected_contractors = {};
+
+        for (idx in this.selected_filters){
+          // console.log(this.selected_filters[idx])
+          var filtertype = this.selected_filters[idx]
+          
+          for (const [key, value] of Object.entries(this.painter_information)) {
+
+            if (value[4].includes(filtertype)){
+              console.log(value)
+              selected_contractors[key] = [value[0],value[1],value[2],value[3],value[4]]
+            }
+          }
+        }
+
+        for (const [key, value] of Object.entries(selected_contractors)) {
+          console.log(key)
+          console.log(value)
+          this.shown_contractors[key] = [value[0],value[1],value[2],value[3],value[4]]
+        }
+
+        console.log(this.shown_contractors)
+        console.log(this.painter_information)
+      }
+       
 
     }
 })
