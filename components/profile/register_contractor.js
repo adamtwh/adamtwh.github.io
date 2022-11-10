@@ -11,25 +11,25 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-var users = firebase.database().ref('users');
+var users = firebase.database().ref('contractors');
     users.on('child_added', (snapshot) =>{
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
     today = mm + '/' + dd + '/' + yyyy;
-    document.getElementById("latest").innerText = "Last user registered at " + today;
+    document.getElementById("latest").innerText = "Last contractor registered at " + today;
 });
 
 //The following example demostrates how to read data
 function checkIfUserExists(userId) {
-    var user = firebase.database().ref('users/' + userId);
+    var user = firebase.database().ref('contractors/' + userId);
     user.once('value').then((snapshot) => {
         if(snapshot.exists()) {
-        document.getElementById("status").innerText = "User ID has already been taken.";
+        document.getElementById("status").innerText = "Contractor ID has already been taken.";
         }
         else {
-        document.getElementById("status").innerText = "User ID is available.";
+        document.getElementById("status").innerText = "Contractor ID is available.";
         }
     });
 }
@@ -40,27 +40,27 @@ function register() {
     var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
-    writeUserDataWithCompletion(userId,name,email,password);
+    writeContractorDataWithCompletion(userId,name,email,password);
     }
 
 //The following writes the data
-function writeUserDataWithCompletion(userId, name, email, password) {
-    firebase.database().ref('users/' + userId).set({
+function writeContractorDataWithCompletion(userId, name, email, password) {
+    firebase.database().ref('contractors/' + userId).set({
         username: name,
         email: email,
         password: password
     }, function(error) {
         if (error) {
-        document.getElementById("status").innerText = "User Registration Failed!";
+        document.getElementById("status").innerText = "Contractor Registration Failed!";
         } else {
-        document.getElementById("status").innerText = "User Registration Done!";
+        document.getElementById("status").innerText = "Contractor Registration Done!";
         }
     });
 }
 
 //The following example demostrates how to delete data
 function deregister(userId) {
-    firebase.database().ref('users/' + userId).remove()
+    firebase.database().ref('contractors/' + userId).remove()
     .then(function() {
         document.getElementById("status").innerText = "Remove succeeded.";
     })
@@ -75,8 +75,8 @@ function updateEmail() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     var updates = {};
-    updates['/users/' + userId + "/" + 'name'] = name;
-    updates['/users/' + userId + "/" + 'email'] = email;
-    updates['/users/' + userId + "/" + 'password'] = password;
+    updates['/contractors/' + userId + "/" + 'name'] = name;
+    updates['/contractors/' + userId + "/" + 'email'] = email;
+    updates['/contractors/' + userId + "/" + 'password'] = email;
     firebase.database().ref().update(updates);
 }

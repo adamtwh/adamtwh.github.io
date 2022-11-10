@@ -11,31 +11,97 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-    var users = firebase.database().ref('users');
-    users.on('child_added', (snapshot) =>{
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
-        today = mm + '/' + dd + '/' + yyyy;
-        document.getElementById("latest").innerText = "Last user registered at " + today;
+var users = firebase.database().ref('users');
+
+users.on('child_added', (snapshot) =>{
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = mm + '/' + dd + '/' + yyyy;
+    // document.getElementById("latest").innerText = "Last user registered at " + today;
 });
 
-function loginIfUserExists(userId, userEmail) {
+function loginIfUserExists(userId, pwd) {
+
     var user = firebase.database().ref('users/' + userId);
-    var email = firebase.database().ref('users/' + userId + "/" + 'email');
+    var password_user = firebase.database().ref('users/' + userId + "/" + "password");
+
+    var login_user = false;
 
     user.once('value').then((snapshot1) => {
-        email.once('value').then((snapshot2) => {
-            if(snapshot1.exists() && snapshot2.exists()) {
-                        window.location.href='components/homepage/homepage.html'
+            if(snapshot1.exists()) {
+                console.log("user exists!")
+                login_user = true;
             }
             else {
-                document.getElementById("status").innerText = "Sorry, your password was incorrect. \n Please double-check your password.";
+                console.log("user does not exist!")
+                document.getElementById("status").innerText = "Sorry, user does not exist!";
             }
-        })
-        
     });
+
+    password_user.on('value', (snapshot2) => {
+        var password_user_value = snapshot2.val();
+        console.log(password_user_value);
+        if (password_user_value == pwd) {
+            console.log("password matches!")
+            login_user = true;
+        } else {
+            console.log("password does not match!")
+            login_user = false;
+        }
+    });
+
+    window.setTimeout(goNextUser(login_user), 0);
+}
+
+function goNextUser(login_user) {
+    if (login_user == true) {
+        window.location.href='components/homepage/homepage.html'
+    } else {
+        document.getElementById("status").innerText = "Sorry, your password was incorrect. \n Please double-check your password.";
+    }
+}
+
+function loginIfContractorExists(userId, pwd) {
+
+    var contractor = firebase.database().ref('contractors/' + userId);
+    var password_contractor = firebase.database().ref('contractors/' + userId + "/" + "password");
+
+    var login_contractor = false;
+
+    contractor.once('value').then((snapshot3) => {
+        if(snapshot3.exists()) {
+            console.log("contractor exists!")
+        }
+        else {
+            console.log("contractor does not exist!")
+            document.getElementById("status").innerText = "Sorry, contractor does not exist!";
+        }
+    });
+
+    password_contractor.on('value', (snapshot4) => {
+        var password_contractor_value = snapshot4.val();
+        console.log(password_contractor_value);
+        if (password_contractor_value == pwd) {
+            login_contractor = true;
+            console.log("password matches!")
+            
+        } else {
+            console.log("password does not match!")
+            login_contractor = false;
+        }
+    });
+
+    window.setTimeout(goNextContractor(login_contractor), 0);
+}
+
+function goNextContractor(login_contractor) {
+    if (login_contractor == true) {
+        window.location.href='components/booking/booking_contractor.html'
+    } else {
+        document.getElementById("status").innerText = "Sorry, your password was incorrect. \n Please double-check your password.";
+    }
 }
 
 
@@ -62,13 +128,13 @@ function loginSwap() {
                                 </div>
 
                                 <div class="form-row" style="border-bottom: 1px solid var(--pri)">
-                                    <input id="email" type="password" placeholder="Password" class="form-control bg-transparent text-white fw-bold">
+                                    <input id="password" type="password" placeholder="Password" class="form-control bg-transparent text-white fw-bold">
                                 </div>
 
                                 <div class="form-row">
                                     
 
-                                    <button type="button" class="btn-login" onclick="loginIfUserExists(document.getElementById('id').value, document.getElementById('email').value)">
+                                    <button type="button" class="btn-login" onclick="loginIfUserExists(document.getElementById('id').value, document.getElementById('password').value)">
                                         Login <i class="bi bi-box-arrow-in-right"></i>
                                     </button>
 
@@ -76,6 +142,52 @@ function loginSwap() {
 
                                 <a class="fw-bold" href="components/profile/register.html">Forgot Password?</a>
                                 <p class="fw-bold text-white">Don't have an account? <a href="components/profile/register.html">Register here</a></p>
+                                <p class="fw-bold text-white">Or are you a contractor? 
+                                    <button type="button" class="btn-login" onclick="contractorSwap()">
+                                    Swap <i class="bi bi-box-arrow-in-right"></i>
+                                </button>
+                                </p>
+
+                                <p id="status" style="color: red;"></p>
+                            </form>
+                        </div>
+                    </div>
+                `
+    section = document.getElementById('loginSection')
+    section.innerHTML = loginHTML
+    return
+}
+
+function contractorSwap() {
+    loginHTML = `    <div class="middle container justify-content-center">
+                        <div class="col-md-6">
+                            <h4 class="text-header text-white">Sign in to your account (contractor)</h4>
+                            <form>
+                                <div class="form-row" style="border-bottom: 1px solid var(--pri)">
+                                    <input id="id" type="text" placeholder="Username or email address" class="form-control bg-transparent text-white text-wrap fw-bold">
+                                </div>
+
+                                <div class="form-row" style="border-bottom: 1px solid var(--pri)">
+                                    <input id="password" type="password" placeholder="Password" class="form-control bg-transparent text-white fw-bold">
+                                </div>
+
+                                <div class="form-row">
+                                    
+
+                                    <button type="button" class="btn-login" onclick="loginIfContractorExists(document.getElementById('id').value, document.getElementById('password').value)">
+                                        Login <i class="bi bi-box-arrow-in-right"></i>
+                                    </button>
+
+                                </div>
+
+                                <a class="fw-bold" href="components/profile/register.html">Forgot Password?</a>
+                                <p class="fw-bold text-white">Don't have an account? <a href="components/profile/register.html">Register here</a></p>
+                                <p class="fw-bold text-white">Back to user login? 
+                                    <button type="button" class="btn-login" onclick="loginSwap()">
+                                    Swap <i class="bi bi-box-arrow-in-right"></i>
+                                </button>
+                                </p>
+
                                 <p id="status" style="color: red;"></p>
                             </form>
                         </div>
@@ -112,4 +224,70 @@ function openContactPopup() {
 
 function closeContactPopup() {
     contact_popup.classList.remove("open-contact-popup");
+}
+
+// for news API
+function loadNews() {
+    const url = 'https://newsapi.org/v2/everything?q=property+market&from=2022-11-10&sortBy=popularity&apiKey=3949da46166743668869f836354fa1b4';
+    let to_replace = document.getElementById("newsAPI");
+    var ResultCount = 0;
+    var result = "";
+
+    axios.get(url)
+    .then(response =>  {
+        var ResultCount = response.data.totalResults
+        console.log(ResultCount)
+        result += `<div class="row">Total Results: ${ResultCount}</div>
+            <div class="row gx-lg-5">`
+
+        for (article of response.data.articles.slice(0, 3)) {
+            var author = article.author;
+            var title = article.title;
+            var description = article.description;
+            var url = article.url;
+            var photo_src= article.urlToImage;
+            var content = article.content
+            result += `
+                <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                    <!-- News block -->
+                    <div>
+                        <!-- Featured image -->
+                        <div class="bg-image hover-overlay shadow-1-strong ripple rounded-5 mb-4"
+                            data-mdb-ripple-color="light">
+                            <img src="${photo_src}" class="img-fluid" />
+                            <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                        </div>
+    
+                        <!-- Article data -->
+                        <div class="row mb-3">
+                            <div class="col-6">
+                            <a href="" class="text-info">
+                                ${title}
+                            </a>
+                            </div>
+    
+                            <div class="col-6 text-end">
+                            <u> ${author}</u>
+                            </div>
+                        </div>
+    
+                        <!-- Article title and description -->
+                        <h5>${title}</h5>
+
+                        <p>
+                        ${description}
+                        </p>
+                    </div>
+                </div>
+            `
+            
+        }
+        result += `</div>`
+        to_replace.innerHTML = result;
+    })
+    .catch(error => {
+        console.log(error.message)
+    });
 }

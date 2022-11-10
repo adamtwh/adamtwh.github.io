@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<head>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+    <!-- Custom CSS from homepage-->
+    <link rel="stylesheet" href="../homepage/hpstyle.css">
+
+    <!-- Custom CSS from booking-->
+    <link rel="stylesheet" href="booking_contractor.css">
+
+    <!-- Lato (sans serif) Font -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- font-awesome icons -->
+    <script src="https://kit.fontawesome.com/2106885bd0.js" crossorigin="anonymous"></script>
+
+    <!-- Owl Carousel -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+    crossorigin="anonymous" />
+
+    <title>HomeMate Singapore | Hire The Best Contractors</title>
+    <link rel="shortcut icon" href="../../images/favicon_io/favicon.ico">
+</head>
+<body>
+
+        <nav class="navbar navbar-expand-sm navbar-dark">
+
+            <div class="container">
+                <!-- Logo from Bootstrap Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+                    <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                </svg>
+                <!-- Brand Name -->
+                <a href="../../index.html" class="navbar-brand" >
+                    <p class="text-navbar" style="margin-top: 8px; font-size: 24px;">&nbsp;homemate</p>
+                </a>
+
+                <!-- Navbar Toggler Icon for smaller devices -->
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                class="navbar-toggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar Options -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a href="#services" class="nav-link text-navbar">
+                                Bookings
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link text-navbar">
+                                Calendar
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="../profile/profile.html" class="nav-link text-navbar">
+                                Profile
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#services" class="nav-link text-navbar">
+                                <i class="bi bi-chat"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#services" class="nav-link text-navbar">
+                                <i class="bi bi-cart"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    <!-- Booking -->
+    <section class="p-5">
+        <h1 class="text-header">Your 
+            <span style="color: var(--sec2)">Bookings</span>
+        </h1>
+
+        <!-- Tab Buttons -->
+        <ul class="nav nav-pills nav-justified flex-column flex-sm-row mb-3 mt-5" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="pills-current-tab" data-bs-toggle="pill" data-bs-target="#pills-current" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Current</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-pending-tab" data-bs-toggle="pill" data-bs-target="#pills-pending" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Pending</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-completed-tab" data-bs-toggle="pill" data-bs-target="#pills-completed" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Completed</button>
+            </li>
+          </ul>
+
+          <!-- Tab Content -->
+          <div class="tab-content" id="pills-tabContent">
+
+            <!-- Current -->
+            <div class="tab-pane fade show active" id="pills-current" role="tabpanel" aria-labelledby="pills-current-tab" tabindex="0">
+
+                <section class="search-result-item mt-5">
+                    <a class="image-link" href="#"><img class="image img-fluid rounded-start" src="../../images/contractorpic1.jpg">
+                    </a>
+                    <div class="search-result-item-body">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <h4 class="search-result-item-heading">Ah Beng Services</h4>
+                                <p class="info"><i class="bi bi-lightning-charge"></i> Delivery Time: Fast &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-chat-right-dots"></i> Response Rate: Responsive
+                                <br>
+                                Whatsapp: +65 9123 4567 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Telegram: @ahbengservices</p>
+                                <br>
+                                <h5><span style="color: var(--sec1)">Date:</span> 11 November 2022</h5>
+                                <h5><span style="color: var(--sec1)">Time:</span> 1 PM - 2 PM</h5>
+                                <h5 style="color: var(--sec1)">Service Details</h5>
+                                <ul>
+                                    <li><h6>Painting</h6></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3 text-align-center">
+                                <p class="fs-mini text-muted">PAYABLE ON COMPLETION</p>
+                                <p class="mt-sm" style="font-size: 32px; font-weight:bold;">SGD <span style="color:var(--sec2)">$700</span></p>
+                                <!-- <a class="btn btn-primary btn-info btn-sm" href="#">Learn More</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="search-result-item mt-5">
+                    <a class="image-link" href="#"><img class="image" src="../../images/contractorpic2.jpg">
+                    </a>
+                    <div class="search-result-item-body">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <h4 class="search-result-item-heading">Ah Yong Services</h4>
+                                <p class="info"><i class="bi bi-lightning-charge"></i> Delivery Time: Fast &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-chat-right-dots"></i> Response Rate: Responsive
+                                <br>
+                                Whatsapp: +65 8621 4560 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Telegram: @yongplumbing</p>
+                                <br>
+                                <h5><span style="color: var(--sec1)">Date:</span> 4 December 2022</h5>
+                                <h5><span style="color: var(--sec1)">Time:</span> 3 PM - 4 PM</h5>
+                                <h5 style="color: var(--sec1)">Service Details</h5>
+                                <ul>
+                                    <li><h6>Plumbing</h6></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3 text-align-center">
+                                <p class="fs-mini text-muted">PAYABLE ON COMPLETION</p>
+                                <p class="mt-sm" style="font-size: 32px; font-weight:bold;">SGD <span style="color:var(--sec2)">$700</span></p>
+                                <!-- <a class="btn btn-primary btn-info btn-sm" href="#">Learn More</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Pending -->
+            <div class="tab-pane fade" id="pills-pending" role="tabpanel" aria-labelledby="pills-pending-tab" tabindex="0">
+
+                <section class="search-result-item mt-5">
+                    <a class="image-link" href="#"><img class="image" src="../../images/contractorpic7.jpeg">
+                    </a>
+                    <div class="search-result-item-body">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <h4 class="search-result-item-heading">K. J. & Co</h4>
+                                <p class="info"><i class="bi bi-lightning-charge"></i> Delivery Time: Very Fast &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-chat-right-dots"></i> Response Rate: Responsive
+                                <br>
+                                Whatsapp: +65 9871 4531 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Telegram: @tkjco</p>
+                                <br>
+                                <h5><span style="color: var(--sec1)">Date:</span> 15 December 2022</h5>
+                                <h5><span style="color: var(--sec1)">Time:</span> 2 PM - 3 PM</h5>
+                                <h5 style="color: var(--sec1)">Service Details</h5>
+                                <ul>
+                                    <li><h6>Drilling</h6></li>
+                                    <li><h6>Plumbing</h6></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3 text-align-center">
+                                <p class="fs-mini text-muted">QUOTED</p>
+                                <p class="mt-sm" style="font-size: 32px; font-weight:bold;">SGD <span style="color:var(--sec2)">$200</span></p>
+                                <a class="btn btn-primary btn-danger" style="font-weight: bold;" href="#">Negotiate</a>
+                                <a class="btn btn-primary btn-success" style="font-weight: bold;" href="#">Accept</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Completed -->
+            <div class="tab-pane fade" id="pills-completed" role="tabpanel" aria-labelledby="pills-completed-tab" tabindex="0">
+                <section class="mt-5">
+                    <h2 class="text-header">No completed bookings.. yet</h2>
+                    <img src="../../images/construction.svg" class="img-fluid d-none d-sm-block mx-auto" style="width: 45%;">
+                </section>
+            </div>
+
+          </div>
+
+    </section>
+
+    <!-- Wave -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#19A0E6" fill-opacity="1" d="M0,256L48,224C96,192,192,128,288,117.3C384,107,480,149,576,181.3C672,213,768,235,864,240C960,245,1056,235,1152,213.3C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+
+    <!-- About Us -->
+    <section class="p-5" style="background-color: #19A0E6;">
+
+        <!-- Contact Footer -->
+        <div id="contact">
+            <div class="container">
+                <div class="row mx-auto">
+                    <div class="contact-left mx-auto">
+                        <h2 class="text-header">Contact Us</h2>
+                        <p><i class="fa-sharp fa-solid fa-paper-plane"></i>enquiry@homemate.com</p>
+                        <p><i class="fa-solid fa-square-phone"></i>+65 9432 4534</p>
+                        <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+
+                    </div>
+                    <div class="contact-right mx-auto">
+                        <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Name" required>
+                        <input type="email" name="Email" placeholder="Email" required>
+                        <textarea name="Message" rows="6" placeholder="Message"></textarea>
+                        <button class="btn btn-lg rounded-pill" style="width: 200px; font-weight: bold; background-color: #e6b30e; color:white">
+                            Submit
+                        </button>
+                        </form>
+                        
+                        <p id="msg"></p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
+    <script src="../../script.js"></script>
+
+</body>
+</html>

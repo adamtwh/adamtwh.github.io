@@ -1,6 +1,6 @@
 * {
     font-family: Lato, sans-serif;
-  }
+}
 
 :root {
     --pri: #e6b30e;
@@ -10,12 +10,12 @@
 
 #bg-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 700px, white),
-      url("images/landing-img.jpg");
+    url("images/landing-img.jpg");
     background-position: center;
     background-size: cover;
     width: 100%;
     height: 100vh;
-  }
+}
 
 .navbar {
     color:#e6b30e;
