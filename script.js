@@ -122,7 +122,7 @@ $(function () {
 function loginSwap() {
     loginHTML = `    <div class="middle container justify-content-center">
                         <div class="col-md-6">
-                            <h4 class="text-header text-white">Sign in to your account</h4>
+                        <h4 class="text-header text-white">Log in to get started</h4>
                             <form>
                                 <div class="form-row" style="border-bottom: 1px solid var(--pri)">
                                     <input id="id" type="text" placeholder="Username or email address" class="form-control bg-transparent text-white text-wrap fw-bold">
@@ -143,9 +143,10 @@ function loginSwap() {
 
                                 <a class="fw-bold" href="components/profile/register.html">Forgot Password?</a>
                                 <p class="fw-bold text-white">Don't have an account? <a href="components/profile/register.html">Register here</a></p>
-                                <p class="fw-bold text-white">Or are you a contractor? 
+                                <br>
+                                <p class="fw-bold text-white">Are you a <span style="color: var(--pri)">contractor</span>?
                                     <button type="button" class="btn-login" onclick="contractorSwap()">
-                                    Swap <i class="bi bi-box-arrow-in-right"></i>
+                                    Click Here &nbsp; <i class="bi bi-arrow-repeat"></i>
                                 </button>
                                 </p>
 
@@ -162,7 +163,8 @@ function loginSwap() {
 function contractorSwap() {
     loginHTML = `    <div class="middle container justify-content-center">
                         <div class="col-md-6">
-                            <h4 class="text-header text-white">Sign in to your account (contractor)</h4>
+                        <span class="text-header text-white">For <span style='color:var(--pri)'>contractors</span></span>
+                        <h4 class="text-header text-white">Log in to get started</h4>
                             <form>
                                 <div class="form-row" style="border-bottom: 1px solid var(--pri)">
                                     <input id="id" type="text" placeholder="Username or email address" class="form-control bg-transparent text-white text-wrap fw-bold">
@@ -183,9 +185,10 @@ function contractorSwap() {
 
                                 <a class="fw-bold" href="components/profile/register.html">Forgot Password?</a>
                                 <p class="fw-bold text-white">Don't have an account? <a href="components/profile/register.html">Register here</a></p>
-                                <p class="fw-bold text-white">Back to user login? 
+                                <br>
+                                <p class="fw-bold text-white">Are you a <span style="color:var(--pri)">homeowner</span>? 
                                     <button type="button" class="btn-login" onclick="loginSwap()">
-                                    Swap <i class="bi bi-box-arrow-in-right"></i>
+                                    Click Here &nbsp; <i class="bi bi-arrow-repeat"></i>
                                 </button>
                                 </p>
 
@@ -198,6 +201,7 @@ function contractorSwap() {
     section.innerHTML = loginHTML
     return
 }
+
 
 // ----for contact form-----
 const scriptURL = 'https://script.google.com/macros/s/AKfycbwizvOy5kTk8d4CNuqCH5VRZ4L70N7MmCoSt7aqiAjsfso5lhYKh6VdywkXDQ4AP0AVYQ/exec'
