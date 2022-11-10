@@ -1,8 +1,10 @@
 // for user welcome dynamic
 
 function welcUser() {
+    console.log("welcome")
     var curr_user = sessionStorage.getItem('user');
-
+    console.log(curr_user);
+    
     var to_replace = document.getElementById("welcUser");
 
     to_replace.innerText = `Welcome ${curr_user}!`;
