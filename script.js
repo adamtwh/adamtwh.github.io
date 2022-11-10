@@ -150,7 +150,7 @@ function loginSwap() {
                                     
 
                                     <p class="fw-bold text-white">Are you a <span style="color: var(--sec3)">contractor</span>?
-                                    <button type="button" class="btn-login" onclick="contractorSwap()">
+                                    <button type="button" class="btn-login" onclick="contractorSwap()" style="background-color: var(--sec3)">
                                     Click Here &nbsp; <i class="bi bi-arrow-repeat"></i>
                                     </button>
                                     </p>
@@ -184,7 +184,7 @@ function contractorSwap() {
                                 <div class="form-row">
                                     
 
-                                    <button type="button" class="btn-login" onclick="loginIfContractorExists(document.getElementById('id').value, document.getElementById('password').value)" style="color:var(--pri)">
+                                    <button type="button" class="btn-login" onclick="loginIfContractorExists(document.getElementById('id').value, document.getElementById('password').value)" style="background-color:var(--pri)">
                                         Login <i class="bi bi-box-arrow-in-right"></i>
                                     </button>
 
@@ -198,7 +198,7 @@ function contractorSwap() {
                                 <div class="form-row">
                                     
                                 <p class="fw-bold text-white">Are you a <span style="color:var(--sec3)">homeowner</span>? 
-                                    <button type="button" class="btn-login" onclick="loginSwap()">
+                                    <button type="button" class="btn-login" onclick="loginSwap()" style="background-color: var(--sec3)">
                                     Click Here &nbsp; <i class="bi bi-arrow-repeat"></i>
                                     </button>
                                 </p>
