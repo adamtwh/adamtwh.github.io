@@ -52,18 +52,20 @@ firebase.initializeApp(firebaseConfig);
 // }
 
 //The following writes the data
-function writeBookingWithCompletion(user, houseType, paintBrand, paintColours, startDate, startTime, addRequests) {
+function writeBookingWithCompletion(user, contractor, houseType, paintBrand, paintColours, startDate, startTime, addRequests) {
     var val = Math.floor(1000 + Math.random() * 9000);
     var booking_string = "booking" + val.toString();
     
     firebase.database().ref('bookings/' + booking_string).set({
         user: user,
+        contractor: contractor,
         houseType: houseType,
         paintBrand: paintBrand,
         paintColours: paintColours,
         startDate: startDate,
         startTime: startTime,
-        addRequests: addRequests
+        addRequests: addRequests,
+        status: "pending"
     }, function(error) {
         if (error) {
         document.getElementById("status").innerHTML = "<br> Booking request failed!";
@@ -75,6 +77,7 @@ function writeBookingWithCompletion(user, houseType, paintBrand, paintColours, s
 
 function addBookingDetails() {
     var user_create = sessionStorage.getItem('user')
+    var contractor_create = sessionStorage.getItem('contractor')
     var houseType = document.getElementById("houseType").value;
     var paintBrand = document.getElementById("paintBrand").value;
     var paintColours = document.getElementById("paintColours").value;
@@ -84,7 +87,7 @@ function addBookingDetails() {
 
     if (houseType !== "" && paintBrand !== "" && paintColours !== "" && startDate !== "" && startTime !== "") {
 
-        writeBookingWithCompletion(user_create, houseType, paintBrand, paintColours, startDate, startTime, addRequests)
+        writeBookingWithCompletion(user_create, contractor_create, houseType, paintBrand, paintColours, startDate, startTime, addRequests)
 
     } else {
         document.getElementById("status").innerHTML = "<br> Sorry, please fill up all the required details!";
