@@ -124,11 +124,11 @@ function loginSwap() {
                         <div class="col-md-6">
                         <h4 class="text-header text-white">Log in to get started</h4>
                             <form>
-                                <div class="form-row" style="border-bottom: 1px solid var(--pri)">
+                                <div class="form-row" style="border-bottom: 1px solid var(--sec1)">
                                     <input id="id" type="text" placeholder="Username or email address" class="form-control bg-transparent text-white text-wrap fw-bold">
                                 </div>
 
-                                <div class="form-row" style="border-bottom: 1px solid var(--pri)">
+                                <div class="form-row" style="border-bottom: 1px solid var(--sec1)">
                                     <input id="password" type="password" placeholder="Password" class="form-control bg-transparent text-white fw-bold">
                                 </div>
 
@@ -145,11 +145,11 @@ function loginSwap() {
                                 <p class="fw-bold text-white">Don't have an account? <a href="components/profile/register.html">Register here</a></p>
 
                                 <br>
-                                
+
                                 <div class="form-row">
                                     
 
-                                    <p class="fw-bold text-white">Are you a <span style="color: var(--pri)">contractor</span>?
+                                    <p class="fw-bold text-white">Are you a <span style="color: var(--sec3)">contractor</span>?
                                     <button type="button" class="btn-login" onclick="contractorSwap()">
                                     Click Here &nbsp; <i class="bi bi-arrow-repeat"></i>
                                     </button>
@@ -184,22 +184,28 @@ function contractorSwap() {
                                 <div class="form-row">
                                     
 
-                                    <button type="button" class="btn-login" onclick="loginIfContractorExists(document.getElementById('id').value, document.getElementById('password').value)">
+                                    <button type="button" class="btn-login" onclick="loginIfContractorExists(document.getElementById('id').value, document.getElementById('password').value)" style="color:var(--pri)">
                                         Login <i class="bi bi-box-arrow-in-right"></i>
                                     </button>
 
                                 </div>
 
                                 <a class="fw-bold" href="components/profile/register.html">Forgot Password?</a>
-                                <p class="fw-bold text-white">Don't have an account? <a href="components/profile/register.html">Register here</a></p>
+                                <p class="fw-bold text-white">Don't have an account? <a href="#contact">Contact Us</a></p>
+
                                 <br>
-                                <p class="fw-bold text-white">Are you a <span style="color:var(--pri)">homeowner</span>? 
+
+                                <div class="form-row">
+                                    
+                                <p class="fw-bold text-white">Are you a <span style="color:var(--sec3)">homeowner</span>? 
                                     <button type="button" class="btn-login" onclick="loginSwap()">
                                     Click Here &nbsp; <i class="bi bi-arrow-repeat"></i>
-                                </button>
+                                    </button>
                                 </p>
 
                                 <p id="status" style="color: red;"></p>
+
+                                </div>
                             </form>
                         </div>
                     </div>
