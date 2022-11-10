@@ -57,6 +57,7 @@ function loginIfUserExists(userId, pwd) {
 
 function goNextUser(login_user) {
     if (login_user == true) {
+        sessionStorage.setItem('user', 'digijar');
         window.location.href='components/homepage/homepage.html'
     } else {
         document.getElementById("status").innerText = "Sorry, your password was incorrect. \n Please double-check your password.";
@@ -226,27 +227,49 @@ function closeContactPopup() {
     contact_popup.classList.remove("open-contact-popup");
 }
 
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('/');
+}
+
 // for news API
 function loadNews() {
-    const url = 'https://newsapi.org/v2/everything?q=property+market&from=2022-11-10&sortBy=popularity&apiKey=3949da46166743668869f836354fa1b4';
+    const url = "https://api.newscatcherapi.com/v2/search";
     let to_replace = document.getElementById("newsAPI");
     var ResultCount = 0;
     var result = "";
+    var curr_date_str = formatDate(new Date())
 
-    axios.get(url)
+    axios.get(url, {
+        params: {
+            q: 'home+news',
+            from: curr_date_str,
+            countries: 'SG',
+            page_size: 3
+        },
+        headers: {
+            'x-api-key': '2uIQcStHzDEKYek_nPMBF43DzXvQQjLQvt0Ze5XnrXw'
+        }
+    })
     .then(response =>  {
-        var ResultCount = response.data.totalResults
-        console.log(ResultCount)
-        result += `<div class="row">Total Results: ${ResultCount}</div>
+        result += `
             <div class="row gx-lg-5">`
 
-        for (article of response.data.articles.slice(0, 3)) {
+        for (article of response.data.articles) {
             var author = article.author;
             var title = article.title;
-            var description = article.description;
-            var url = article.url;
-            var photo_src= article.urlToImage;
-            var content = article.content
+            var summary = article.summary;
+            var url = article.link;
+            var photo_src= article.media;
             result += `
                 <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
                     <!-- News block -->
@@ -277,7 +300,7 @@ function loadNews() {
                         <h5>${title}</h5>
 
                         <p>
-                        ${description}
+                        ${summary}
                         </p>
                     </div>
                 </div>
