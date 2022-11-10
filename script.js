@@ -99,6 +99,7 @@ function loginIfContractorExists(userId, pwd) {
 
 function goNextContractor(login_contractor) {
     if (login_contractor == true) {
+        sessionStorage.setItem('contractor', 'Adam');
         window.location.href='components/booking/booking_contractor.html'
     } else {
         document.getElementById("status").innerText = "Sorry, your password was incorrect. \n Please double-check your password.";
