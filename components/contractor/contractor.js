@@ -37,18 +37,30 @@ const app = Vue.createApp({
             //     "Average Price"
             // ],
 
-            painting_filters:[
+            house_filters:[
                 "HDB",
                 "Condominium",
                 "Landed",
                 "Commercial"
             ],
 
-            painting_sorts: [
-                "Reviews",
-                "Popularity",
-                "Price",
-                "Delivery Time"
+            // painting_sorts: [
+            //     "Reviews",
+            //     "Popularity",
+            //     "Price",
+            //     "Delivery Time"
+            // ],
+
+            service_type:[
+              "Painting",
+              "Plumbing",
+              "Air Conditioning",
+              "Electrical",
+              "Drilling",
+              "Moving",
+              "Carpentry",
+              "Landscaping",
+              "Others"
             ],
 
             // table_headers: [

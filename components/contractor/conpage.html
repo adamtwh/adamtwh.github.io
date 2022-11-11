@@ -82,30 +82,22 @@
           </div>
       </div>
   </nav>
+  
+    <!-- <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown button
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+      </div>
+    </div> -->
+  
 
   <div class="container mx-auto">
     <div class="dropdown ms-3">
-    <button onclick="myFunction()" class="dropbtn">Filter By <i class="bi bi-funnel"></i></button>
-    <div id="myDropdown" class="dropdown-content">
-      <!-- <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"> -->
-      <!-- <a href="#about">About</a>
-      <a href="#base">Base</a>
-      <a href="#blog">Blog</a>
-      <a href="#contact">Contact</a>
-      <a href="#custom">Custom</a>
-      <a href="#support">Support</a>
-      <a href="#tools">Tools</a> -->
-      
-      <div class="form-check" v-for="(eachfilter) in painting_filters">
-        <input class="form-check-input" type="checkbox" value="{{eachfilter}}" id="{{eachfilter}}" v-on:click="addselection(eachfilter)">
-        <label class="form-check-label" for="{{eachfilter}}">
-          {{eachfilter}}
-        </label>
-      </div>
-    </div>
-
-    <div class="dropdown ms-3">
-      <button onclick="myFunction2()" class="dropbtn">Sort By <i class="bi bi-filter"></i></button>
+      <button onclick="myFunction2()" class="dropbtn">Service Type <i class="bi bi-filter"></i></button>
       <div id="myDropdown2" class="dropdown-content2">
         <!-- <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"> -->
         <!-- <a href="#about">About</a>
@@ -116,16 +108,36 @@
         <a href="#support">Support</a>
         <a href="#tools">Tools</a> -->
         
-        <div class="form-check" v-for="(eachsort) in painting_sorts">
-          <input class="form-check-input" type="checkbox" value="{{eachsort}}" id="{{eachsort}}">
-          <label class="form-check-label" for="{{eachsort}}">
-            {{eachsort}}
+        <div class="form-check" v-for="(eachtype) in service_type">
+          <input class="form-check-input" type="checkbox" value="{{eachtype}}" id="{{eachtype}}">
+          <label class="form-check-label" for="{{eachtype}}">
+            {{eachtype}}
           </label>
         </div>
   
         
       </div>
   </div>
+
+    <div class="dropdown ms-3">
+    <button onclick="myFunction()" class="dropbtn">Housing Type <i class="bi bi-house"></i></button>
+    <div id="myDropdown" class="dropdown-content">
+      <!-- <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"> -->
+      <!-- <a href="#about">About</a>
+      <a href="#base">Base</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+      <a href="#custom">Custom</a>
+      <a href="#support">Support</a>
+      <a href="#tools">Tools</a> -->
+      
+      <div class="form-check" v-for="(eachfilter) in house_filters">
+        <input class="form-check-input" type="checkbox" value="{{eachfilter}}" id="{{eachfilter}}" v-on:click="addselection(eachfilter)">
+        <label class="form-check-label" for="{{eachfilter}}">
+          {{eachfilter}}
+        </label>
+      </div>
+    </div>
 
   </div>
 
