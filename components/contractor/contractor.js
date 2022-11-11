@@ -139,6 +139,7 @@ const app = Vue.createApp({
         console.log(this.selected_filters)
 
         var selected_contractors = {};
+        this.shown_contractors = {};
 
         for (idx in this.selected_filters){
           // console.log(this.selected_filters[idx])
