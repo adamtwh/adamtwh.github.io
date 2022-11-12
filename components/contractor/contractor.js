@@ -168,7 +168,11 @@ const app = Vue.createApp({
 
             selected_filters: [],
 
-            shown_contractors: {}
+            shown_contractors: {},
+
+            current_service: sessionStorage.getItem('service'),
+
+            specific_contractors: {}
 
         }
     },
@@ -201,11 +205,11 @@ const app = Vue.createApp({
           // console.log(this.selected_filters[idx])
           var filtertype = this.selected_filters[idx]
           
-          for (const [key, value] of Object.entries(this.painter_information)) {
+          for (const [key, value] of Object.entries(this.specific_contractors)) {
 
             if (value[4].includes(filtertype)){
               console.log(value)
-              selected_contractors[key] = [value[0],value[1],value[2],value[3],value[4]]
+              selected_contractors[key] = [value[0],value[1],value[2],value[3],value[4],value[5],value[6]]
             }
           }
         }
@@ -213,7 +217,7 @@ const app = Vue.createApp({
         for (const [key, value] of Object.entries(selected_contractors)) {
           console.log(key)
           console.log(value)
-          this.shown_contractors[key] = [value[0],value[1],value[2],value[3],value[4]]
+          this.shown_contractors[key] = [value[0],value[1],value[2],value[3],value[4],value[5],value[6]]
         }
 
         console.log(this.shown_contractors)
@@ -222,13 +226,30 @@ const app = Vue.createApp({
 
 
       changeservice(eachtype){
-        console.log(eachtype)
-        console.log('yes');
-        console.log(sessionStorage.getItem('service'));
-        console.log(sessionStorage.getItem('booking_contractor'));
-      }
-       
+        // console.log('eachtype-----')
+        // console.log(eachtype)
+        // console.log('initial service-----');
+        // console.log(sessionStorage.getItem('service'));
+        window.location.reload();
+        sessionStorage.setItem('service', eachtype);
+        // console.log('new set service------')
+        // console.log(sessionStorage.getItem('service'));
+        // window.location.reload();        
+      },
 
+    },
+
+    mounted(){
+      console.log(this.current_service)
+
+      for (const [key, value] of Object.entries(this.painter_information)) {
+
+        if (value[6].includes(this.current_service)){
+          this.specific_contractors[key] = [value[0],value[1],value[2],value[3],value[4],value[5],value[6]]
+          // console.log(value)
+          // selected_contractors[key] = [value[0],value[1],value[2],value[3],value[4]]
+        }
+      }
     }
 })
 
