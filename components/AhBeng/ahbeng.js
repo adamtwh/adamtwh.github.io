@@ -182,8 +182,10 @@ function writeBookingWithCompletion(user, contractor, houseType, postalCode, pai
         accept_quote: false,
         reject_quote: false,
         user_completed: false,
-        service: "painting",
-        contractor_completed: false
+        service: "Painting",
+        contractor_completed: false,
+        reject_booking: false
+        
     }, function(error) {
         if (error) {
         document.getElementById("status").innerHTML = "<br> Booking request failed!";
