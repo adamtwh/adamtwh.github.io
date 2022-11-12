@@ -162,7 +162,7 @@ firebase.initializeApp(firebaseConfig);
 // }
 
 //The following writes the data
-function writeBookingWithCompletion(user, contractor, houseType, paintBrand, paintColours, startDate, startTime, addRequests) {
+function writeBookingWithCompletion(user, contractor, houseType, postalCode, paintBrand, paintColours, startDate, startTime, addRequests) {
     var val = Math.floor(1000 + Math.random() * 9000);
     var booking_string = "booking" + val.toString();
     
@@ -170,6 +170,7 @@ function writeBookingWithCompletion(user, contractor, houseType, paintBrand, pai
         user: user,
         contractor: contractor,
         houseType: houseType,
+        postalCode: postalCode,
         paintBrand: paintBrand,
         paintColours: paintColours,
         startDate: startDate,
@@ -181,6 +182,7 @@ function writeBookingWithCompletion(user, contractor, houseType, paintBrand, pai
         accept_quote: false,
         reject_quote: false,
         user_completed: false,
+        service: "painting",
         contractor_completed: false
     }, function(error) {
         if (error) {
@@ -195,15 +197,16 @@ function addBookingDetails() {
     var user_create = sessionStorage.getItem('user')
     var contractor_create = sessionStorage.getItem('contractor')
     var houseType = document.getElementById("houseType").value;
+    var postalCode = document.getElementById("postalCode").value;
     var paintBrand = document.getElementById("paintBrand").value;
     var paintColours = document.getElementById("paintColours").value;
     var startDate = document.getElementById("startDate").value;
     var startTime = document.getElementById("startTime").value;
     var addRequests = document.getElementById("addRequests").value;
 
-    if (houseType !== "" && paintBrand !== "" && paintColours !== "" && startDate !== "" && startTime !== "") {
+    if (houseType !== "" && postalCode !== "" && paintBrand !== "" && paintColours !== "" && startDate !== "" && startTime !== "") {
 
-        writeBookingWithCompletion(user_create, contractor_create, houseType, paintBrand, paintColours, startDate, startTime, addRequests)
+        writeBookingWithCompletion(user_create, contractor_create, houseType, postalCode, paintBrand, paintColours, startDate, startTime, addRequests)
 
     } else {
         document.getElementById("status").innerHTML = "<br> Sorry, please fill up all the required details!";

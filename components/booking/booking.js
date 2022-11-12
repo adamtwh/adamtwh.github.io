@@ -44,7 +44,6 @@ firebase.initializeApp(firebaseConfig);
 var bookings = firebase.database().ref('bookings');
 
 function dynamicBookings() {
-    
     // if status == current
     dynamicCurrent()
 
@@ -53,7 +52,7 @@ function dynamicBookings() {
     dynamicPending()
 
     // if status == completed
-    // dynamicCompleted()
+    dynamicCompleted()
 }
 
 function dynamicCurrent() {
@@ -91,16 +90,11 @@ function dynamicCurrent() {
                             <div class="row">
                                 <div class="col-sm-9">
                                     <h4 class="search-result-item-heading">${contractor_name}</h4>
-                                    <p class="info"><i class="bi bi-lightning-charge"></i> Delivery Time: Fast &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-chat-right-dots"></i> Response Rate: Responsive
-                                    <br>
-                                    Whatsapp: +65 9123 4567 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Telegram: @ahbengservices</p>
                                     <br>
                                     <h5><span style="color: var(--sec1)">Date:</span> ${date}</h5>
                                     <h5><span style="color: var(--sec1)">Time:</span> ${time}</h5>
-                                    <h5 style="color: var(--sec1)">Service Details</h5>
-                                    <ul>
-                                        <li><h6>${service_type}</h6></li>
-                                    </ul>
+                                    <h5 style="color: var(--sec1)">Service(s) Provided:</h5>
+                                    <h6>${service_type}</h6>
                                 </div>
                                 <div class="col-sm-3 text-align-center">
                                     <p class="fs-mini text-muted">PAYABLE ON COMPLETION</p>
@@ -120,7 +114,104 @@ function dynamicCurrent() {
 }
 
 function dynamicPending() {
-    console.log("Pending")
+    // get bookings with status == current
+    bookings.on('value', (snapshot) => {
+        var curr_replace = document.getElementById("pills-pending");
+        var curr_result = "";
+
+        snapshot.forEach(function(childSnapshot) {
+            var booking_obj = childSnapshot.val();
+            if (booking_obj.status == "pending") {
+
+                // logging all the data from firebase into variables
+                var date = booking_obj.startDate;
+                var time = booking_obj.startTime;
+                var contractor_name = booking_obj.contractor;
+                if (contractor_name == 'Ah Beng Services') {
+                    var contractor_pic = "../../images/contractorpic1.jpg"
+                } else if (contractor_name == 'Ah Yong Services') {
+                    var contractor_pic = "../../images/contractorpic2.jpg"
+                } else if (contractor_name == 'Jar Fix Pte Ltd') {
+                    var contractor_pic = "../../images/contractorpic3.jpg"
+                } else if (contractor_name == 'Kim Carpentry') {
+                    var contractor_pic = "../../images/contractorpic5.jpg"
+                } else if (contractor_name == 'Takeoff Movers') {
+                    var contractor_pic = "../../images/contractorpic6.jpg"
+                } else if (contractor_name == 'K.J & Co') {
+                    var contractor_pic = "../../images/contractorpic7.jpeg"
+                }
+                
+                var service = booking_obj.service;
+                var houseType = booking_obj.houseType;
+                var paintBrand = booking_obj.paintBrand;
+                var paintColours = booking_obj.paintColours;
+                var postalCode = booking_obj.postalCode;
+                var quote = booking_obj.quote; // quoted price
+                var quoted = booking_obj.quoted; // boolean whether contractor has quoted, default false
+                var accept_quote = booking_obj.accept_quote; // boolean whetehr user accepts quote, default false
+                var reject_quote = booking_obj.reject_quote; // boolean whether user rejects quote, default false
+                var user_completed = booking_obj.user_completed; // boolean whether user clicks on completed service, default false
+                var contractor_completed = booking_obj.contractor_completed; // boolean whether contractor clicks on completed service, default false
+                var add_requests = booking_obj.addRequests;
+                var submit_booking_user = booking_obj.user;
+
+                // checks and loads booking based on logged in user
+                if (submit_booking_user == sessionStorage.getItem('user')) {
+                    if (quoted == false && reject_quote == false && accept_quote == false) {
+                        curr_result += `
+                            <section class="search-result-item mt-5">
+                                <a class="image-link" href="#"><img class="image img-fluid rounded-start" src="${contractor_pic}">
+                                </a>
+                                <div class="search-result-item-body">
+                                    <div class="row">
+                                        <div class="col-sm-9">
+                                            <h4 class="search-result-item-heading">${contractor_name}</h4>
+                                            <br>
+                                            <h5><span style="color: var(--sec1)">Date:</span> ${date}</h5>
+                                            <h5><span style="color: var(--sec1)">Time:</span> ${time}</h5>
+                                            <h5 style="color: var(--sec1)">Service(s) Provided:</h5>
+                                            <h6>${service}</h6>
+                                        </div>
+                                        <div class="col-sm-3 text-align-center">
+                                            <p class="fs-mini text-muted">Pending Contractor's Quote</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        `
+                    } else if (quoted == true && reject_quote == false && accept_quote == false) {
+                        curr_result += `
+                            <section class="search-result-item mt-5">
+                                <a class="image-link" href="#"><img class="image img-fluid rounded-start" src="${contractor_pic}">
+                                </a>
+                                <div class="search-result-item-body">
+                                    <div class="row">
+                                        <div class="col-sm-9">
+                                            <h4 class="search-result-item-heading">${contractor_name}</h4>
+                                            <br>
+                                            <h5><span style="color: var(--sec1)">Date:</span> ${date}</h5>
+                                            <h5><span style="color: var(--sec1)">Time:</span> ${time}</h5>
+                                            <h5 style="color: var(--sec1)">Service(s) Provided:</h5>
+                                            <h6>${service}</h6>
+                                        </div>
+                                        <div class="col-sm-3 text-align-center">
+                                            <p class="fs-mini text-muted">Pending Contractor's Quote</p>
+                                            <p class="mt-sm" style="font-size: 32px; font-weight:bold;">SGD <span style="color:var(--sec2)">${quote}}</span></p>
+                                            <a class="btn btn-primary btn-danger" style="font-weight: bold;" href="#">Reject</a>
+                                            <a class="btn btn-primary btn-success" style="font-weight: bold;" href="#">Accept</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        `
+                    }
+                }
+            }
+        });
+        curr_replace.innerHTML += curr_result;
+    }, (errorObject) => {
+    console.log('The read failed: ' + errorObject.name);
+    });
 }
 
 function dynamicCompleted() {

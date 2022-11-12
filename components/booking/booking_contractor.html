@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
     integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
     crossorigin="anonymous" />
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script> 
+    <!-- This is the API from Firebase Realtime Database -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script> 
 
     <title>HomeMate Singapore | Hire The Best Contractors</title>
     <link rel="shortcut icon" href="../../images/favicon_io/favicon.ico">
@@ -103,24 +107,24 @@
         <!-- Tab Buttons -->
         <ul class="nav nav-pills nav-justified flex-column flex-sm-row mb-3 mt-5" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="pills-current-tab" data-bs-toggle="pill" data-bs-target="#pills-current" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Current</button>
+                <button class="nav-link active" id="pills-current-tab" data-bs-toggle="pill" data-bs-target="#pills-current" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Current</button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="pills-pending-tab" data-bs-toggle="pill" data-bs-target="#pills-pending" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Pending</button>
+                <button class="nav-link" id="pills-pending-tab" data-bs-toggle="pill" data-bs-target="#pills-pending" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Pending</button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="pills-completed-tab" data-bs-toggle="pill" data-bs-target="#pills-completed" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Completed</button>
+                <button class="nav-link" id="pills-completed-tab" data-bs-toggle="pill" data-bs-target="#pills-completed" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Completed</button>
             </li>
-          </ul>
+        </ul>
 
-          <!-- Tab Content -->
-          <div class="tab-content" id="pills-tabContent">
+        <!-- Tab Content -->
+        <div class="tab-content" id="pills-tabContent">
 
             <!-- Current -->
             <div class="tab-pane fade show active" id="pills-current" role="tabpanel" aria-labelledby="pills-current-tab" tabindex="0">
 
                 <section class="search-result-item mt-5">
-                    <a class="image-link" href="#"><img class="image img-fluid rounded-start" src="../../images/contractorpic1.jpg">
+                    <a class="image-link" href="#"><img class="image img-fluid rounded-start" src="../../images/empty_profile.png">
                     </a>
                     <div class="search-result-item-body">
                         <div class="row">

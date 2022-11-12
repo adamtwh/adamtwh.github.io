@@ -68,8 +68,10 @@ function loginIfContractorExists(userId, pwd) {
 
     var contractor = firebase.database().ref('contractors/' + userId);
     var password_contractor = firebase.database().ref('contractors/' + userId + "/" + "password");
+    var name_contractor = firebase.database().ref('contractors/' + userId + "/" + "name");
 
     var login_contractor = false;
+    var contractor_name = "";
 
     contractor.once('value').then((snapshot3) => {
         if(snapshot3.exists()) {
@@ -94,12 +96,17 @@ function loginIfContractorExists(userId, pwd) {
         }
     });
 
-    window.setTimeout(goNextContractor(login_contractor), 0);
+    name_contractor.on('value', (snapshot5) => {
+        var name_contractor_value = snapshot5.val();
+        contractor_name = name_contractor_value;
+    });
+
+    window.setTimeout(goNextContractor(login_contractor, contractor_name), 0);
 }
 
-function goNextContractor(login_contractor) {
+function goNextContractor(login_contractor, contractor_name) {
     if (login_contractor == true) {
-        sessionStorage.setItem('contractor', 'Adam');
+        sessionStorage.setItem('contractor', contractor_name);
         window.location.href='components/booking/booking_contractor.html'
     } else {
         document.getElementById("status").innerText = "Sorry, your password was incorrect. \n Please double-check your password.";
@@ -175,17 +182,17 @@ function contractorSwap() {
                         <h4 class="text-header text-white">Log in to get started</h4>
                             <form>
                                 <div class="form-row" style="border-bottom: 1px solid var(--pri)">
-                                    <input id="id" type="text" placeholder="Username or email address" class="form-control bg-transparent text-white text-wrap fw-bold">
+                                    <input id="Cid" type="text" placeholder="Username or email address" class="form-control bg-transparent text-white text-wrap fw-bold">
                                 </div>
 
                                 <div class="form-row" style="border-bottom: 1px solid var(--pri)">
-                                    <input id="password" type="password" placeholder="Password" class="form-control bg-transparent text-white fw-bold">
+                                    <input id="Cpassword" type="password" placeholder="Password" class="form-control bg-transparent text-white fw-bold">
                                 </div>
 
                                 <div class="form-row">
                                     
 
-                                    <button type="button" class="btn-login" onclick="loginIfContractorExists(document.getElementById('id').value, document.getElementById('password').value)" style="background-color:var(--pri)">
+                                    <button type="button" class="btn-login" onclick="loginIfContractorExists(document.getElementById('Cid').value, document.getElementById('Cpassword').value)" style="background-color:var(--pri)">
                                         Login <i class="bi bi-box-arrow-in-right"></i>
                                     </button>
 
@@ -244,91 +251,3 @@ function openContactPopup() {
 function closeContactPopup() {
     contact_popup.classList.remove("open-contact-popup");
 }
-
-// function formatDate(date) {
-//     var d = new Date(date),
-//         month = '' + (d.getMonth() + 1),
-//         day = '' + d.getDate(),
-//         year = d.getFullYear();
-
-//     if (month.length < 2) 
-//         month = '0' + month;
-//     if (day.length < 2) 
-//         day = '0' + day;
-
-//     return [year, month, day].join('/');
-// }
-
-// for news API
-// function loadNews() {
-//     const url = "https://api.newscatcherapi.com/v2/search";
-//     let to_replace = document.getElementById("newsAPI");
-//     var ResultCount = 0;
-//     var result = "";
-//     var curr_date_str = formatDate(new Date())
-
-//     axios.get(url, {
-//         params: {
-//             q: 'home+news',
-//             from: curr_date_str,
-//             countries: 'SG',
-//             page_size: 3
-//         },
-//         headers: {
-//             'x-api-key': '2uIQcStHzDEKYek_nPMBF43DzXvQQjLQvt0Ze5XnrXw'
-//         }
-//     })
-//     .then(response =>  {
-//         result += `
-//             <div class="row gx-lg-5">`
-
-//         for (article of response.data.articles) {
-//             var author = article.author;
-//             var title = article.title;
-//             var summary = article.summary;
-//             var url = article.link;
-//             var photo_src= article.media;
-//             result += `
-//                 <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-//                     <!-- News block -->
-//                     <div>
-//                         <!-- Featured image -->
-//                         <div class="bg-image hover-overlay shadow-1-strong ripple rounded-5 mb-4"
-//                             data-mdb-ripple-color="light">
-//                             <img src="${photo_src}" class="img-fluid" />
-//                             <a href="#!">
-//                             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-//                             </a>
-//                         </div>
-    
-//                         <!-- Article data -->
-//                         <div class="row mb-3">
-//                             <div class="col-6">
-//                             <a href="" class="text-info">
-//                                 ${title}
-//                             </a>
-//                             </div>
-    
-//                             <div class="col-6 text-end">
-//                             <u> ${author}</u>
-//                             </div>
-//                         </div>
-    
-//                         <!-- Article title and description -->
-//                         <h5>${title}</h5>
-
-//                         <p>
-//                         ${summary}
-//                         </p>
-//                     </div>
-//                 </div>
-//             `
-            
-//         }
-//         result += `</div>`
-//         to_replace.innerHTML = result;
-//     })
-//     .catch(error => {
-//         console.log(error.message)
-//     });
-// }
