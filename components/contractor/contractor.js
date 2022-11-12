@@ -181,6 +181,51 @@ const app = Vue.createApp({
                   "+65 9123 0912",
                   "@tkjco"
                 ],
+                "Get Fix Pro": [
+                  "../../images/contractorpic8.jpg",
+                  "Fast",
+                  "Moderate",
+                  `<i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star"></i>`,
+                  "Commercial",
+                  "../AhBeng/ahbeng.html",
+                  "Painting, Landscaping, Plumbing",
+                  "+65 9029 3901",
+                  "@getfixpro"
+                ],
+                "Shape Up Pte Ltd": [
+                  "../../images/defaultpic.jpg",
+                  "Slow",
+                  "Slow",
+                  `<i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star"></i>
+                  <i class="bi bi-star"></i>`,
+                  "HDB,Condominium,Landed,Commercial",
+                  "../AhBeng/ahbeng.html",
+                  "Painting, Drilling",
+                  "+65 8464 9664",
+                  "@shapeup"
+                ],
+                "Gen Fix": [
+                  "../../images/defaultpic.jpg",
+                  "Slow",
+                  "Slow",
+                  `<i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-half pri-color"></i>
+                  <i class="bi bi-star"></i>
+                  <i class="bi bi-star"></i>`,
+                  "HDB,Condominium,Landed",
+                  "../AhBeng/ahbeng.html",
+                  "Painting, Moving, Carpentry",
+                  "+65 9945 9265",
+                  "@genfix"
+                ],
               },
 
             selected_filters: [],
