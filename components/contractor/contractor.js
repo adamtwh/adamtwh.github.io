@@ -189,7 +189,7 @@ const app = Vue.createApp({
 
             current_service: sessionStorage.getItem('service'),
 
-            specific_contractors: {}
+            specific_contractors: {},
 
         }
     },
@@ -251,8 +251,16 @@ const app = Vue.createApp({
         sessionStorage.setItem('service', eachtype);
         // console.log('new set service------')
         // console.log(sessionStorage.getItem('service'));
-        // window.location.reload();        
+        // window.location.reload();      
       },
+
+      noservice(){
+        window.location.reload();
+        sessionStorage.setItem('service', null);
+        // console.log(sessionStorage.getItem('service'));
+        this.current_service = null;
+        alert("Please select a service type");
+      }
 
     },
 

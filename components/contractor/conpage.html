@@ -152,7 +152,7 @@
     <ul class="dropdown-menu">
       <li v-for="eachtype in service_type">
         <a class="dropdown-item" href="#">
-          <input class="form-check-input" type="checkbox" :value="eachtype" :id="eachtype" checked v-if="sessionItem==eachtype">
+          <input class="form-check-input" type="checkbox" :value="eachtype" :id="eachtype" checked v-if="sessionItem==eachtype" v-on:click="noservice()">
           <input class="form-check-input" type="checkbox" :value="eachtype" :id="eachtype" v-else v-on:click="changeservice(eachtype)">
           <label class="form-check-label" :for="eachtype">
             &nbsp; {{eachtype}}
@@ -177,8 +177,8 @@
     </li>
     </ul>
   </div>
-
 </div>
+
   <!-- if no filter selected -->
   
   <div class="container" v-if="selected_filters.length == 0">
