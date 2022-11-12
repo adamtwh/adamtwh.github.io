@@ -39,16 +39,32 @@ function register() {
     var userId = document.getElementById("id").value;
     var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;
+    var whatsapp = document.getElementById("whatsapp").value;
+    var telegram = document.getElementById("telegram").value;
     var password = document.getElementById("password").value;
-    writeContractorDataWithCompletion(userId,name,email,password);
+    var services_checked = document.querySelectorAll('input[name=service_box]:checked');
+    var services_list = new Array;
+    for (services of services_checked) {
+        services_list.push(services.value);
+    }
+    var housing_checked = document.querySelectorAll('input[name=housing_box]:checked');
+    var housing_list = new Array;
+    for (housing of housing_checked) {
+        housing_list.push(housing.value);
+    }
+    writeContractorDataWithCompletion(userId,name,email,whatsapp,telegram,password,services_list,housing_list);
     }
 
 //The following writes the data
-function writeContractorDataWithCompletion(userId, name, email, password) {
+function writeContractorDataWithCompletion(userId, name, email, whatsapp, telegram, password, services_list, housing_list) {
     firebase.database().ref('contractors/' + userId).set({
-        username: name,
+        name: name,
         email: email,
-        password: password
+        whatsapp: whatsapp,
+        telegram: telegram,
+        password: password,
+        services: services_list,
+        housing: housing_list
     }, function(error) {
         if (error) {
         document.getElementById("status").innerText = "Contractor Registration Failed!";
@@ -80,3 +96,17 @@ function updateEmail() {
     updates['/contractors/' + userId + "/" + 'password'] = email;
     firebase.database().ref().update(updates);
 }
+
+// function findAllCheckedServices() {
+//     var checkedBoxes = document.querySelectorAll('input[name=service_box]:checked');
+//     for (checked of checkedBoxes) {
+//         console.log(checked.value)
+//     }
+// }
+
+// function findAllCheckedHousing() {
+//     var checkedBoxes = document.querySelectorAll('input[name=housing_box]:checked');
+//     for (checked of checkedBoxes) {
+//         console.log(checked.value)
+//     }
+// }

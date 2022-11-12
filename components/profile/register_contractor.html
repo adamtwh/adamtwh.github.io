@@ -83,8 +83,8 @@
             <br>
 
             <div class="input-group mb-1">
-                <span class="input-group-text" id="basic-addon1">Username:</span>
-                <input id="name" type="text" class="form-control me-3" placeholder="Username (same as User ID)" aria-label="Username" aria-describedby="basic-addon1">
+                <span class="input-group-text" id="basic-addon1">Name:</span>
+                <input id="name" type="text" class="form-control me-3" aria-label="Username" aria-describedby="basic-addon1">
             </div>
 
             <br>
@@ -97,9 +97,91 @@
             <br>
 
             <div class="input-group mb-1">
+                <span class="input-group-text" id="basic-addon1">Whatsapp:</span>
+                <input id="whatsapp" type="number" class="form-control me-3" placeholder="Whatsapp Number: (+65)" aria-label="whatsapp" aria-describedby="basic-addon1">
+            </div>
+
+            <br>
+
+            <div class="input-group mb-1">
+                <span class="input-group-text" id="basic-addon1">Telegram:</span>
+                <input id="telegram" type="text" class="form-control me-3" placeholder="@..." aria-label="telegram" aria-describedby="basic-addon1">
+            </div>
+
+            <br>
+            
+            <div class="input-group mb-1">
                 <span class="input-group-text" id="basic-addon1">Password:</span>
                 <input id="password" type="text" class="form-control me-3" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
             </div>
+
+            <br>
+
+            Select Service Offerings:
+            <br>
+            <input class="form-check-input" type="checkbox" value="Painting" id="painting" name="service_box">
+            <label class="form-check-label" for="painting">
+            Painting
+            </label>
+
+            <input class="form-check-input" type="checkbox" value="Landscaping" id="landscaping" name="service_box">
+            <label class="form-check-label" for="landscaping">
+            Landscaping
+            </label>
+
+            <input class="form-check-input" type="checkbox" value="Plumbing" id="plumbing" name="service_box">
+            <label class="form-check-label" for="plumbing">
+            Plumbing
+            </label>
+
+            <input class="form-check-input" type="checkbox" value="Electrical" id="electrical" name="service_box">
+            <label class="form-check-label" for="electrical">
+            Electrical
+            </label>
+            
+            <input class="form-check-input" type="checkbox" value="Handyman" id="handyman" name="service_box">
+            <label class="form-check-label" for="handyman">
+            Handyman
+            </label>
+
+            <input class="form-check-input" type="checkbox" value="Carpentry" id="carpentry" name="service_box">
+            <label class="form-check-label" for="carpentry">
+            Carpentry
+            </label>
+
+            <input class="form-check-input" type="checkbox" value="Moving" id="moving" name="service_box">
+            <label class="form-check-label" for="moving">
+            Moving
+            </label>
+
+            <input class="form-check-input" type="checkbox" value="Drilling" id="drilling" name="service_box">
+            <label class="form-check-label" for="drilling">
+            Drilling
+            </label>
+
+            <br><br>
+
+            Select Housing Type you can service:
+            <br>
+            <input class="form-check-input" type="checkbox" value="HDB" id="hdb" name="housing_box">
+            <label class="form-check-label" for="hdb">
+            HDB
+            </label>
+
+            <input class="form-check-input" type="checkbox" value="Condominium" id="condominium" name="housing_box">
+            <label class="form-check-label" for="condominium">
+            Condominium
+            </label>
+
+            <input class="form-check-input" type="checkbox" value="Landed" id="landed" name="housing_box">
+            <label class="form-check-label" for="landed">
+            Landed
+            </label>
+
+            <input class="form-check-input" type="checkbox" value="Commercial" id="commercial" name="housing_box">
+            <label class="form-check-label" for="commercial">
+            Commercial
+            </label>
 
             <br>
             
@@ -108,6 +190,8 @@
             <button class="btn rounded-pill" style="font-weight: bold; background-color: #19a0e6; color:white;"  onclick="register()">Register</button> 
             <button class="btn rounded-pill" style="font-weight: bold; background-color: #19a0e6; color:white;"  onclick="deregister(document.getElementById('id').value)">De-Register</button> 
             <button class="btn rounded-pill" style="font-weight: bold; background-color: #19a0e6; color:white;"  onclick="updateEmail()">Update Email</button> 
+            <!-- <button class="btn rounded-pill" style="font-weight: bold; background-color: #19a0e6; color:white;"  onclick="findAllCheckedServices()">Test Services</button> 
+            <button class="btn rounded-pill" style="font-weight: bold; background-color: #19a0e6; color:white;"  onclick="findAllCheckedHousing()">Test Housing</button>  -->
             
             <p id="status" class="mt-2"></p>
             <p id="latest"></p>
