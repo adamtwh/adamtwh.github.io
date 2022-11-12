@@ -220,8 +220,8 @@ const app = Vue.createApp({
           this.shown_contractors[key] = [value[0],value[1],value[2],value[3],value[4],value[5],value[6]]
         }
 
-        console.log(this.shown_contractors)
-        console.log(this.painter_information)
+        // console.log(this.shown_contractors)
+        // console.log(this.painter_information)
       },
 
 
