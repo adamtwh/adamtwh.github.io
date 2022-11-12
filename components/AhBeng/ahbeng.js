@@ -1,5 +1,7 @@
 function checkContractoronLoad() {
-    console.log(sessionStorage.getItem('booking_contractor'));
+    var curr_contractor = sessionStorage.getItem('booking_contractor')
+    sessionStorage.setItem('contractor', curr_contractor)
+    console.log(sessionStorage.getItem('contractor'))
 }
 
 
@@ -9,18 +11,113 @@ const app = Vue.createApp({
     data() {
         return {
 
+            currentContractor: sessionStorage.getItem('booking_contractor'),
+
+            // painter_information: {
+            //     "Name": "Ah Beng Services",
+            //     "Image": "../../images/contractorpic1.jpg",
+            //     "Delivery": "Fast",
+            //     "Responsiveness": "Responsive",
+            //     "Rating": `<i class="bi bi-star-fill pri-color"></i>
+            //     <i class="bi bi-star-fill pri-color"></i>
+            //     <i class="bi bi-star-fill pri-color"></i>
+            //     <i class="bi bi-star-fill pri-color"></i>
+            //     <i class="bi bi-star-half pri-color"></i>`,
+            //     "Whatsapp": "+65 9123 4567",
+            //     "Telegram": "@ahbengservices",
+            // },
+
             painter_information: {
-                "Name": "Ah Beng Services",
-                "Image": "../../images/contractorpic1.jpg",
-                "Delivery": "Fast",
-                "Responsiveness": "Responsive",
-                "Rating": `<i class="bi bi-star-fill pri-color"></i>
-                <i class="bi bi-star-fill pri-color"></i>
-                <i class="bi bi-star-fill pri-color"></i>
-                <i class="bi bi-star-fill pri-color"></i>
-                <i class="bi bi-star-half pri-color"></i>`,
-                "Whatsapp": "+65 9123 4567",
-                "Telegram": "@ahbengservices",
+                "Ah Beng Services": [
+                    "../../images/contractorpic1.jpg",
+                    "Fast",
+                    "Responsive",
+                    `<i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-half pri-color"></i>`,
+                    "HDB,Condominium,Landed",
+                    "../AhBeng/ahbeng.html",
+                    "9123 4567",
+                    "@ahbengservices",
+                    "Painting, Landscaping"
+                ],
+                "Ah Yong Services": [
+                    "../../images/contractorpic2.jpg",
+                    "Fast",
+                    "Responsive",
+                    `<i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>`,
+                    "HDB,Condominium,Landed,Commercial",
+                    "../AhBeng/ahbeng.html",
+                    "8123 4567",
+                    "@ahyongservices",
+                    "Plumbing, Electrical"
+                ],
+                "Jar Fix Pte Ltd": [
+                    "../../images/contractorpic3.jpg",
+                    "Moderate",
+                    "Slow",
+                    `<i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star"></i>
+                    <i class="bi bi-star"></i>`,
+                    "HDB,Condominium",
+                    "../AhBeng/ahbeng.html",
+                    "8345 9142",
+                    "@jarfixpteltd",
+                    "Handyman"
+                ],
+                "Kim Carpentry": [
+                    "../../images/contractorpic5.jpg",
+                    "Fast",
+                    "Responsive",
+                    `<i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>`,
+                    "Landed,Commercial",
+                    "../AhBeng/ahbeng.html",
+                    "8193 5264",
+                    "@kimcarpentry",
+                    "Carpentry"
+                ],
+                "Takeoff Movers": [
+                    "../../images/contractorpic6.jpg",
+                    "Moderate",
+                    "Responsive",
+                    `<i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-half pri-color"></i>`,
+                    "HDB,Condominium,Landed",
+                    "../AhBeng/ahbeng.html",
+                    "9385 0142",
+                    "@takeoffmovers",
+                    "Moving, Electrical"
+                ],
+                "K.J & Co": [
+                    "../../images/contractorpic7.jpeg",
+                    "Fast",
+                    "Responsive",
+                    `<i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>`,
+                    "HDB,Landed",
+                    "../AhBeng/ahbeng.html",
+                    "8491 6324",
+                    "@kjandco",
+                    "Plumbing, Drilling"
+                ],
             },
         }
     },
@@ -68,7 +165,13 @@ function writeBookingWithCompletion(user, contractor, houseType, paintBrand, pai
         startDate: startDate,
         startTime: startTime,
         addRequests: addRequests,
-        status: "pending"
+        status: "pending",
+        quote: 0,
+        quoted: false,
+        accept_quote: false,
+        reject_quote: false,
+        user_completed: false,
+        contractor_completed: false
     }, function(error) {
         if (error) {
         document.getElementById("status").innerHTML = "<br> Booking request failed!";

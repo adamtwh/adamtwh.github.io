@@ -24,9 +24,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script> 
     <!-- This is the API from Firebase Realtime Database -->
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script> 
-    <script>
-        sessionStorage.setItem('contractor', 'ahbeng');
-    </script>
 
     <title>HomeMate Singapore | Hire The Best Contractors</title>
     <link rel="shortcut icon" href="../../images/favicon_io/favicon.ico">
@@ -57,7 +54,7 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a href="#services" class="nav-link text-navbar">
+                    <a href="../booking/booking.html" class="nav-link text-navbar">
                         Bookings
                     </a>
                 </li>
@@ -94,21 +91,50 @@
 <div class="container w-75">
     <div class="row m-3">
         <div class="card mb-3 p-2">
-            <div class="row g-0">
-                <div class="col-md-3">
-                    <img :src="painter_information.Image" class="img-fluid rounded-start" alt="...">
+            <div class="row g-0" v-for="details, name in painter_information">
+                <div class="col-md-3" v-if="currentContractor == name">
+                    <img :src="details[0]" class="img-fluid rounded-start" alt="...">
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9" v-if="currentContractor == name">
+
+                    <!-- if session contractor matches -->
                     <div class="card-body pt-1 px-3">
-                    <h4 class="card-title">{{painter_information.Name}}</h4>
-                    <p class="card-text">Rating: <span v-html="painter_information.Rating"></span></p>
+                        <h4 class="card-title">{{name}}</h4>
+                        <p class="card-text">Rating: <span v-html="details[3]"></span></p>
 
-                    <p class="card-text"><i class="bi bi-lightning-charge"></i> Delivery Time: {{painter_information.Delivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-chat-right-dots"></i> Response Rate: {{painter_information.Responsiveness}}</p>
+                        <p class="card-text"><i class="bi bi-lightning-charge"></i> Delivery Time: {{details[1]}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-chat-right-dots"></i> Response Rate: {{details[2]}}</p>
 
-                    <p class="card-text">Whatsapp: {{painter_information.Whatsapp}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Telegram: {{painter_information.Telegram}}</p>
+                        <p class="card-text">Whatsapp: {{details[6]}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Telegram: {{details[7]}}</p>
+
+                        <p class="card-text">Service(s) offered: {{details[8]}}</p>
                     </div>
                 </div>
             </div>
+
+            <!-- if no session contractor is set -->
+            <!-- <div class="row g-0" v-else>
+                <div class="col-md-3">
+                    <img src="../../images/contractorpic1.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body pt-1 px-3">
+                        <h4 class="card-title">Ah Beng Services</h4>
+                        <p class="card-text">Rating: 
+                            <span>
+                            <i class="bi bi-star-fill pri-color"></i>
+                            <i class="bi bi-star-fill pri-color"></i>
+                            <i class="bi bi-star-fill pri-color"></i>
+                            <i class="bi bi-star-fill pri-color"></i>
+                            <i class="bi bi-star-half pri-color"></i>
+                            </span>
+                        </p>
+
+                        <p class="card-text"><i class="bi bi-lightning-charge"></i> Delivery Time: Fast &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-chat-right-dots"></i> Response Rate: Responsive</p>
+
+                        <p class="card-text">Whatsapp: 9123 4567 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Telegram: @ahbengservices</p>
+                    </div>
+                </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -163,15 +189,47 @@
             <input id="startDate" class="form-control" type="date" />
         </div>
         <div class="col-lg-3 col-sm-6">
-            <label for="startTime">Time*</label>
-            <input id="startTime" class="form-control" type="time" />
+            <!-- <label for="startTime">Time*</label>
+            <input id="startTime" class="form-control" type="time" step="600"/> -->
+            <label for="startTime">Time of Delivery (24h)*: </label>
+            <select class="form-select"id="startTime">
+                <option value="07:00">07:00</option>
+                <option value="07:30">07:30</option>
+                <option value="08:00">08:00</option>
+                <option value="08:30">08:30</option>
+                <option value="09:00">09:00</option>
+                <option value="09:30">09:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option>
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option>
+            </select>
         </div>
     </div>
 
     <div class="row justify-content-center mt-4">
         <div class="col-lg-6 col-sm-12">
-            <label for="addRequests">Additional Requests</label>
-            <textarea class="form-control" aria-label="With textarea" id="addRequests"></textarea>
+            <label for="addRequests">Note for Contractor:</label>
+            <textarea class="form-control" aria-label="With textarea" id="addRequests" placeholder="Call when you reach, any special arrangements, etc..?"></textarea>
         </div>
     </div>
 
