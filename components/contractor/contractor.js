@@ -218,6 +218,14 @@ const app = Vue.createApp({
 
         console.log(this.shown_contractors)
         console.log(this.painter_information)
+      },
+
+
+      changeservice(eachtype){
+        console.log(eachtype)
+        console.log('yes');
+        console.log(sessionStorage.getItem('service'));
+        console.log(sessionStorage.getItem('booking_contractor'));
       }
        
 

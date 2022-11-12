@@ -110,7 +110,7 @@
         
         <div class="form-check" v-for="(eachtype) in service_type">
           <input class="form-check-input" type="checkbox" value="{{eachtype}}" id="{{eachtype}}" checked v-if="sessionItem==eachtype">
-          <input class="form-check-input" type="checkbox" value="{{eachtype}}" id="{{eachtype}}" v-else>
+          <input class="form-check-input" type="checkbox" value="{{eachtype}}" id="{{eachtype}}" v-else v-on:click="changeservice(eachtype)">
           <label class="form-check-label" for="{{eachtype}}">
             {{eachtype}}
           </label>
