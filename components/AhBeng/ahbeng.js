@@ -133,11 +133,81 @@ const app = Vue.createApp({
 
             asian_paints: ["Gray Owl", "Manchester Tan", "Swiss Coffee", "White Dove", "Revere Pewter", "Swiss Coffee", "Classic Grey", "Edgecomb Gray", "Pale Oak", "Slate Grey", "Coventry Gray"],
 
-            gush_paints: ["Classic Grey", "White Dove", "Gray Owl", "Stonington Gray", "Cloud White", "Chantilly Lace", "Balboa Mist", "Classic Grey", "Edgecomb Gray", "Pale Oak", "Slate Grey", "Gray Owl"]
+            gush_paints: ["Classic Grey", "White Dove", "Gray Owl", "Stonington Gray", "Cloud White", "Chantilly Lace", "Balboa Mist", "Classic Grey", "Edgecomb Gray", "Pale Oak", "Slate Grey", "Gray Owl"],
+
+            postal_code: '',
+            
+            address: '',
+
+            validationMsg: '',
         }
     },
 
-    methods: {}
+    methods: {
+        validatePostal() {
+            if (this.postal_code.toString().length == 6) {
+                let api_endpoint_url = `https://developers.onemap.sg/commonapi/search?searchVal=${this.postal_code}&returnGeom=N&getAddrDetails=Y&pageNum=1`
+            
+                axios.get(api_endpoint_url)
+                .then(response => {
+                    if (response.data.found == 0) {
+                        this.validationMsg = `<span style="color:red; font-size:12px;">Postal Code does not exist!</span>`
+                        document.getElementById('postalCode').classList.remove('is-valid')
+                        document.getElementById('postalCode').classList.add('is-invalid')
+                        this.address = ''
+                    }
+
+                    else {
+                    let res = response.data.results
+                    // console.log(typeof res)
+                        for (details in res) {
+                            this.validationMsg = '<span style="color:green;font-size:12px;">Looks good!</span>'
+                            document.getElementById('postalCode').classList.remove('is-invalid')
+                            document.getElementById('postalCode').classList.add('is-valid')
+                            console.log(res[details]['ADDRESS'])
+
+                            if (res[details]['BUILDING'] == 'NIL') {
+                                this.address = res[details]['BLK_NO'] + ' ' + res[details]['ROAD_NAME']
+                            }
+                            else {
+                                this.address = res[details]['BLK_NO'] + ' ' + res[details]['ROAD_NAME'] + ' ' + res[details]['BUILDING']
+
+                            }
+                        }
+                    }
+                })
+            
+                .catch(error => {
+                // In case of any error, see what it's about
+                    console.log(error.message)
+            })
+            }
+        else {
+            document.getElementById('postalCode').classList.remove('is-invalid')
+            document.getElementById('postalCode').classList.remove('is-valid')
+            this.validationMsg = ``
+            this.address = ``
+        }
+        }
+    },
+
+    // computed: {
+    //     validatePostal() {
+    //         let postal_code = this.postal_code
+    //         let api_endpoint_url = `https://developers.onemap.sg/commonapi/search?searchVal=${postal_code}&returnGeom=N&getAddrDetails=Y&pageNum=1`
+        
+    //         axios.get(api_endpoint_url)
+    //         .then(response => {
+    //             let res = response.data
+    //             console.log(res)
+    //         })
+        
+    //         .catch(error => {
+    //         // In case of any error, see what it's about
+    //             console.log(error.message)
+    //     })
+    //     }
+    // }
 })
 
 app.mount(".main")
@@ -219,3 +289,4 @@ function addBookingDetails() {
         document.getElementById("status").innerHTML = "<br> Sorry, please fill up all the required details!";
     }
 }
+

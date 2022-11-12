@@ -25,6 +25,9 @@
     <!-- This is the API from Firebase Realtime Database -->
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script> 
 
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <title>HomeMate Singapore | Hire The Best Contractors</title>
     <link rel="shortcut icon" href="../../images/favicon_io/favicon.ico">
 </head>
@@ -193,9 +196,20 @@
     </div>
 
     <div class="row justify-content-center mt-4">
-        <div class="col-lg-6 col-sm-12">
+        <div class="col-lg-6 col-sm-12 has-validation">
             <label for="postalCode">Postal Code*</label>
-            <input class="form-control" type="number" id="postalCode">
+            <input class="form-control" type="number" id="postalCode" v-model="postal_code" @keyup="validatePostal" aria-describedby="postalCodeFeedback" required>
+        </div>
+        <div v-html="validationMsg">
+            
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-lg-6 col-sm-12">
+            <label for="postalCode">Address*</label>
+            <input class="form-control" type="text" id="address" v-model="address">
         </div>
     </div>
 
