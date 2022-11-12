@@ -196,13 +196,13 @@
     </div>
 
     <div class="row justify-content-center mt-4">
-        <div class="col-lg-6 col-sm-12 has-validation">
+        <div class="col-lg-6 col-sm-12">
             <label for="postalCode">Postal Code*</label>
             <input class="form-control" type="number" id="postalCode" v-model="postal_code" @keyup="validatePostal" aria-describedby="postalCodeFeedback" required>
+            <div v-html="validationMsg">
+            </div>
         </div>
-        <div v-html="validationMsg">
-            
-        </div>
+
     </div>
 
 
