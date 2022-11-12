@@ -10,6 +10,11 @@ function welcUser() {
     to_replace.innerText = `${curr_user}!`;
 }
 
+function signUserOut() {
+    sessionStorage.setItem('user', '');
+    window.location.href='../../index.html'
+}
+
 function sendService(id) {
     sessionStorage.setItem('service', id);
     console.log(sessionStorage.getItem('service'));

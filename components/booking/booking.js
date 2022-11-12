@@ -1,3 +1,8 @@
+function signUserOut() {
+    sessionStorage.setItem('user', '');
+    window.location.href='../../index.html'
+}
+
 // ----for contact form-----
 const scriptURL = 'https://script.google.com/macros/s/AKfycbwizvOy5kTk8d4CNuqCH5VRZ4L70N7MmCoSt7aqiAjsfso5lhYKh6VdywkXDQ4AP0AVYQ/exec'
 const form = document.forms['submit-to-google-sheet']

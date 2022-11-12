@@ -4,6 +4,11 @@ function checkContractoronLoad() {
     console.log(sessionStorage.getItem('contractor'))
 }
 
+function signUserOut() {
+    sessionStorage.setItem('user', '');
+    window.location.href='../../index.html'
+}
+
 
 const app = Vue.createApp({
 

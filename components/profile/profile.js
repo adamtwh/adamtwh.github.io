@@ -1,3 +1,8 @@
+function signUserOut() {
+    sessionStorage.setItem('user', '');
+    window.location.href='../../index.html'
+}
+
 const firebaseConfig = {
     apiKey: "AIzaSyAgc4cPFAh8WSRRq-_vmNHhn_eu1oJrUd4",
     authDomain: "ttj-7-7cd30.firebaseapp.com",

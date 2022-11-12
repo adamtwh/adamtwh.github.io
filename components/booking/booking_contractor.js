@@ -11,6 +11,11 @@ function welcContractor() {
     checkifBothComplete();
 }
 
+function signContractorOut() {
+    sessionStorage.setItem('contractor', '');
+    window.location.href='../../index.html'
+}
+
 
 
 // ----for contact form-----

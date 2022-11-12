@@ -2,6 +2,11 @@ function checkServiceonLoad() {
   console.log(sessionStorage.getItem('service'));
 }
 
+function signUserOut() {
+  sessionStorage.setItem('user', '');
+  window.location.href='../../index.html'
+}
+
 function sendContractor(id) {
   sessionStorage.setItem('booking_contractor', id);
   console.log(sessionStorage.getItem('booking_contractor'));
