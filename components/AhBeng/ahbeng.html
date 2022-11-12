@@ -138,7 +138,6 @@
         </div>
     </div>
 </div>
-</div>
 
 <!-- availability selection -->
 <div class="container shadow w-75 py-5">
@@ -160,7 +159,7 @@
     <div class="row justify-content-center mt-4">
         <div class="col-lg-6 col-sm-12">
             <label for="paintBrand">Paint Brand*</label>
-            <select class="form-select" aria-label="Default select example" id="paintBrand">
+            <select class="form-select" aria-label="Default select example" id="paintBrand" v-model="selected_brand">
                 <option selected disabled>Select Paint Brand</option>
                 <option value="Nippon Paint">Nippon Paint</option>
                 <option value="Dulux Paints">Dulux Paints</option>
@@ -173,12 +172,28 @@
     <div class="row justify-content-center mt-4">
         <div class="col-lg-6 col-sm-12">
             <label for="paintColours">Paint Colours*</label>
-            <select class="form-select" aria-label="Default select example" id="paintColours">
+            <select class="form-select" aria-label="Default select example" id="paintColours" v-if="selected_brand == 'Nippon Paint'">
                 <option selected disabled>Select Paint Colour</option>
-                <option value="Slate Grey">Slate Grey</option>
-                <option value="White Dove">White Dove</option>
-                <option value="Chantilly Lace">Chantilly Lace</option>
-                <option value="Cloud White">Cloud White</option>
+                <option v-for="color of nippon_paints" :value="color">{{color}}</option>
+                <option disabled>Want more paint colors? Contact Us!</option>
+            </select>
+
+            <select class="form-select" aria-label="Default select example" id="paintColours" v-if="selected_brand == 'Dulux Paints'">
+                <option selected disabled>Select Paint Colour</option>
+                <option v-for="color of dulux_paints" :value="color">{{color}}</option>
+                <option disabled>Want more paint colors? Contact Us!</option>
+            </select>
+
+            <select class="form-select" aria-label="Default select example" id="paintColours" v-if="selected_brand == 'Asian Paints'">
+                <option selected disabled>Select Paint Colour</option>
+                <option v-for="color of asian_paints" :value="color">{{color}}</option>
+                <option disabled>Want more paint colors? Contact Us!</option>
+            </select>
+
+            <select class="form-select" aria-label="Default select example" id="paintColours" v-if="selected_brand == 'Gush Paints'">
+                <option selected disabled>Select Paint Colour</option>
+                <option v-for="color of gush_paints" :value="color">{{color}}</option>
+                <option disabled>Want more paint colors? Contact Us!</option>
             </select>
         </div>
     </div>
@@ -252,6 +267,7 @@
         </div>
     </div>
     <p id="status" class="text-center" style="color: red;"></p>
+</div>
 </div>
 
 <!-- Modal for cart-->
@@ -335,7 +351,7 @@
 </section>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="ahbeng.js"></script>
 </body>
 </html>

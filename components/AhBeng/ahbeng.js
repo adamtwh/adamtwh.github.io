@@ -117,8 +117,18 @@ const app = Vue.createApp({
                     "8491 6324",
                     "@kjandco",
                     "Plumbing, Drilling"
-                ],
+                ]
             },
+
+            selected_brand: "",
+
+            nippon_paints: ["Slate Grey", "White Dove", "Chantilly Lace", "Cloud White", "White Heron", "Swiss Coffee", "Classic Grey", "Calm", "Pale Oak", "Gray Owl"],
+
+            dulux_paints: ["Classic Grey", "White Dove", "Chantilly Lace", "Cloud White", "Revere Pewter", "Swiss Coffee", "Classic Grey", "Edgecomb Gray", "Pale Oak", "Slate Grey", "Gray Owl"],
+
+            asian_paints: ["Gray Owl", "Manchester Tan", "Swiss Coffee", "White Dove", "Revere Pewter", "Swiss Coffee", "Classic Grey", "Edgecomb Gray", "Pale Oak", "Slate Grey", "Coventry Gray"],
+
+            gush_paints: ["Classic Grey", "White Dove", "Gray Owl", "Stonington Gray", "Cloud White", "Chantilly Lace", "Balboa Mist", "Classic Grey", "Edgecomb Gray", "Pale Oak", "Slate Grey", "Gray Owl"]
         }
     },
 
