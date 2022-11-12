@@ -21,6 +21,12 @@ function sendService(id) {
     window.location.href='../contractor/conpage.html'
 }
 
+function sendContractor(id) {
+    sessionStorage.setItem('booking_contractor', id);
+    console.log(sessionStorage.getItem('booking_contractor'));
+    window.location.href='../AhBeng/ahbeng.html'
+}
+
 
 // ----for contact form-----
 const scriptURL = 'https://script.google.com/macros/s/AKfycbwizvOy5kTk8d4CNuqCH5VRZ4L70N7MmCoSt7aqiAjsfso5lhYKh6VdywkXDQ4AP0AVYQ/exec'
