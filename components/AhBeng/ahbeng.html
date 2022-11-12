@@ -31,7 +31,7 @@
     <title>HomeMate Singapore | Hire The Best Contractors</title>
     <link rel="shortcut icon" href="../../images/favicon_io/favicon.ico">
 </head>
-<body>
+<body onload="checkContractoronLoad()">
 
 <div class="main">
 <nav class="navbar navbar-expand-sm navbar-dark">
@@ -106,10 +106,6 @@
                     <p class="card-text"><i class="bi bi-lightning-charge"></i> Delivery Time: {{painter_information.Delivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-chat-right-dots"></i> Response Rate: {{painter_information.Responsiveness}}</p>
 
                     <p class="card-text">Whatsapp: {{painter_information.Whatsapp}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Telegram: {{painter_information.Telegram}}</p>
-                    
-                    <p class="card-text"></i> Currently has: {{painter_information.Pending}} pending request(s), {{painter_information.Accepted}} accepted request(s)</p>
-
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,15 @@
+function checkServiceonLoad() {
+  console.log(sessionStorage.getItem('service'));
+}
+
+function sendContractor(id) {
+  sessionStorage.setItem('booking_contractor', id);
+  console.log(sessionStorage.getItem('booking_contractor'));
+  window.location.href='../AhBeng/ahbeng.html'
+}
+
+
+
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function myFunction() {
@@ -36,6 +48,8 @@ const app = Vue.createApp({
             //     "Average Delivery Time",
             //     "Average Price"
             // ],
+
+            sessionItem: sessionStorage.getItem('service'),
 
             house_filters:[
                 "HDB",
@@ -82,9 +96,10 @@ const app = Vue.createApp({
                     <i class="bi bi-star-fill pri-color"></i>
                     <i class="bi bi-star-half pri-color"></i>`,
                     "HDB,Condominium,Landed",
-                    "../AhBeng/ahbeng.html"
+                    "../AhBeng/ahbeng.html",
+                    "Painting,Landscaping"
                 ],
-                "Beng Huat Painting": [
+                "Ah Yong Services": [
                     "../../images/contractorpic2.jpg",
                     "Fast",
                     "Responsive",
@@ -94,9 +109,10 @@ const app = Vue.createApp({
                     <i class="bi bi-star-fill pri-color"></i>
                     <i class="bi bi-star-fill pri-color"></i>`,
                     "HDB,Condominium,Landed,Commercial",
-                    "../BengHuat/benghuat.html"
+                    "../AhBeng/ahbeng.html",
+                    "Plumbing,Electrical"
                 ],
-                "Seng Choo Pte Ltd": [
+                "Jar Fix Pte Ltd": [
                     "../../images/contractorpic3.jpg",
                     "Moderate",
                     "Slow",
@@ -106,21 +122,49 @@ const app = Vue.createApp({
                     <i class="bi bi-star"></i>
                     <i class="bi bi-star"></i>`,
                     "HDB,Condominium",
-                    "../SengChoo/sengchoo.html"
+                    "../AhBeng/ahbeng.html",
+                    "Handyman"
                 ],
-                "HomeID Painting Co.": [
-                    "../../images/contractorpic4.jpeg",
-                    "Moderate",
-                    "Slow",
+                "Kim Carpentry": [
+                    "../../images/contractorpic5.jpg",
+                    "Fast",
+                    "Responsive",
                     `<i class="bi bi-star-fill pri-color"></i>
                     <i class="bi bi-star-fill pri-color"></i>
                     <i class="bi bi-star-fill pri-color"></i>
                     <i class="bi bi-star-fill pri-color"></i>
-                    <i class="bi bi-star"></i>`,
-                    "HDB,Condominium,Commercial",
-                    "../HomeIDPainting/homeidpainting.html"
+                    <i class="bi bi-star-fill pri-color"></i>`,
+                    "Landed,Commercial",
+                    "../AhBeng/ahbeng.html",
+                    "Carpentry"
                 ],
-            },
+                "Takeoff Movers": [
+                  "../../images/contractorpic6.jpg",
+                  "Moderate",
+                  "Responsive",
+                  `<i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-half pri-color"></i>`,
+                  "HDB,Condominium,Landed",
+                  "../AhBeng/ahbeng.html",
+                  "Moving,Electrical"
+                ],
+                "K.J & Co": [
+                  "../../images/contractorpic7.jpeg",
+                  "Fast",
+                  "Responsive",
+                  `<i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>`,
+                  "HDB,Landed",
+                  "../AhBeng/ahbeng.html",
+                  "Plumbing,Drilling"
+                ],
+              },
 
             selected_filters: [],
 

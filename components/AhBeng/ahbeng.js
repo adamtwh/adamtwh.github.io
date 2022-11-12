@@ -1,3 +1,8 @@
+function checkContractoronLoad() {
+    console.log(sessionStorage.getItem('booking_contractor'));
+}
+
+
 const app = Vue.createApp({
 
     // Data Properties
@@ -16,8 +21,6 @@ const app = Vue.createApp({
                 <i class="bi bi-star-half pri-color"></i>`,
                 "Whatsapp": "+65 9123 4567",
                 "Telegram": "@ahbengservices",
-                "Pending": 0,
-                "Accepted": 1
             },
         }
     },

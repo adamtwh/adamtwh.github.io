@@ -23,7 +23,7 @@
     <title>HomeMate Singapore | Hire The Best Contractors</title>
     <link rel="shortcut icon" href="../../images/favicon_io/favicon.ico">
 </head>
-<body>
+<body onload="checkServiceonLoad()">
 
   <div class="main">
     <nav class="navbar navbar-expand-sm navbar-dark">
@@ -109,7 +109,8 @@
         <a href="#tools">Tools</a> -->
         
         <div class="form-check" v-for="(eachtype) in service_type">
-          <input class="form-check-input" type="checkbox" value="{{eachtype}}" id="{{eachtype}}">
+          <input class="form-check-input" type="checkbox" value="{{eachtype}}" id="{{eachtype}}" checked v-if="sessionItem==eachtype">
+          <input class="form-check-input" type="checkbox" value="{{eachtype}}" id="{{eachtype}}" v-else>
           <label class="form-check-label" for="{{eachtype}}">
             {{eachtype}}
           </label>
@@ -146,14 +147,14 @@
   <div class="container" v-if="selected_filters.length == 0">
     <div class="row m-3">
       <div class="col" v-for="each, name in painter_information">
-        <div class="card p-5 text-center" style="width: 23rem;">
+        <div class="card mt-5 p-5 text-center" style="width: 23rem;">
           <img class="card-img-top mx-auto w-50" v-bind:src="each[0]" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{name}}</h5>
             <p class="card-text"><i class="bi bi-lightning-charge"></i> Delivery Time: {{each[1]}}</p>
             <p class="card-text"><i class="bi bi-chat-right-dots"></i> Response Rate: {{each[2]}}</p>
             <p class="card-text">Rating: <span v-html="each[3]"></span></p>
-            <a :href="each[5]">
+            <a :href="each[5]" onclick="sendContractor(this.id);return false;" :id="name">
               <button class="btn rounded-pill" style="font-weight: bold; background-color: #e6b30e; color:white">More Details<i class="bi bi-arrow-right"></i></button>
             </a>
           </div>
@@ -174,7 +175,7 @@
             <p class="card-text"><i class="bi bi-lightning-charge"></i> Delivery Time: {{each[1]}}</p>
             <p class="card-text"><i class="bi bi-chat-right-dots"></i> Response Rate: {{each[2]}}</p>
             <p class="card-text">Rating: <span v-html="each[3]"></span></p>
-            <a :href="each[5]">
+            <a :href="each[5]" onclick="sendContractor(this.id);return false;" :id="name">
               <button class="btn rounded-pill" style="font-weight: bold; background-color: #e6b30e; color:white">More Details<i class="bi bi-arrow-right"></i></button>
             </a>
           </div>
