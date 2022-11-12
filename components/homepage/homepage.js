@@ -7,7 +7,7 @@ function welcUser() {
     
     var to_replace = document.getElementById("welcUser");
 
-    to_replace.innerText = `${curr_user}!`;
+    to_replace.innerText = `${curr_user}`;
 }
 
 function signUserOut() {

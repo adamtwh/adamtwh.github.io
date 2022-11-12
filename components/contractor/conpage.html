@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />  
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
@@ -10,6 +10,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../homepage/hpstyle.css">
     <link rel="stylesheet" href="contractor.css">
+    <link rel="stylesheet" href="../booking/booking.css">
 
     <!-- Lato (sans serif) Font -->
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
@@ -34,7 +35,7 @@
               <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
           </svg>
           <!-- Brand Name -->
-          <a href="../../index.html" class="navbar-brand" >
+          <a href="../homepage/homepage.html" class="navbar-brand" >
               <p class="text-navbar" style="margin-top: 8px; font-size: 24px;">&nbsp;homemate</p>
           </a>
 
@@ -47,6 +48,12 @@
           <!-- Navbar Options -->
           <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                <li class="nav-item">
+                  <a href="../homepage/homepage.html" class="nav-link text-navbar">
+                      Home
+                  </a>
+                </li>
 
                   <li class="nav-item">
                       <a href="#services" class="nav-link text-navbar">
@@ -87,24 +94,14 @@
               </ul>
           </div>
       </div>
-  </nav>
-  
-    <!-- <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown button
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <div>a</div>
-        <div>b</div>
-        <div>c</div>
-      </div>
-    </div> -->
+  </nav> 
   
 
-  <div class="container mx-auto">
-    <div class="dropdown ms-3">
+  <div class="container">
+
+    <!-- <div class="dropdown ms-3">
       <button onclick="myFunction2()" class="dropbtn">Service Type <i class="bi bi-filter"></i></button>
-      <div id="myDropdown2" class="dropdown-content2">
+      <div id="myDropdown2" class="dropdown-content2"> -->
         <!-- <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"> -->
         <!-- <a href="#about">About</a>
         <a href="#base">Base</a>
@@ -114,7 +111,7 @@
         <a href="#support">Support</a>
         <a href="#tools">Tools</a> -->
         
-        <div class="form-check" v-for="(eachtype) in service_type">
+        <!-- <div class="form-check" v-for="(eachtype) in service_type">
           <input class="form-check-input" type="checkbox" value="{{eachtype}}" id="{{eachtype}}" checked v-if="sessionItem==eachtype">
           <input class="form-check-input" type="checkbox" value="{{eachtype}}" id="{{eachtype}}" v-else v-on:click="changeservice(eachtype)">
           <label class="form-check-label" for="{{eachtype}}">
@@ -124,11 +121,11 @@
   
         
       </div>
-  </div>
+  </div> -->
 
-    <div class="dropdown ms-3">
+    <!-- <div class="dropdown ms-3">
     <button onclick="myFunction()" class="dropbtn">Housing Type <i class="bi bi-house"></i></button>
-    <div id="myDropdown" class="dropdown-content">
+    <div id="myDropdown" class="dropdown-content"> -->
       <!-- <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"> -->
       <!-- <a href="#about">About</a>
       <a href="#base">Base</a>
@@ -138,7 +135,7 @@
       <a href="#support">Support</a>
       <a href="#tools">Tools</a> -->
       
-      <div class="form-check" v-for="(eachfilter) in house_filters">
+      <!-- <div class="form-check" v-for="(eachfilter) in house_filters">
         <input class="form-check-input" type="checkbox" value="{{eachfilter}}" id="{{eachfilter}}" v-on:click="addselection(eachfilter)">
         <label class="form-check-label" for="{{eachfilter}}">
           {{eachfilter}}
@@ -146,47 +143,267 @@
       </div>
     </div>
 
+  </div> -->
+
+  <div class="dropdown mt-3 mx-3">
+    <button class="btn dropdown-toggle" style="background-color:var(--sec1); color:white;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Service Type <i class="bi bi-filter"></i>
+    </button>
+    <ul class="dropdown-menu">
+      <li v-for="eachtype in service_type">
+        <a class="dropdown-item" href="#">
+          <input class="form-check-input" type="checkbox" :value="eachtype" :id="eachtype" checked v-if="sessionItem==eachtype">
+          <input class="form-check-input" type="checkbox" :value="eachtype" :id="eachtype" v-else v-on:click="changeservice(eachtype)">
+          <label class="form-check-label" :for="eachtype">
+            &nbsp; {{eachtype}}
+          </label>
+      </a>
+    </li>
+    </ul>
   </div>
 
+  <div class="dropdown mt-3 mx-3">
+    <button class="btn dropdown-toggle" style="background-color:var(--sec1); color:white;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Housing Type <i class="bi bi-house"></i>
+    </button>
+    <ul class="dropdown-menu">
+      <li v-for="eachfilter in house_filters">
+        <a class="dropdown-item" href="#">
+          <input class="form-check-input" type="checkbox" :value="eachfilter" :id="eachfilter" v-on:click="addselection(eachfilter)">
+          <label class="form-check-label" :for="eachfilter">
+            &nbsp; {{eachfilter}}
+          </label>
+      </a>
+    </li>
+    </ul>
+  </div>
+
+</div>
   <!-- if no filter selected -->
   
   <div class="container" v-if="selected_filters.length == 0">
     <div class="row m-3">
-      <div class="col" v-for="each, name in specific_contractors">
+
+      <!-- <div class="col" v-for="each, name in specific_contractors">
         <div class="card mt-5 p-5 text-center" style="width: 23rem;">
           <img class="card-img-top mx-auto w-50" v-bind:src="each[0]" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{name}}</h5>
-            <p class="card-text"><i class="bi bi-lightning-charge"></i> Delivery Time: {{each[1]}}</p>
-            <p class="card-text"><i class="bi bi-chat-right-dots"></i> Response Rate: {{each[2]}}</p>
+
+            Condition for Color of Delivery Time value
+            <p class="card-text" v-if="each[1] == 'Fast'">
+              <i class="bi bi-lightning-charge" style="color:green"></i> 
+              Delivery Time: <span class='fw-bold' style="color:green">{{each[1]}}</span>
+            </p>
+
+            <p class="card-text" v-else-if="each[1] == 'Moderate'">
+              <i class="bi bi-lightning-charge" style="color:goldenrod"></i> 
+              Delivery Time: <span class='fw-bold' style="color:goldenrod">{{each[1]}}</span>
+            </p>
+
+            <p class="card-text" v-else>
+              <i class="bi bi-lightning-charge" style="color:red"></i> 
+              Delivery Time: <span class='fw-bold' style="color:red">{{each[1]}}</span>
+            </p>
+
+            Condition for Color of Response Rate value
+            <p class="card-text" v-if="each[2] == 'Responsive'">
+              <i class="bi bi-chat-right-dots" style="color:green"></i>
+              Response Rate: <span class='fw-bold' style="color:green">{{each[2]}}</span>
+            </p>
+
+            <p class="card-text" v-else-if="each[2] == 'Moderate'">
+              <i class="bi bi-chat-right-dots" style="color:goldenrod"></i>
+              Response Rate: <span class='fw-bold' style="color:goldenrod">{{each[2]}}</span>
+            </p>
+
+            <p class="card-text" v-if="each[2] == 'Slow'">
+              <i class="bi bi-chat-right-dots" style="color:red"></i>
+              Response Rate: <span class='fw-bold' style="color:red">{{each[2]}}</span>
+            </p>
+            
             <p class="card-text">Rating: <span v-html="each[3]"></span></p>
             <a :href="each[5]" onclick="sendContractor(this.id);return false;" :id="name">
               <button class="btn rounded-pill" style="font-weight: bold; background-color: #e6b30e; color:white">More Details<i class="bi bi-arrow-right"></i></button>
             </a>
           </div>
         </div>
-      </div>
+      </div> -->
       
+      <section class="search-result-item mt-5" v-for="each, name in specific_contractors">
+        <a class="image-link" href="#"><img class="image img-fluid rounded-start" :src="each[0]"></a>
+        <div class="search-result-item-body">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h4 class="search-result-item-heading">{{name}}</h4>
+                    <p class="info">
+                    Whatsapp: {{each[7]}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Telegram: {{each[8]}}</p>
+                    <br>
+
+                    <!-- Delivery Time Conditions -->
+                    <h5 v-if="each[1] == 'Fast'">
+                      <i class="bi bi-lightning-charge" style="color:green"></i>
+                      Delivery Time: 
+                      <span class='fw-bold' style="color:green">{{each[1]}}</span>
+                    </h5>
+                    <h5 v-else-if="each[1] == 'Moderate'">
+                      <i class="bi bi-lightning-charge" style="color:goldenrod"></i>
+                      Delivery Time: 
+                      <span class='fw-bold' style="color:goldenrod">{{each[1]}}</span>
+                    </h5>
+                    <h5 v-else>
+                      <i class="bi bi-lightning-charge" style="color:red"></i>
+                      Delivery Time: 
+                      <span class='fw-bold' style="color:red">{{each[1]}}</span>
+                    </h5>
+
+                    <!-- Response Rate Conditions -->
+                    <h5 v-if="each[2] == 'Responsive'">
+                      <i class="bi bi-chat-right-dots" style="color:green"></i>
+                        Response Rate:
+                        <span class='fw-bold' style="color:green">{{each[2]}}</span>
+                    </h5>
+                    <h5 v-else-if="each[2] == 'Moderate'">
+                      <i class="bi bi-chat-right-dots" style="color:goldenrod"></i>
+                        Response Rate:
+                        <span class='fw-bold' style="color:goldenrod">{{each[2]}}</span>
+                    </h5>
+                    <h5 v-else>
+                      <i class="bi bi-chat-right-dots" style="color:red"></i>
+                        Response Rate:
+                        <span class='fw-bold' style="color:red">{{each[2]}}</span>
+                    </h5>
+
+                    <h5>Services Provided</h5>
+                    <ul>
+                        <li><h6>{{each[6]}}</h6></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 text-align-center">
+                    <p class="mt-sm" style="font-size: 24px; font-weight:bold; color: var(--sec1);">RATING:</p>
+                    <span style="font-size: 24px;" v-html="each[3]"></span>
+                    <br><br><br><br>
+                    <a :href="each[5]" onclick="sendContractor(this.id);return false;" :id="name">
+                      <button class="btn rounded-pill" style="font-weight: bold; background-color: #e6b30e; color:white">More Details<i class="bi bi-arrow-right"></i></button>
+                    </a>
+                  </div>
+            </div>
+        </div>
+      </section>
+
     </div>
   </div>
 
   <!-- with filters selected -->
   <div class="container" v-else>
     <div class="row m-3">
-      <div class="col" v-for="each, name in shown_contractors">
+
+      <!-- <div class="col" v-for="each, name in shown_contractors">
         <div class="card p-5 text-center" style="width: 23rem;">
           <img class="card-img-top mx-auto w-50" v-bind:src="each[0]" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{name}}</h5>
-            <p class="card-text"><i class="bi bi-lightning-charge"></i> Delivery Time: {{each[1]}}</p>
-            <p class="card-text"><i class="bi bi-chat-right-dots"></i> Response Rate: {{each[2]}}</p>
+
+            Condition for Color of Delivery Time value
+            <p class="card-text" v-if="each[1] == 'Fast'">
+              <i class="bi bi-lightning-charge" style="color:green"></i> 
+              Delivery Time: <span class='fw-bold' style="color:green">{{each[1]}}</span>
+            </p>
+
+            <p class="card-text" v-else-if="each[1] == 'Moderate'">
+              <i class="bi bi-lightning-charge" style="color:goldenrod"></i> 
+              Delivery Time: <span class='fw-bold' style="color:goldenrod">{{each[1]}}</span>
+            </p>
+
+            <p class="card-text" v-else>
+              <i class="bi bi-lightning-charge" style="color:red"></i> 
+              Delivery Time: <span class='fw-bold' style="color:red">{{each[1]}}</span>
+            </p>
+
+            Condition for Color of Response Rate value
+            <p class="card-text" v-if="each[2] == 'Responsive'">
+              <i class="bi bi-chat-right-dots" style="color:green"></i>
+              Response Rate: <span class='fw-bold' style="color:green">{{each[2]}}</span>
+            </p>
+
+            <p class="card-text" v-else-if="each[2] == 'Moderate'">
+              <i class="bi bi-chat-right-dots" style="color:goldenrod"></i>
+              Response Rate: <span class='fw-bold' style="color:goldenrod">{{each[2]}}</span>
+            </p>
+
+            <p class="card-text" v-if="each[2] == 'Slow'">
+              <i class="bi bi-chat-right-dots" style="color:red"></i>
+              Response Rate: <span class='fw-bold' style="color:red">{{each[2]}}</span>
+            </p>
+
             <p class="card-text">Rating: <span v-html="each[3]"></span></p>
             <a :href="each[5]" onclick="sendContractor(this.id);return false;" :id="name">
               <button class="btn rounded-pill" style="font-weight: bold; background-color: #e6b30e; color:white">More Details<i class="bi bi-arrow-right"></i></button>
             </a>
           </div>
         </div>
-      </div>
+      </div> -->
+
+      <section class="search-result-item mt-5" v-for="each, name in shown_contractors">
+        <a class="image-link" href="#"><img class="image img-fluid rounded-start" :src="each[0]"></a>
+        <div class="search-result-item-body">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h4 class="search-result-item-heading">{{name}}</h4>
+                    <p class="info">
+                    Whatsapp: {{each[7]}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Telegram: {{each[8]}}</p>
+                    <br>
+
+                    <!-- Delivery Time Conditions -->
+                    <h5 v-if="each[1] == 'Fast'">
+                      <i class="bi bi-lightning-charge" style="color:green"></i>
+                      Delivery Time: 
+                      <span class='fw-bold' style="color:green">{{each[1]}}</span>
+                    </h5>
+                    <h5 v-else-if="each[1] == 'Moderate'">
+                      <i class="bi bi-lightning-charge" style="color:goldenrod"></i>
+                      Delivery Time: 
+                      <span class='fw-bold' style="color:goldenrod">{{each[1]}}</span>
+                    </h5>
+                    <h5 v-else>
+                      <i class="bi bi-lightning-charge" style="color:red"></i>
+                      Delivery Time: 
+                      <span class='fw-bold' style="color:red">{{each[1]}}</span>
+                    </h5>
+
+                    <!-- Response Rate Conditions -->
+                    <h5 v-if="each[2] == 'Responsive'">
+                      <i class="bi bi-chat-right-dots" style="color:green"></i>
+                        Response Rate:
+                        <span class='fw-bold' style="color:green">{{each[2]}}</span>
+                    </h5>
+                    <h5 v-else-if="each[2] == 'Moderate'">
+                      <i class="bi bi-chat-right-dots" style="color:goldenrod"></i>
+                        Response Rate:
+                        <span class='fw-bold' style="color:goldenrod">{{each[2]}}</span>
+                    </h5>
+                    <h5 v-else>
+                      <i class="bi bi-chat-right-dots" style="color:red"></i>
+                        Response Rate:
+                        <span class='fw-bold' style="color:red">{{each[2]}}</span>
+                    </h5>
+
+                    <h5>Services Provided</h5>
+                    <ul>
+                        <li><h6>{{each[6]}}</h6></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 text-align-center">
+                    <p class="mt-sm" style="font-size: 24px; font-weight:bold; color: var(--sec1);">RATING:</p>
+                    <span style="font-size: 24px;" v-html="each[3]"></span>
+                    <br><br><br><br>
+                    <a :href="each[5]" onclick="sendContractor(this.id);return false;" :id="name">
+                      <button class="btn rounded-pill" style="font-weight: bold; background-color: #e6b30e; color:white">More Details<i class="bi bi-arrow-right"></i></button>
+                    </a>
+                  </div>
+            </div>
+        </div>
+      </section>
       
     </div>
   </div>

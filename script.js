@@ -132,11 +132,11 @@ function loginSwap() {
                         <div class="col-md-6">
                         <h4 class="text-header text-white">Log in to get started</h4>
                             <form>
-                                <div class="form-row" style="border-bottom: 1px solid var(--sec1)">
+                                <div class="form-row" style="border-bottom: 1px solid var(--sec2)">
                                     <input id="id" type="text" placeholder="Username or email address" class="form-control bg-transparent text-white text-wrap fw-bold">
                                 </div>
 
-                                <div class="form-row" style="border-bottom: 1px solid var(--sec1)">
+                                <div class="form-row" style="border-bottom: 1px solid var(--sec2)">
                                     <input id="password" type="password" placeholder="Password" class="form-control bg-transparent text-white fw-bold">
                                 </div>
 
@@ -157,7 +157,7 @@ function loginSwap() {
                                 <div class="form-row">
                                     
 
-                                    <p class="fw-bold text-white">Are you a <span style="color: var(--sec3)">contractor</span>?
+                                    <p class="fw-bold text-white">Are you a <span style="color: var(--pri)">contractor</span>?
                                     <button type="button" class="btn-login" onclick="contractorSwap()" style="background-color: var(--sec3)">
                                     Click Here &nbsp; <i class="bi bi-arrow-repeat"></i>
                                     </button>
@@ -205,7 +205,7 @@ function contractorSwap() {
 
                                 <div class="form-row">
                                     
-                                <p class="fw-bold text-white">Are you a <span style="color:var(--sec3)">homeowner</span>? 
+                                <p class="fw-bold text-white">Are you a <span style="color:var(--sec2)">homeowner</span>? 
                                     <button type="button" class="btn-login" onclick="loginSwap()" style="background-color: var(--sec3)">
                                     Click Here &nbsp; <i class="bi bi-arrow-repeat"></i>
                                     </button>

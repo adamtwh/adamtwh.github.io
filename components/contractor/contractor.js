@@ -102,7 +102,9 @@ const app = Vue.createApp({
                     <i class="bi bi-star-half pri-color"></i>`,
                     "HDB,Condominium,Landed",
                     "../AhBeng/ahbeng.html",
-                    "Painting,Landscaping"
+                    "Painting,Landscaping",
+                    "+65 9123 4567",
+                    "@ahbengservices"
                 ],
                 "Ah Yong Services": [
                     "../../images/contractorpic2.jpg",
@@ -115,7 +117,9 @@ const app = Vue.createApp({
                     <i class="bi bi-star-fill pri-color"></i>`,
                     "HDB,Condominium,Landed,Commercial",
                     "../AhBeng/ahbeng.html",
-                    "Plumbing,Electrical"
+                    "Plumbing,Electrical",
+                    "+65 9123 2344",
+                    "@ahyongservices"
                 ],
                 "Jar Fix Pte Ltd": [
                     "../../images/contractorpic3.jpg",
@@ -128,7 +132,9 @@ const app = Vue.createApp({
                     <i class="bi bi-star"></i>`,
                     "HDB,Condominium",
                     "../AhBeng/ahbeng.html",
-                    "Handyman"
+                    "Handyman",
+                    "+65 9321 4567",
+                    "@jarfix"
                 ],
                 "Kim Carpentry": [
                     "../../images/contractorpic5.jpg",
@@ -141,7 +147,9 @@ const app = Vue.createApp({
                     <i class="bi bi-star-fill pri-color"></i>`,
                     "Landed,Commercial",
                     "../AhBeng/ahbeng.html",
-                    "Carpentry"
+                    "Carpentry",
+                    "+65 9122 4677",
+                    "@kimcarpentry"
                 ],
                 "Takeoff Movers": [
                   "../../images/contractorpic6.jpg",
@@ -154,7 +162,9 @@ const app = Vue.createApp({
                   <i class="bi bi-star-half pri-color"></i>`,
                   "HDB,Condominium,Landed",
                   "../AhBeng/ahbeng.html",
-                  "Moving,Electrical"
+                  "Moving,Electrical",
+                  "+65 9123 3219",
+                  "@takeoffmovers"
                 ],
                 "K.J & Co": [
                   "../../images/contractorpic7.jpeg",
@@ -167,7 +177,9 @@ const app = Vue.createApp({
                   <i class="bi bi-star-fill pri-color"></i>`,
                   "HDB,Landed",
                   "../AhBeng/ahbeng.html",
-                  "Plumbing,Drilling"
+                  "Plumbing,Drilling",
+                  "+65 9123 0912",
+                  "@tkjco"
                 ],
               },
 
