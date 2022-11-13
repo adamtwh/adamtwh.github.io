@@ -99,6 +99,17 @@ function dynamicCurrent() {
                 var user = booking_obj.user;
                 var contractor_name = booking_obj.contractor;
                 var curr_contractor = sessionStorage.getItem('contractor');
+                var booking_date = new Date(date);
+                var today = new Date();
+
+                var dateInPast = function(firstDate, secondDate) {
+                    if (firstDate.setHours(0, 0, 0, 0) <= secondDate.setHours(0, 0, 0, 0)) {
+                        console.log("it's in the past!")
+                        return true
+                    }
+                    console.log("it's in the future!")
+                    return false
+                };
 
                 if (contractor_name == curr_contractor) {
                     if (user == "adam") {
@@ -106,7 +117,7 @@ function dynamicCurrent() {
                     } else {
                         var user_pic = "../../images/empty_profile.png";
                     }
-                    if (currentdate.getDate() > date.slice(0,4) || currentdate.getMonth()+1 > date.slice(5,7)) {
+                    if (dateInPast(booking_date, today)) {
                         curr_result += `
                         <section class="search-result-item mt-5">
                             <a class="image-link" href="#"><img class="image img-fluid rounded-start" src="${user_pic}">

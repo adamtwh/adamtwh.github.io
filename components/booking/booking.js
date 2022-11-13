@@ -132,8 +132,21 @@ function dynamicCurrent() {
                 var service = booking_obj.service
                 var booking_user = booking_obj.user;
                 curr_user = sessionStorage.getItem('user');
+
+                var booking_date = new Date(date);
+                var today = new Date();
+
+                var dateInPast = function(firstDate, secondDate) {
+                    if (firstDate.setHours(0, 0, 0, 0) <= secondDate.setHours(0, 0, 0, 0)) {
+                        console.log("it's in the past!")
+                        return true
+                    }
+                    console.log("it's in the future!")
+                    return false
+                };
+                
                 if (curr_user == booking_user) {
-                    if (currentdate.getDate() > date.slice(0,4) || currentdate.getMonth()+1 > date.slice(5,7)) {
+                    if (dateInPast(booking_date, today)) {
 
                         curr_result += `
                         <section class="search-result-item mt-5">
