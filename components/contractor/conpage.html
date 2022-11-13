@@ -231,6 +231,12 @@
           </div>
         </div>
       </div> -->
+
+      <section class="mt-5" v-if="(typeof specific_contractors !== 'undefined' && specific_contractors !== null)">
+        <h2 class="text-header">No contractors found! Try <span style="color: var(--sec2)">widening</span> your search criteria.</h2>
+        <h5 class="text-header">Alternatively, <a href="#contact">contact us</a> for more help.</h5>
+        <img src="../../images/construction.svg" class="img-fluid d-none d-sm-block mx-auto" style="width: 45%;">
+      </section>
       
       <section class="search-result-item mt-5" v-for="each, name in specific_contractors">
         <a class="image-link" href="#"><img class="image img-fluid rounded-start" :src="each[0]"></a>
@@ -345,6 +351,12 @@
           </div>
         </div>
       </div> -->
+
+      <section class="mt-5" v-if="(typeof shown_contractors !== 'undefined' && shown_contractors !== null)">
+        <h2 class="text-header">No contractors found! Try <span style="color: var(--sec2)">widening</span> your search criteria.</h2>
+        <h5 class="text-header">Alternatively, <a href="#contact">contact us</a> for more help.</h5>
+        <img src="../../images/construction.svg" class="img-fluid d-none d-sm-block mx-auto" style="width: 45%;">
+      </section>
 
       <section class="search-result-item mt-5" v-for="each, name in shown_contractors">
         <a class="image-link" href="#"><img class="image img-fluid rounded-start" :src="each[0]"></a>
