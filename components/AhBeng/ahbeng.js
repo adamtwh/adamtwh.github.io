@@ -122,7 +122,52 @@ const app = Vue.createApp({
                     "8491 6324",
                     "@kjandco",
                     "Plumbing, Drilling"
-                ]
+                ],
+                "Get Fix Pro": [
+                    "../../images/contractorpic8.jpg",
+                    "Fast",
+                    "Moderate",
+                    `<i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star"></i>`,
+                    "Commercial",
+                    "../AhBeng/ahbeng.html",
+                    "9029 3901",
+                    "@getfixpro",
+                    "Painting, Landscaping, Plumbing"
+                ],
+                "Shape Up Pte Ltd": [
+                "../../images/defaultpic.jpg",
+                "Slow",
+                "Slow",
+                `<i class="bi bi-star-fill pri-color"></i>
+                <i class="bi bi-star-fill pri-color"></i>
+                <i class="bi bi-star-fill pri-color"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>`,
+                "HDB,Condominium,Landed,Commercial",
+                "../AhBeng/ahbeng.html",
+                "8464 9664",
+                "@shapeup",
+                "Painting, Drilling, Air Conditioning"
+                ],
+                "Gen Fix": [
+                "../../images/defaultpic.jpg",
+                "Slow",
+                "Slow",
+                `<i class="bi bi-star-fill pri-color"></i>
+                <i class="bi bi-star-fill pri-color"></i>
+                <i class="bi bi-star-half pri-color"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>`,
+                "HDB,Condominium,Landed",
+                "../AhBeng/ahbeng.html",
+                "9945 9265",
+                "@genfix",
+                "Painting, Moving, Carpentry"
+                ],
             },
 
             selected_brand: "",

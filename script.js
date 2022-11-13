@@ -66,51 +66,41 @@ function goNextUser(login_user) {
 
 function loginIfContractorExists(userId, pwd) {
 
-    var contractor = firebase.database().ref('contractors/' + userId);
-    var password_contractor = firebase.database().ref('contractors/' + userId + "/" + "password");
-    var name_contractor = firebase.database().ref('contractors/' + userId + "/" + "name");
+    var contractor = firebase.database().ref('contractors');
+    var userid_validation = false;
+    var password_validation = false;
 
-    var login_contractor = false;
-    var contractor_name = "";
+    contractor.on('value', (snapshot) => {
+        for (key in snapshot.val()) {
+            var contractor_id = key;
+            var contractor_details = snapshot.val()[key];
 
-    contractor.once('value').then((snapshot3) => {
-        if(snapshot3.exists()) {
-            console.log("contractor exists!")
+            if (contractor_id == userId && contractor_details.password == pwd) {
+                var contractor_name = contractor_details.name;
+                userid_validation = true;
+                password_validation = true;
+
+            } else if (contractor_id == userId && contractor_details.password != pwd) {
+                userid_validation = true;
+            }
         }
-        else {
+
+        if (userid_validation == true && password_validation == true) {
+            console.log("both user and password matches!")
+            goNextContractor(contractor_name);
+        } else if (userid_validation == true && password_validation == false) {
+            console.log("contractor exists, but password does not match")
+            document.getElementById("status").innerText = "Sorry, your password was incorrect. \n Please double-check your password.";
+        } else {
             console.log("contractor does not exist!")
             document.getElementById("status").innerText = "Sorry, contractor does not exist!";
         }
-    });
-
-    password_contractor.on('value', (snapshot4) => {
-        var password_contractor_value = snapshot4.val();
-        console.log(password_contractor_value);
-        if (password_contractor_value == pwd) {
-            login_contractor = true;
-            console.log("password matches!")
-            
-        } else {
-            console.log("password does not match!")
-            login_contractor = false;
-        }
-    });
-
-    name_contractor.on('value', (snapshot5) => {
-        var name_contractor_value = snapshot5.val();
-        contractor_name = name_contractor_value;
-    });
-
-    window.setTimeout(goNextContractor(login_contractor, contractor_name), 0);
+    })
 }
 
-function goNextContractor(login_contractor, contractor_name) {
-    if (login_contractor == true) {
-        sessionStorage.setItem('contractor', contractor_name);
-        window.location.href='components/booking/booking_contractor.html'
-    } else {
-        document.getElementById("status").innerText = "Sorry, your password was incorrect. \n Please double-check your password.";
-    }
+function goNextContractor(contractor_name) {
+    sessionStorage.setItem('contractor', contractor_name);
+    window.location.href='components/booking/booking_contractor.html'
 }
 
 

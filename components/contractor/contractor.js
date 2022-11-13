@@ -102,7 +102,7 @@ const app = Vue.createApp({
                     <i class="bi bi-star-half pri-color"></i>`,
                     "HDB,Condominium,Landed",
                     "../AhBeng/ahbeng.html",
-                    "Painting,Landscaping",
+                    "Painting, Landscaping",
                     "+65 9123 4567",
                     "@ahbengservices"
                 ],
@@ -117,7 +117,7 @@ const app = Vue.createApp({
                     <i class="bi bi-star-fill pri-color"></i>`,
                     "HDB,Condominium,Landed,Commercial",
                     "../AhBeng/ahbeng.html",
-                    "Plumbing,Electrical",
+                    "Plumbing, Electrical",
                     "+65 9123 2344",
                     "@ahyongservices"
                 ],
@@ -162,7 +162,7 @@ const app = Vue.createApp({
                   <i class="bi bi-star-half pri-color"></i>`,
                   "HDB,Condominium,Landed",
                   "../AhBeng/ahbeng.html",
-                  "Moving,Electrical",
+                  "Moving, Electrical",
                   "+65 9123 3219",
                   "@takeoffmovers"
                 ],
@@ -177,7 +177,7 @@ const app = Vue.createApp({
                   <i class="bi bi-star-fill pri-color"></i>`,
                   "HDB,Landed",
                   "../AhBeng/ahbeng.html",
-                  "Plumbing,Drilling",
+                  "Plumbing, Drilling",
                   "+65 9123 0912",
                   "@tkjco"
                 ],
@@ -207,7 +207,7 @@ const app = Vue.createApp({
                   <i class="bi bi-star"></i>`,
                   "HDB,Condominium,Landed,Commercial",
                   "../AhBeng/ahbeng.html",
-                  "Painting, Drilling",
+                  "Painting, Drilling, Air Conditioning",
                   "+65 8464 9664",
                   "@shapeup"
                 ],
@@ -271,7 +271,7 @@ const app = Vue.createApp({
 
             if (value[4].includes(filtertype)){
               console.log(value)
-              selected_contractors[key] = [value[0],value[1],value[2],value[3],value[4],value[5],value[6]]
+              selected_contractors[key] = [value[0],value[1],value[2],value[3],value[4],value[5],value[6],value[7],value[8]]
             }
           }
         }
@@ -279,7 +279,7 @@ const app = Vue.createApp({
         for (const [key, value] of Object.entries(selected_contractors)) {
           console.log(key)
           console.log(value)
-          this.shown_contractors[key] = [value[0],value[1],value[2],value[3],value[4],value[5],value[6]]
+          this.shown_contractors[key] = [value[0],value[1],value[2],value[3],value[4],value[5],value[6],value[7],value[8]]
         }
 
         // console.log(this.shown_contractors)
@@ -315,7 +315,7 @@ const app = Vue.createApp({
       for (const [key, value] of Object.entries(this.painter_information)) {
 
         if (value[6].includes(this.current_service)){
-          this.specific_contractors[key] = [value[0],value[1],value[2],value[3],value[4],value[5],value[6]]
+          this.specific_contractors[key] = [value[0],value[1],value[2],value[3],value[4],value[5],value[6],value[7],value[8]]
           // console.log(value)
           // selected_contractors[key] = [value[0],value[1],value[2],value[3],value[4]]
         }
