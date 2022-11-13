@@ -23,6 +23,9 @@
     <!-- ----for axios call (put at head)---- -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+    <!-- for recaptcha --> 
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfGFQIjAAAAAJm-kH4OKEImTo3Brw-jdGPQmiwH"></script>
+
 
     <title>HomeMate Singapore | Hire The Best Contractors</title>
     <link rel="shortcut icon" href="images/favicon_io/favicon.ico">
@@ -363,12 +366,12 @@
                     </div>
                     <div class="contact-right mx-auto">
                         <form name="submit-to-google-sheet">
-                        <input type="text" name="Name" placeholder="Name" required>
-                        <input type="email" name="Email" placeholder="Email" required>
-                        <textarea name="Message" rows="6" placeholder="Message"></textarea>
-                        <button class="btn btn-lg rounded-pill" style="width: 200px; font-weight: bold; background-color: #e6b30e; color:white">
-                            Submit
-                        </button>
+                            <input type="text" name="Name" placeholder="Name" required>
+                            <input type="email" name="Email" placeholder="Email" required>
+                            <textarea name="Message" rows="6" placeholder="Message"></textarea>
+                            <button class="btn btn-lg rounded-pill" style="width: 200px; font-weight: bold; background-color: #e6b30e; color:white">
+                                Submit
+                            </button>
                         </form>
                         
                         <p id="msg"></p>

@@ -24,44 +24,71 @@ users.on('child_added', (snapshot) =>{
 
 function loginIfUserExists(userId, pwd) {
 
-    var user = firebase.database().ref('users/' + userId);
-    var password_user = firebase.database().ref('users/' + userId + "/" + "password");
+    // var user = firebase.database().ref('users/' + userId);
+    // var password_user = firebase.database().ref('users/' + userId + "/" + "password");
 
-    var login_user = false;
+    // var login_user = false;
 
-    user.once('value').then((snapshot1) => {
-            if(snapshot1.exists()) {
-                console.log("user exists!")
-                login_user = true;
+    // user.once('value').then((snapshot1) => {
+    //         if(snapshot1.exists()) {
+    //             console.log("user exists!")
+    //             login_user = true;
+    //         }
+    //         else {
+    //             console.log("user does not exist!")
+    //             document.getElementById("status").innerText = "Sorry, user does not exist!";
+    //         }
+    // });
+
+    // password_user.on('value', (snapshot2) => {
+    //     var password_user_value = snapshot2.val();
+    //     console.log(password_user_value);
+    //     if (password_user_value == pwd) {
+    //         console.log("password matches!")
+    //         login_user = true;
+    //     } else {
+    //         console.log("password does not match!")
+    //         login_user = false;
+    //     }
+    // });
+
+    // window.setTimeout(goNextUser(login_user), 0);
+
+    var user = firebase.database().ref('users');
+    var userid_validation = false;
+    var password_validation = false;
+
+    user.on('value', (snapshot) => {
+        for (key in snapshot.val()) {
+            var user_id = key;
+            var user_details = snapshot.val()[key];
+
+            if (user_id == userId && user_details.password == pwd) {
+                user_logged_id = user_id
+                userid_validation = true;
+                password_validation = true;
+
+            } else if (user_id == userId && user_details.password != pwd) {
+                userid_validation = true;
             }
-            else {
-                console.log("user does not exist!")
-                document.getElementById("status").innerText = "Sorry, user does not exist!";
-            }
-    });
-
-    password_user.on('value', (snapshot2) => {
-        var password_user_value = snapshot2.val();
-        console.log(password_user_value);
-        if (password_user_value == pwd) {
-            console.log("password matches!")
-            login_user = true;
-        } else {
-            console.log("password does not match!")
-            login_user = false;
         }
-    });
 
-    window.setTimeout(goNextUser(login_user), 0);
+        if (userid_validation == true && password_validation == true) {
+            console.log("both user and password matches!")
+            goNextUser(user_logged_id);
+        } else if (userid_validation == true && password_validation == false) {
+            console.log("user exists, but password does not match")
+            document.getElementById("status").innerText = "Sorry, your password was incorrect. \n Please double-check your password.";
+        } else {
+            console.log("user does not exist!")
+            document.getElementById("status").innerText = "Sorry,user does not exist!";
+        }
+    })
 }
 
-function goNextUser(login_user) {
-    if (login_user == true) {
-        sessionStorage.setItem('user', 'digijar');
-        window.location.href='components/homepage/homepage.html'
-    } else {
-        document.getElementById("status").innerText = "Sorry, your password was incorrect. \n Please double-check your password.";
-    }
+function goNextUser(user_id) {
+    sessionStorage.setItem('user', user_id);
+    window.location.href='components/homepage/homepage.html'
 }
 
 function loginIfContractorExists(userId, pwd) {
@@ -220,24 +247,21 @@ const form = document.forms['submit-to-google-sheet']
 const msg = document.getElementById("msg")
 
 form.addEventListener('submit', e => {
-e.preventDefault()
-fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-    .then(response => {
-        msg.innerHTML = "Message sent successfully"
-        setTimeout(function() {
-            msg.innerHTML = ""
-        }, 5000)
-        form.reset()
-    })
-    .catch(error => console.error('Error!', error.message))
+e.preventDefault();
+
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LfGFQIjAAAAAJm-kH4OKEImTo3Brw-jdGPQmiwH', {action: 'submit'}).then(function(token) {
+            // Add your logic to submit to your backend server here.
+            console.log("hey!")
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    msg.innerHTML = "Message sent successfully"
+                    setTimeout(function() {
+                        msg.innerHTML = ""
+                    }, 5000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+        });
+    });
 })
-
-let contact_popup = document.getElementById("submit-popup");
-
-function openContactPopup() {
-    contact_popup.classList.add("open-contact-popup");
-}
-
-function closeContactPopup() {
-    contact_popup.classList.remove("open-contact-popup");
-}
