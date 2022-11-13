@@ -4,9 +4,38 @@ function checkifUserisLoggedIn() {
     }
 }
 
+function welcUser() {
+    var curr_user = sessionStorage.getItem('user');
+    console.log(curr_user);
+    var to_replace = document.getElementById("welcUser");
+    curr_user = curr_user.charAt(0).toUpperCase() + curr_user.slice(1);
+    to_replace.innerText = `${curr_user}!`;
+}
+
 function signUserOut() {
     sessionStorage.setItem('user', '');
     window.location.href='../../index.html'
+}
+
+function sendContractor(id, booking_name) {
+    var redirect = false;
+    deleteBooking(booking_name, redirect);
+    sessionStorage.setItem('booking_contractor', id);
+    console.log(sessionStorage.getItem('booking_contractor'));
+    window.location.href='../AhBeng/ahbeng.html'
+}
+
+function deleteBooking(booking_name, redirect) {
+    firebase.database().ref('bookings/' + booking_name).remove()
+    .then(function() {
+        console.log("Remove succeeded.");
+        if (redirect == true) {
+            window.location.href='../homepage/homepage.html'
+        }
+    })
+    .catch(function(error) {
+        console.log("Remove Failed.");
+    });
 }
 
 // ----for contact form-----
@@ -55,6 +84,8 @@ firebase.initializeApp(firebaseConfig);
 var bookings = firebase.database().ref('bookings');
 
 function dynamicBookings() {
+
+    welcUser()
 
     checkifUserisLoggedIn();
 
@@ -158,10 +189,10 @@ function dynamicCurrent() {
                         </section>
                     `
                     }
+                    curr_replace.innerHTML = curr_result;
                 }
             }
         }
-        curr_replace.innerHTML = curr_result;
     }, (errorObject) => {
     console.log('The read failed: ' + errorObject.name);
     });
@@ -264,12 +295,38 @@ function dynamicPending() {
                                 </div>
                             </section>
                         `
+                    } else if (quoted == false && reject_quote == false && accept_quote == false && reject_booking == true) {
+                        curr_result += `
+                        <section class="search-result-item mt-5">
+                            <a class="image-link" href="#"><img class="image img-fluid rounded-start" src="${contractor_pic}">
+                            </a>
+                            <div class="search-result-item-body">
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <h4 class="search-result-item-heading">${contractor_name}</h4>
+                                        <br>
+                                        <h5><span style="color: var(--sec1)">Date:</span> ${date}</h5>
+                                        <h5><span style="color: var(--sec1)">Time:</span> ${time}</h5>
+                                        <h5 style="color: var(--sec1)">Service(s) Provided:</h5>
+                                        <h6>${service}</h6>
+                                    </div>
+                                    <div class="col-sm-3 text-align-center">
+                                        <p class="fs-mini text-danger">CONTRACTOR REJECT BOOKING</p>
+
+                                        <a onclick="deleteBooking('${booking_name}', true)" class="btn btn-primary btn-danger" style="font-weight: bold;" href="#">Nevermind</a>
+
+                                        <a onclick="sendContractor(this.id, '${booking_name}');return false;" id="${contractor_name}" class="btn btn-primary btn-success" style="font-weight: bold;" href="#">Reschedule?</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    `
                     }
+                    curr_replace.innerHTML = curr_result;
                 }
             }
-
         }
-        curr_replace.innerHTML += curr_result;
     }, (errorObject) => {
     console.log('The read failed: ' + errorObject.name);
     });

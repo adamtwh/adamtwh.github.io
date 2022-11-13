@@ -8,6 +8,7 @@ function welcUser() {
     console.log(curr_user);
     
     var to_replace = document.getElementById("welcUser");
+    curr_user = curr_user.charAt(0).toUpperCase() + curr_user.slice(1);
 
     to_replace.innerText = `${curr_user}`;
 }

@@ -102,15 +102,18 @@ function dynamicCurrent() {
                 var service = booking_obj.service;
                 var user = booking_obj.user;
                 var contractor_name = booking_obj.contractor;
-                console.log("booking obj contractor:" + contractor_name)
                 var curr_contractor = sessionStorage.getItem('contractor');
 
                 if (contractor_name == curr_contractor) {
+                    if (user == "adam") {
+                        var user_pic = "../../images/contractorpic3.jpg";
+                    } else {
+                        var user_pic = "../../images/empty_profile.png";
+                    }
                     if (currentdate.getDate() > date.slice(0,4) || currentdate.getMonth()+1 > date.slice(5,7)) {
-
                         curr_result += `
                         <section class="search-result-item mt-5">
-                            <a class="image-link" href="#"><img class="image img-fluid rounded-start" src="../../images/empty_profile.png">
+                            <a class="image-link" href="#"><img class="image img-fluid rounded-start" src="${user_pic}">
                             </a>
                             <div class="search-result-item-body">
                                 <div class="row">
@@ -136,7 +139,7 @@ function dynamicCurrent() {
                     } else {
                         curr_result += `
                         <section class="search-result-item mt-5">
-                            <a class="image-link" href="#"><img class="image img-fluid rounded-start" src="../../images/empty_profile.png">
+                            <a class="image-link" href="#"><img class="image img-fluid rounded-start" src="${user_pic}">
                             </a>
                             <div class="search-result-item-body">
                                 <div class="row">
@@ -157,10 +160,10 @@ function dynamicCurrent() {
                         </section>
                     `
                     }
+                    curr_replace.innerHTML = curr_result;
                 }
             }
         }
-        curr_replace.innerHTML = curr_result;
     }, (errorObject) => {
     console.log('The read failed: ' + errorObject.name);
     });
@@ -243,11 +246,80 @@ function dynamicPending() {
                                 </div>
                             </section>
                         `
+                    } else if (quoted == false && reject_quote == false && accept_quote == false && reject_booking == true) {
+                        curr_result += `
+                            <section class="search-result-item mt-5">
+                                <a class="image-link" href="#"><img class="image img-fluid rounded-start" src="../../images/empty_profile.png">
+                                </a>
+                                <div class="search-result-item-body">
+                                    <div class="row">
+                                        <div class="col-sm-9">
+                                            <h4 class="search-result-item-heading">${user}</h4>
+                                            <br>
+                                            <h5><span style="color: var(--sec1)">Date:</span> ${date}</h5>
+                                            <h5><span style="color: var(--sec1)">Time:</span> ${time}</h5>
+                                            <h5 style="color: var(--sec1)">Service(s) Provided:</h5>
+                                            <h6>${service}</h6>
+                                        </div>
+                                        <div class="col-sm-3 text-align-center">
+                                            <p class="fs-mini text-danger">WAITING FOR HOMEOWNER TO ACKNOWLEDGE</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        `
+                    } else if (quoted == true && reject_quote == false && accept_quote == false && reject_booking == false) {
+                        curr_result += `
+                            <section class="search-result-item mt-5">
+                                <a class="image-link" href="#"><img class="image img-fluid rounded-start" src="../../images/empty_profile.png">
+                                </a>
+                                <div class="search-result-item-body">
+                                    <div class="row">
+                                        <div class="col-sm-9">
+                                            <h4 class="search-result-item-heading">${user}</h4>
+                                            <br>
+                                            <h5><span style="color: var(--sec1)">Date:</span> ${date}</h5>
+                                            <h5><span style="color: var(--sec1)">Time:</span> ${time}</h5>
+                                            <h5 style="color: var(--sec1)">Service(s) Provided:</h5>
+                                            <h6>${service}</h6>
+                                        </div>
+                                        <div class="col-sm-3 text-align-center">
+                                            <p class="fs-mini text-muted">WAITING FOR HOMEOWNER TO REJECT/ACCEPT QUOTE</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        `
+                    } else if (quoted == true && reject_quote == true && accept_quote == false && reject_booking == false) {
+                        curr_result += `
+                            <section class="search-result-item mt-5">
+                                <a class="image-link" href="#"><img class="image img-fluid rounded-start" src="../../images/empty_profile.png">
+                                </a>
+                                <div class="search-result-item-body">
+                                    <div class="row">
+                                        <div class="col-sm-9">
+                                            <h4 class="search-result-item-heading">${user}</h4>
+                                            <br>
+                                            <h5><span style="color: var(--sec1)">Date:</span> ${date}</h5>
+                                            <h5><span style="color: var(--sec1)">Time:</span> ${time}</h5>
+                                            <h5 style="color: var(--sec1)">Service(s) Provided:</h5>
+                                            <h6>${service}</h6>
+                                        </div>
+                                        <div class="col-sm-3 text-align-center">
+                                            <p class="fs-mini text-danger">HOMEOWNER REJECTED QUOTE</p>
+
+                                            <a onclick="deleteBooking('${booking_name}')" class="btn btn-primary btn-success" style="font-weight: bold;" href="#">Delete Booking</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        `
                     }
+                    curr_replace.innerHTML = curr_result;
                 }
             }
         }
-        curr_replace.innerHTML += curr_result;
     }, (errorObject) => {
     console.log('The read failed: ' + errorObject.name);
     });
@@ -327,6 +399,17 @@ function dynamicCompleted() {
         }
     }, (errorObject) => {
     console.log('The read failed: ' + errorObject.name);
+    });
+}
+
+function deleteBooking(booking_name) {
+    firebase.database().ref('bookings/' + booking_name).remove()
+    .then(function() {
+        console.log("Remove succeeded.");
+        location.reload();
+    })
+    .catch(function(error) {
+        console.log("Remove Failed.");
     });
 }
 
