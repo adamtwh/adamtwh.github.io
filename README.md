@@ -7,8 +7,7 @@ Here, we hosted our full working application on Github! (https://adamtwh.github.
 The link to our presentation slides can be found here: https://docs.google.com/presentation/d/1V_973uqEoHKXwTW6BoT1qxNCwS_6w6UpiHwpefq7FzY/edit?usp=sharing
 
 The links to our Youtube videos can also be found here:
-- high-level pitch:
-- full technical video: 
+- full technical video: https://www.youtube.com/watch?v=fx_EwThwd_A 
 
 Before you head into the application, here is some advice from our Team!
 1. Our application requires interaction between both the Contractor and Homeowner, and thus might lead to a rather tedious/long workflow since this involves multiple steps (already disregarding the lead time in a real scenario where both parties have to wait for each other's response)
@@ -20,9 +19,21 @@ Otherwise, here are some login details that you can use:
 digijar (username)
 hello (password)
 
-<ins>For the contractor:</ins>
-ahbeng (username)
-ahbeng (password)
+username & password are the same for the following users:
+- adam
+- sean
+
+<ins>For the contractors:</ins>
+username & password are the same for all contractors:
+1. ahbeng
+2. ahyong
+3.genfix
+4. getfix
+5. jarfix
+6. kim
+7. kj
+8. shapeup
+9. takeoff
 
 For the workflow, you can follow these few steps for a perfect walkthrough of a sample scenario, of course you are free to explore the website!
 
