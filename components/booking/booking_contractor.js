@@ -298,7 +298,8 @@ function dynamicCompleted() {
                 var add_requests = booking_obj.addRequests;
                 var submit_booking_user = booking_obj.user;
 
-                curr_result += `
+                if (contractor_name == sessionStorage.getItem('contractor')) {
+                    curr_result += `
                     <section class="search-result-item mt-5">
                         <a class="image-link" href="#"><img class="image img-fluid rounded-start" src="../../images/empty_profile.png">
                         </a>
@@ -320,7 +321,7 @@ function dynamicCompleted() {
                         </div>
                     </section>
                 `
-
+                }
                 curr_replace.innerHTML = curr_result;
             }
         }
