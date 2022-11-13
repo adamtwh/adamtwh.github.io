@@ -1,3 +1,9 @@
+function checkifUserisLoggedIn() {
+    if (sessionStorage.getItem('user') == null || sessionStorage.getItem('user') == "") {
+        window.location.href='../../index.html'
+    }
+}
+
 function signUserOut() {
     sessionStorage.setItem('user', '');
     window.location.href='../../index.html'
@@ -49,6 +55,8 @@ firebase.initializeApp(firebaseConfig);
 var bookings = firebase.database().ref('bookings');
 
 function dynamicBookings() {
+
+    checkifUserisLoggedIn();
 
     checkifBothComplete();
 

@@ -1,5 +1,10 @@
 // welcome contractor
 function welcContractor() {
+    
+    if (sessionStorage.getItem('contractor') == null || sessionStorage.getItem('contractor') == "") {
+        window.location.href='../../index.html'
+    }
+
     console.log("welcome")
     var curr_contractor = sessionStorage.getItem('contractor');
     console.log(curr_contractor);

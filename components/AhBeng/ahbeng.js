@@ -2,6 +2,14 @@ function checkContractoronLoad() {
     var curr_contractor = sessionStorage.getItem('booking_contractor')
     sessionStorage.setItem('contractor', curr_contractor)
     console.log(sessionStorage.getItem('contractor'))
+
+    checkifUserisLoggedIn();
+}
+
+function checkifUserisLoggedIn() {
+    if (sessionStorage.getItem('user') == null || sessionStorage.getItem('user') == "") {
+        window.location.href='../../index.html'
+    }
 }
 
 function signUserOut() {

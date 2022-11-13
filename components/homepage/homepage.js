@@ -1,6 +1,8 @@
 // for user welcome dynamic
 
 function welcUser() {
+    checkifUserisLoggedIn();
+    
     console.log("welcome")
     var curr_user = sessionStorage.getItem('user');
     console.log(curr_user);
@@ -8,6 +10,12 @@ function welcUser() {
     var to_replace = document.getElementById("welcUser");
 
     to_replace.innerText = `${curr_user}`;
+}
+
+function checkifUserisLoggedIn() {
+    if (sessionStorage.getItem('user') == null || sessionStorage.getItem('user') == "") {
+        window.location.href='../../index.html'
+    }
 }
 
 function signUserOut() {

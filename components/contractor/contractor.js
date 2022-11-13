@@ -1,5 +1,12 @@
 function checkServiceonLoad() {
   console.log(sessionStorage.getItem('service'));
+  checkifUserisLoggedIn();
+}
+
+function checkifUserisLoggedIn() {
+  if (sessionStorage.getItem('user') == null || sessionStorage.getItem('user') == "") {
+      window.location.href='../../index.html'
+  }
 }
 
 function signUserOut() {
