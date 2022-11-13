@@ -222,6 +222,12 @@ function dynamicPending() {
                     var contractor_pic = "../../images/contractorpic6.jpg"
                 } else if (contractor_name == 'K.J & Co') {
                     var contractor_pic = "../../images/contractorpic7.jpeg"
+                } else if (contractor_name == 'Get Fix Pro') {
+                    var contractor_pic = "../../images/contractorpic8.jpg"
+                } else if (contractor_name == "Shape Up Pte Ltd") {
+                    var contractor_pic = "../../images/defaultpic.jpg"
+                } else if (contractor_name == "Gen Fix") {
+                    var contractor_pic = "../../images/defaultpic.jpg"
                 }
                 
                 var service = booking_obj.service;
@@ -356,6 +362,12 @@ function dynamicCompleted() {
                     var contractor_pic = "../../images/contractorpic6.jpg"
                 } else if (contractor_name == 'K.J & Co') {
                     var contractor_pic = "../../images/contractorpic7.jpeg"
+                } else if (contractor_name == 'Get Fix Pro') {
+                    var contractor_pic = "../../images/contractorpic8.jpg"
+                } else if (contractor_name == "Shape Up Pte Ltd") {
+                    var contractor_pic = "../../images/defaultpic.jpg"
+                } else if (contractor_name == "Gen Fix") {
+                    var contractor_pic = "../../images/defaultpic.jpg"
                 }
                 
                 var service = booking_obj.service;

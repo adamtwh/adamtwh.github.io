@@ -2,6 +2,7 @@ function checkContractoronLoad() {
     var curr_contractor = sessionStorage.getItem('booking_contractor')
     sessionStorage.setItem('contractor', curr_contractor)
     console.log(sessionStorage.getItem('contractor'))
+    console.log(sessionStorage.getItem('service'))
 
     checkifUserisLoggedIn();
 }
@@ -23,6 +24,8 @@ const app = Vue.createApp({
     // Data Properties
     data() {
         return {
+
+            currentService: "",
 
             currentContractor: sessionStorage.getItem('booking_contractor'),
 
@@ -54,7 +57,7 @@ const app = Vue.createApp({
                     "../AhBeng/ahbeng.html",
                     "9123 4567",
                     "@ahbengservices",
-                    "Painting, Landscaping"
+                    ["Painting", "Landscaping"]
                 ],
                 "Ah Yong Services": [
                     "../../images/contractorpic2.jpg",
@@ -69,7 +72,7 @@ const app = Vue.createApp({
                     "../AhBeng/ahbeng.html",
                     "8123 4567",
                     "@ahyongservices",
-                    "Plumbing, Electrical"
+                    ["Plumbing", "Electrical"]
                 ],
                 "Jar Fix Pte Ltd": [
                     "../../images/contractorpic3.jpg",
@@ -84,7 +87,7 @@ const app = Vue.createApp({
                     "../AhBeng/ahbeng.html",
                     "8345 9142",
                     "@jarfixpteltd",
-                    "Handyman"
+                    ["Handyman"]
                 ],
                 "Kim Carpentry": [
                     "../../images/contractorpic5.jpg",
@@ -99,7 +102,7 @@ const app = Vue.createApp({
                     "../AhBeng/ahbeng.html",
                     "8193 5264",
                     "@kimcarpentry",
-                    "Carpentry"
+                    ["Carpentry"]
                 ],
                 "Takeoff Movers": [
                     "../../images/contractorpic6.jpg",
@@ -114,7 +117,7 @@ const app = Vue.createApp({
                     "../AhBeng/ahbeng.html",
                     "9385 0142",
                     "@takeoffmovers",
-                    "Moving, Electrical"
+                    ["Moving", "Electrical"]
                 ],
                 "K.J & Co": [
                     "../../images/contractorpic7.jpeg",
@@ -129,7 +132,7 @@ const app = Vue.createApp({
                     "../AhBeng/ahbeng.html",
                     "8491 6324",
                     "@kjandco",
-                    "Plumbing, Drilling"
+                    ["Plumbing", "Drilling"]
                 ],
                 "Get Fix Pro": [
                     "../../images/contractorpic8.jpg",
@@ -144,7 +147,7 @@ const app = Vue.createApp({
                     "../AhBeng/ahbeng.html",
                     "9029 3901",
                     "@getfixpro",
-                    "Painting, Landscaping, Plumbing"
+                    ["Painting", "Landscaping", "Plumbing"]
                 ],
                 "Shape Up Pte Ltd": [
                 "../../images/defaultpic.jpg",
@@ -159,7 +162,7 @@ const app = Vue.createApp({
                 "../AhBeng/ahbeng.html",
                 "8464 9664",
                 "@shapeup",
-                "Painting, Drilling, Air Conditioning"
+                ["Painting", "Drilling", "Air Conditioning"]
                 ],
                 "Gen Fix": [
                 "../../images/defaultpic.jpg",
@@ -174,7 +177,7 @@ const app = Vue.createApp({
                 "../AhBeng/ahbeng.html",
                 "9945 9265",
                 "@genfix",
-                "Painting, Moving, Carpentry"
+                ["Painting", "Moving", "Carpentry"]
                 ],
             },
 
@@ -290,7 +293,7 @@ firebase.initializeApp(firebaseConfig);
 // }
 
 //The following writes the data
-function writeBookingWithCompletion(user, contractor, houseType, postalCode, paintBrand, paintColours, startDate, startTime, addRequests) {
+function writeBookingWithCompletion(user, contractor, houseType, postalCode, paintBrand, paintColours, startDate, startTime, addRequests, service) {
     var val = Math.floor(1000 + Math.random() * 9000);
     var booking_string = "booking" + val.toString();
     
@@ -310,7 +313,7 @@ function writeBookingWithCompletion(user, contractor, houseType, postalCode, pai
         accept_quote: false,
         reject_quote: false,
         user_completed: false,
-        service: "Painting",
+        service: service,
         contractor_completed: false,
         reject_booking: false
         
@@ -328,16 +331,23 @@ function addBookingDetails() {
     var contractor_create = sessionStorage.getItem('contractor')
     var houseType = document.getElementById("houseType").value;
     var postalCode = document.getElementById("postalCode").value;
-    var paintBrand = document.getElementById("paintBrand").value;
-    var paintColours = document.getElementById("paintColours").value;
+    var service = document.getElementById("selected_service").value;
+    if (service == "Painting") {
+        var paintBrand = document.getElementById("paintBrand").value;
+        var paintColours = document.getElementById("paintColours").value;
+    }
+
     var startDate = document.getElementById("startDate").value;
     var startTime = document.getElementById("startTime").value;
     var addRequests = document.getElementById("addRequests").value;
+    var service = document.getElementById("selected_service").value;
 
-    if (houseType !== "" && postalCode !== "" && paintBrand !== "" && paintColours !== "" && startDate !== "" && startTime !== "") {
+    if (service == "Painting" && houseType !== "" && postalCode !== "" && paintBrand !== "" && paintColours !== "" && startDate !== "" && startTime !== "") {
 
-        writeBookingWithCompletion(user_create, contractor_create, houseType, postalCode, paintBrand, paintColours, startDate, startTime, addRequests)
+        writeBookingWithCompletion(user_create, contractor_create, houseType, postalCode, paintBrand, paintColours, startDate, startTime, addRequests, service)
 
+    } else if (service != "Painting" && houseType !== "" && postalCode !== "" && startDate !== "" && startTime !== "") {
+        writeBookingWithCompletion(user_create, contractor_create, houseType, postalCode, "nil", "nil", startDate, startTime, addRequests, service)
     } else {
         document.getElementById("status").innerHTML = "<br> Sorry, please fill up all the required details!";
     }
