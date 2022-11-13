@@ -250,6 +250,7 @@ const app = Vue.createApp({
 
       addselection(eachfilter){
         console.log(eachfilter)
+        console.log(this.current_service)
 
         //if eachfilter not in selected_filters, append
 

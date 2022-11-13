@@ -232,7 +232,7 @@
         </div>
       </div> -->
 
-      <section class="mt-5" v-if="(current_service == 'Others')">
+      <section class="mt-5" v-if="(current_service === 'Others')">
         <h2 class="text-header">No contractors found! Try <span style="color: var(--sec2)">widening</span> your search criteria.</h2>
         <h5 class="text-header">Alternatively, <a href="#contact">contact us</a> for more help.</h5>
         <img src="../../images/construction.svg" class="img-fluid d-none d-sm-block mx-auto" style="width: 45%;">
@@ -352,7 +352,7 @@
         </div>
       </div> -->
 
-      <section class="mt-5" v-if="(typeof shown_contractors !== 'undefined' && shown_contractors !== null)">
+      <section class="mt-5" v-if="(current_service === 'Others')">
         <h2 class="text-header">No contractors found! Try <span style="color: var(--sec2)">widening</span> your search criteria.</h2>
         <h5 class="text-header">Alternatively, <a href="#contact">contact us</a> for more help.</h5>
         <img src="../../images/construction.svg" class="img-fluid d-none d-sm-block mx-auto" style="width: 45%;">
