@@ -280,13 +280,13 @@
                     </ul>
                 </div>
                 <div class="col-sm-3 text-align-center">
-                    <p class="mt-sm" style="font-size: 24px; font-weight:bold; color: var(--sec1);">RATING:</p>
-                    <span style="font-size: 24px;" v-html="each[3]"></span>
-                    <br><br><br><br>
-                    <a :href="each[5]" onclick="sendContractor(this.id);return false;" :id="name">
-                      <button class="btn rounded-pill" style="font-weight: bold; background-color: #e6b30e; color:white">More Details<i class="bi bi-arrow-right"></i></button>
-                    </a>
-                  </div>
+                  <p class="mt-sm" style="font-size: 24px; font-weight:bold; color: var(--sec1);">RATING:</p>
+                  <span style="font-size: 24px;" v-html="each[3]"></span>
+                  <br><br><br><br>
+                  <a :href="each[5]" onclick="sendContractor(this.id);return false;" :id="name">
+                    <button class="btn rounded-pill" style="font-weight: bold; background-color: #e6b30e; color:white">More Details<i class="bi bi-arrow-right"></i></button>
+                  </a>
+                </div>
             </div>
         </div>
       </section>
@@ -403,6 +403,7 @@
                   </div>
             </div>
         </div>
+        
       </section>
       
     </div>
