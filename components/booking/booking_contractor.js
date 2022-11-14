@@ -401,8 +401,10 @@ function dynamicCompleted() {
                     </section>
                 `
                 }
-                curr_replace.innerHTML = curr_result;
             }
+        }
+        if (curr_result != "") {
+            curr_replace.innerHTML = curr_result;
         }
     }, (errorObject) => {
     console.log('The read failed: ' + errorObject.name);
