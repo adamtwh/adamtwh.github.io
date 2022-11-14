@@ -403,7 +403,7 @@ function dynamicCompleted() {
                 }
             }
         }
-        if (curr_result != "") {
+        if (curr_result !== "") {
             curr_replace.innerHTML = curr_result;
         }
     }, (errorObject) => {
