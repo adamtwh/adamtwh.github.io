@@ -78,14 +78,18 @@ const app = Vue.createApp({
             // ],
 
             service_type:[
+              "Home Cleaning",
+              "Pest Control",
               "Painting",
               "Plumbing",
               "Air Conditioning",
               "Electrical",
-              "Drilling",
+              // "Drilling",
               "Moving",
-              "Carpentry",
-              "Landscaping",
+              // "Carpentry",
+              // "Landscaping",
+              "Professional Disinfection",
+              "Locksmith",
               "Others"
             ],
 
@@ -139,11 +143,11 @@ const app = Vue.createApp({
                     <i class="bi bi-star"></i>`,
                     "HDB,Condominium",
                     "../AhBeng/ahbeng.html",
-                    "Handyman",
+                    "Plumbing, Electrical, Painting, Locksmith",
                     "+65 9321 4567",
                     "@jarfix"
                 ],
-                "Kim Carpentry": [
+                "Kim Pest Control": [
                     "../../images/contractorpic5.jpg",
                     "Fast",
                     "Responsive",
@@ -152,11 +156,11 @@ const app = Vue.createApp({
                     <i class="bi bi-star-fill pri-color"></i>
                     <i class="bi bi-star-fill pri-color"></i>
                     <i class="bi bi-star-fill pri-color"></i>`,
-                    "Landed,Commercial",
+                    "HDB,Landed,Commercial",
                     "../AhBeng/ahbeng.html",
-                    "Carpentry",
+                    "Pest Control",
                     "+65 9122 4677",
-                    "@kimcarpentry"
+                    "@kimpestcontrol"
                 ],
                 "Takeoff Movers": [
                   "../../images/contractorpic6.jpg",
@@ -184,7 +188,7 @@ const app = Vue.createApp({
                   <i class="bi bi-star-fill pri-color"></i>`,
                   "HDB,Landed",
                   "../AhBeng/ahbeng.html",
-                  "Plumbing, Drilling",
+                  "Plumbing, Locksmith",
                   "+65 9123 0912",
                   "@tkjco"
                 ],
@@ -199,7 +203,7 @@ const app = Vue.createApp({
                   <i class="bi bi-star"></i>`,
                   "Commercial",
                   "../AhBeng/ahbeng.html",
-                  "Painting, Landscaping, Plumbing",
+                  "Painting, Plumbing",
                   "+65 9029 3901",
                   "@getfixpro"
                 ],
@@ -214,7 +218,7 @@ const app = Vue.createApp({
                   <i class="bi bi-star"></i>`,
                   "HDB,Condominium,Landed,Commercial",
                   "../AhBeng/ahbeng.html",
-                  "Painting, Drilling, Air Conditioning",
+                  "Painting, Air Conditioning",
                   "+65 8464 9664",
                   "@shapeup"
                 ],
@@ -229,9 +233,41 @@ const app = Vue.createApp({
                   <i class="bi bi-star"></i>`,
                   "HDB,Condominium,Landed",
                   "../AhBeng/ahbeng.html",
-                  "Painting, Moving, Carpentry",
+                  "Painting, Moving",
                   "+65 9945 9265",
                   "@genfix"
+                ],
+
+                "Ultra Clean Co.": [
+                  "../../images/defaultpic.jpg",
+                  "Fast",
+                  "Responsive",
+                  `<i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-half pri-color"></i>`,
+                  "HDB,Condominium,Landed",
+                  "../AhBeng/ahbeng.html",
+                  "Home Cleaning, Professional Disinfection",
+                  "+65 9949 9269",
+                  "@ultracleanco"
+                ],
+
+                "So Cool": [
+                  "../../images/defaultpic.jpg",
+                  "Moderate",
+                  "Moderate",
+                  `<i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-fill pri-color"></i>
+                  <i class="bi bi-star-half pri-color"></i>
+                  <i class="bi bi-star"></i>`,
+                  "HDB,Condominium,Landed",
+                  "../AhBeng/ahbeng.html",
+                  "Air Conditioning",
+                  "+65 9696 2235",
+                  "@socool"
                 ],
               },
 

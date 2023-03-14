@@ -1,12 +1,21 @@
+// const firebaseConfig = {
+//     apiKey: "AIzaSyAgc4cPFAh8WSRRq-_vmNHhn_eu1oJrUd4",
+//     authDomain: "ttj-7-7cd30.firebaseapp.com",
+//     databaseURL: "https://ttj-7-7cd30-default-rtdb.asia-southeast1.firebasedatabase.app",
+//     projectId: "ttj-7-7cd30",
+//     storageBucket: "ttj-7-7cd30.appspot.com",
+//     messagingSenderId: "907698280256",
+//     appId: "1:907698280256:web:529dcb3bdd2673f0360ca5",
+//     measurementId: "G-RJ3J8HV2SH"
+// };
+
 const firebaseConfig = {
-    apiKey: "AIzaSyAgc4cPFAh8WSRRq-_vmNHhn_eu1oJrUd4",
-    authDomain: "ttj-7-7cd30.firebaseapp.com",
-    databaseURL: "https://ttj-7-7cd30-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "ttj-7-7cd30",
-    storageBucket: "ttj-7-7cd30.appspot.com",
-    messagingSenderId: "907698280256",
-    appId: "1:907698280256:web:529dcb3bdd2673f0360ca5",
-    measurementId: "G-RJ3J8HV2SH"
+    apiKey: "AIzaSyBL04O2LqTHNHQ52aklqJx9qaSs7Bc9lCU",
+    authDomain: "dbtt-5a3d0.firebaseapp.com",
+    projectId: "dbtt-5a3d0",
+    storageBucket: "dbtt-5a3d0.appspot.com",
+    messagingSenderId: "635891953911",
+    appId: "1:635891953911:web:76944b824ea508646ca3f2"
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -54,36 +63,38 @@ function loginIfUserExists(userId, pwd) {
 
     // window.setTimeout(goNextUser(login_user), 0);
 
-    var user = firebase.database().ref('users');
-    var userid_validation = false;
-    var password_validation = false;
+    // var user = firebase.database().ref('users');
+    // var userid_validation = false;
+    // var password_validation = false;
 
-    user.on('value', (snapshot) => {
-        for (key in snapshot.val()) {
-            var user_id = key;
-            var user_details = snapshot.val()[key];
+    // user.on('value', (snapshot) => {
+    //     for (key in snapshot.val()) {
+    //         var user_id = key;
+    //         var user_details = snapshot.val()[key];
 
-            if (user_id == userId && user_details.password == pwd) {
-                user_logged_id = user_id
-                userid_validation = true;
-                password_validation = true;
+    //         if (user_id == userId && user_details.password == pwd) {
+    //             user_logged_id = user_id
+    //             userid_validation = true;
+    //             password_validation = true;
 
-            } else if (user_id == userId && user_details.password != pwd) {
-                userid_validation = true;
-            }
-        }
+    //         } else if (user_id == userId && user_details.password != pwd) {
+    //             userid_validation = true;
+    //         }
+    //     }
 
-        if (userid_validation == true && password_validation == true) {
-            console.log("both user and password matches!")
-            goNextUser(user_logged_id);
-        } else if (userid_validation == true && password_validation == false) {
-            console.log("user exists, but password does not match")
-            document.getElementById("status").innerText = "Sorry, your password was incorrect. \n Please double-check your password.";
-        } else {
-            console.log("user does not exist!")
-            document.getElementById("status").innerText = "Sorry,user does not exist!";
-        }
-    })
+    //     if (userid_validation == true && password_validation == true) {
+    //         console.log("both user and password matches!")
+    //         goNextUser(user_logged_id);
+    //     } else if (userid_validation == true && password_validation == false) {
+    //         console.log("user exists, but password does not match")
+    //         document.getElementById("status").innerText = "Sorry, your password was incorrect. \n Please double-check your password.";
+    //     } else {
+    //         console.log("user does not exist!")
+    //         document.getElementById("status").innerText = "Sorry,user does not exist!";
+    //     }
+    // })
+
+    goNextUser(userId)
 }
 
 function goNextUser(user_id) {

@@ -57,7 +57,7 @@ const app = Vue.createApp({
                     "../AhBeng/ahbeng.html",
                     "9123 4567",
                     "@ahbengservices",
-                    ["Painting", "Landscaping"]
+                    ["Painting", "Plumbing"]
                 ],
                 "Ah Yong Services": [
                     "../../images/contractorpic2.jpg",
@@ -86,10 +86,10 @@ const app = Vue.createApp({
                     "HDB,Condominium",
                     "../AhBeng/ahbeng.html",
                     "8345 9142",
-                    "@jarfixpteltd",
-                    ["Handyman"]
+                    "@jarfix",
+                    ["Plumbing", "Electrical", "Painting", "Locksmith"]
                 ],
-                "Kim Carpentry": [
+                "Kim Pest Control": [
                     "../../images/contractorpic5.jpg",
                     "Fast",
                     "Responsive",
@@ -101,8 +101,8 @@ const app = Vue.createApp({
                     "Landed,Commercial",
                     "../AhBeng/ahbeng.html",
                     "8193 5264",
-                    "@kimcarpentry",
-                    ["Carpentry"]
+                    "@kimpestcontrol",
+                    ["Pest Control"]
                 ],
                 "Takeoff Movers": [
                     "../../images/contractorpic6.jpg",
@@ -132,7 +132,7 @@ const app = Vue.createApp({
                     "../AhBeng/ahbeng.html",
                     "8491 6324",
                     "@kjandco",
-                    ["Plumbing", "Drilling"]
+                    ["Plumbing", "Locksmith"]
                 ],
                 "Get Fix Pro": [
                     "../../images/contractorpic8.jpg",
@@ -147,7 +147,7 @@ const app = Vue.createApp({
                     "../AhBeng/ahbeng.html",
                     "9029 3901",
                     "@getfixpro",
-                    ["Painting", "Landscaping", "Plumbing"]
+                    ["Painting", "Plumbing"]
                 ],
                 "Shape Up Pte Ltd": [
                 "../../images/defaultpic.jpg",
@@ -162,7 +162,7 @@ const app = Vue.createApp({
                 "../AhBeng/ahbeng.html",
                 "8464 9664",
                 "@shapeup",
-                ["Painting", "Drilling", "Air Conditioning"]
+                ["Painting", "Air Conditioning"]
                 ],
                 "Gen Fix": [
                 "../../images/defaultpic.jpg",
@@ -177,7 +177,38 @@ const app = Vue.createApp({
                 "../AhBeng/ahbeng.html",
                 "9945 9265",
                 "@genfix",
-                ["Painting", "Moving", "Carpentry"]
+                ["Painting", "Moving"]
+                ],
+                "Ultra Clean Co.": [
+                    "../../images/defaultpic.jpg",
+                    "Fast",
+                    "Responsive",
+                    `<i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-half pri-color"></i>`,
+                    "HDB,Condominium,Landed",
+                    "../AhBeng/ahbeng.html",
+                    "+65 9949 9269",
+                    "@ultracleanco",
+                    ["Home Cleaning", "Professional Disinfection"]
+                ],
+  
+                "So Cool": [
+                    "../../images/defaultpic.jpg",
+                    "Moderate",
+                    "Moderate",
+                    `<i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-half pri-color"></i>
+                    <i class="bi bi-star"></i>`,
+                    "HDB,Condominium,Landed",
+                    "../AhBeng/ahbeng.html",
+                    "+65 9696 2235",
+                    "@socool",
+                    ["Air Conditioning"]
                 ],
             },
 
