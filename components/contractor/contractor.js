@@ -113,7 +113,7 @@ const app = Vue.createApp({
                     <i class="bi bi-star-half pri-color"></i>`,
                     "HDB,Condominium,Landed",
                     "../AhBeng/ahbeng.html",
-                    "Painting, Landscaping",
+                    "Painting, Plumbing",
                     "+65 9123 4567",
                     "@ahbengservices"
                 ],
