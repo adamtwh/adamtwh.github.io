@@ -232,6 +232,7 @@ function dynamicPending() {
                                         <div class="col-sm-9">
                                             <h4 class="search-result-item-heading">${user}</h4>
                                             <br>
+                                            <h5><span style="color: var(--sec1)">House Type:</span> ${houseType}</h5>
                                             <h5><span style="color: var(--sec1)">Date:</span> ${date}</h5>
                                             <h5><span style="color: var(--sec1)">Time:</span> ${time}</h5>
                                             <h5 style="color: var(--sec1)">Service(s) Provided:</h5>

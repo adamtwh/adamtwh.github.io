@@ -302,9 +302,9 @@ function dynamicPending() {
                                             <p class="fs-mini text-muted">PENDING CONTRACTOR'S QUOTE</p>
                                             <p class="mt-sm" style="font-size: 32px; font-weight:bold;">SGD <span style="color:var(--sec2)">$${quote}</span></p>
 
-                                            <a onclick="rejectQuote('${booking_name}')" class="btn btn-primary btn-danger" style="font-weight: bold;" href="#">Reject</a>
+                                            <a onclick="rejectQuote('${booking_name}')" class="btn btn-primary btn-danger" style="font-weight: bold;">Reject</a>
 
-                                            <a onclick="acceptQuote('${booking_name}')" class="btn btn-primary btn-success" style="font-weight: bold;" href="#">Accept</a>
+                                            <a onclick="acceptQuote('${booking_name}')" class="btn btn-primary btn-success" style="font-weight: bold;" data-bs-toggle="modal" data-bs-target="#recommendationModal">Accept</a>
                                         </div>
                                     </div>
                                 </div>
@@ -449,8 +449,6 @@ function acceptQuote(booking_name) {
     updates['/bookings/' + booking_name + "/" + 'accept_quote'] = accept_quote;
     updates['/bookings/' + booking_name + "/" + 'status'] = status;
     firebase.database().ref().update(updates);
-
-    location.reload();
 }
 
 function userCompleteBooking(booking_name) {
@@ -486,3 +484,31 @@ function checkifBothComplete() {
         console.log('The read failed: ' + errorObject.name);
     });
 }
+
+function sendContractor(id) {
+    sessionStorage.setItem('booking_contractor', id);
+    console.log(sessionStorage.getItem('booking_contractor'));
+    window.location.href='../AhBeng/ahbeng.html'
+}
+
+const app = Vue.createApp({
+    data(){
+        return {
+            recommendations: ["Home Cleaning", "Painting", "Air Conditioning", "Disinfection"],
+            inhouse_services: {
+                "Home Cleaning": {
+                    image: "../../images/home_cleaning.png",
+                },
+                "Painting": {
+                    image: "../../images/painting.png",
+                },
+                "Air Conditioning": {
+                    image: "../../images/air_condition.png",
+                },
+                "Disinfection": {
+                    image: "../../images/home_disinfection.png",
+                },                
+            }
+        }
+    }
+}).mount("#main")
