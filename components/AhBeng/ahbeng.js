@@ -210,6 +210,66 @@ const app = Vue.createApp({
                     "@socool",
                     ["Air Conditioning"]
                 ],
+                "ServisHero Home Cleaning": [
+                    "../../images/home_cleaning.png",
+                    "Fast",
+                    "Responsive",
+                    `<i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-half pri-color"></i>`,
+                    "HDB,Condominium,Landed",
+                    "../AhBeng/ahbeng.html",
+                    "9432 4534",
+                    "@servishero",
+                    ["Home Cleaning"]
+                ],
+                "ServisHero Painting": [
+                    "../../images/painting.png",
+                    "Fast",
+                    "Responsive",
+                    `<i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-half pri-color"></i>`,
+                    "HDB,Condominium,Landed",
+                    "../AhBeng/ahbeng.html",
+                    "9432 4534",
+                    "@servishero",
+                    ["Painting"]
+                ],
+                "ServisHero Air Conditioning": [
+                    "../../images/air_condition.png",
+                    "Fast",
+                    "Responsive",
+                    `<i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-half pri-color"></i>`,
+                    "HDB,Condominium,Landed",
+                    "../AhBeng/ahbeng.html",
+                    "9432 4534",
+                    "@servishero",
+                    ["Air Conditioning"]
+                ],
+                "ServisHero Disinfection": [
+                    "../../images/home_disinfection.png",
+                    "Fast",
+                    "Responsive",
+                    `<i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-half pri-color"></i>`,
+                    "HDB,Condominium,Landed",
+                    "../AhBeng/ahbeng.html",
+                    "9432 4534",
+                    "@servishero",
+                    ["Professional Disinfection"]
+                ],
             },
 
             review_arr: [
@@ -261,7 +321,7 @@ const app = Vue.createApp({
 
             validationMsg: '',
 
-            isBook: true
+            isBook: false
         }
     },
 

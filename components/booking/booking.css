@@ -110,3 +110,39 @@
 .carousel-inner .carousel-item-start { 
     transform: translateX(0);
 }
+
+.rating {
+    position: absolute;
+    left: 60%;
+    bottom: 5%;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.rating li {
+    list-style-type: none;
+}
+
+.rating-item {
+    border: 1px solid #fff;
+    cursor: pointer;
+    font-size: 2em;
+    color: gold;
+}
+
+.rating-item::before {
+    content: "\2605";
+}
+
+.rating-item.active ~ .rating-item::before {
+    content: "\2606";
+}
+
+.rating:hover .rating-item::before {
+    content: "\2605";
+}
+
+.rating-item:hover ~ .rating-item::before {
+    content: "\2606";
+}

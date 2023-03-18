@@ -417,6 +417,7 @@ function dynamicCompleted() {
                                     <div class="col-sm-3 text-align-center">
                                         <p class="fs-mini text-muted">COMPLETED SERVICE</p>
                                         <p class="mt-sm" style="font-size: 32px; font-weight:bold;">SGD <span style="color:var(--sec2)">$${quote}</span></p>
+                                        <button class="btn btn-primary btn-warning mt-4" style="font-weight: bold;" data-bs-toggle="modal" data-bs-target="#reviewModal">Leave a Review</button>
                                     </div>
                                 </div>
                             </div>
@@ -494,21 +495,31 @@ function sendContractor(id) {
 const app = Vue.createApp({
     data(){
         return {
-            recommendations: ["Home Cleaning", "Painting", "Air Conditioning", "Disinfection"],
+            recommendations: ["ServisHero Home Cleaning", "ServisHero Painting", "ServisHero Air Conditioning", "ServisHero Professional Disinfection"],
             inhouse_services: {
-                "Home Cleaning": {
+                "ServisHero Home Cleaning": {
                     image: "../../images/home_cleaning.png",
                 },
-                "Painting": {
+                "ServisHero Painting": {
                     image: "../../images/painting.png",
                 },
-                "Air Conditioning": {
+                "ServisHero Air Conditioning": {
                     image: "../../images/air_condition.png",
                 },
-                "Disinfection": {
+                "ServisHero Professional Disinfection": {
                     image: "../../images/home_disinfection.png",
                 },                
-            }
+            },
+
+            review: "",
+            rating: 0
+        }
+    },
+    methods: {
+        submitReview() {
+            console.log("Review Submitted")
+            this.rating = 0
+            this.review = ""
         }
     }
 }).mount("#main")
