@@ -417,7 +417,7 @@ function dynamicCompleted() {
                                     <div class="col-sm-3 text-align-center">
                                         <p class="fs-mini text-muted">COMPLETED SERVICE</p>
                                         <p class="mt-sm" style="font-size: 32px; font-weight:bold;">SGD <span style="color:var(--sec2)">$${quote}</span></p>
-                                        <button class="btn btn-primary btn-warning mt-4" style="font-weight: bold;" data-bs-toggle="modal" data-bs-target="#reviewModal">Leave a Review</button>
+                                        <button class="btn btn-primary btn-warning mt-4" style="font-weight: bold;" data-bs-toggle="modal" data-bs-target="#reviewModal" onclick="setReviewContractor('${contractor_name}')">Leave a Review</button>
                                     </div>
                                 </div>
                             </div>
@@ -492,6 +492,11 @@ function sendContractor(id) {
     window.location.href='../AhBeng/ahbeng.html'
 }
 
+function setReviewContractor(name) {
+    sessionStorage.setItem('review_contractor', name)
+    console.log(sessionStorage.getItem('review_contractor'));
+}
+
 const app = Vue.createApp({
     data(){
         return {
@@ -509,17 +514,7 @@ const app = Vue.createApp({
                 "ServisHero Professional Disinfection": {
                     image: "../../images/home_disinfection.png",
                 },                
-            },
-
-            review: "",
-            rating: 0
-        }
-    },
-    methods: {
-        submitReview() {
-            console.log("Review Submitted")
-            this.rating = 0
-            this.review = ""
+            }
         }
     }
 }).mount("#main")

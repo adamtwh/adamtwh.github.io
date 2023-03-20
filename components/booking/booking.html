@@ -300,10 +300,10 @@
                             </div>
                         </div>
                         
-                        <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Share your experience with others" v-model="review"></textarea>
+                        <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Share your experience with others"></textarea>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success rounded-pill" style="font-weight: bold;" @click="submitReview()" data-bs-dismiss="modal">
+                        <button type="button" class="btn btn-success rounded-pill" style="font-weight: bold;" onclick="submitReview()" data-bs-dismiss="modal">
                             Submit
                         </button>
                     </div>
@@ -380,6 +380,7 @@
         })
 
         // Ratings
+        var rating = 0
         const container = document.querySelector('.rating');
         const items = container.querySelectorAll('.rating-item');
         container.onclick = e => {
@@ -388,9 +389,31 @@
                 items.forEach(
                     item => item.classList.remove('active')
                 );
+                rating = e.target.getAttribute("data-rate");
+                console.log(rating)
                 elClass.add('active');
             }
         };
+
+        function submitReview() {
+            var val = Math.floor(1000 + Math.random() * 9000);
+            var review_string = "review" + val.toString();
+            var review_contractor = sessionStorage.getItem('review_contractor')
+            var user = sessionStorage.getItem('user')
+            var comment = document.getElementById('comment').value
+            console.log(comment)
+            console.log(rating)
+
+            firebase.database().ref('reviews/' + review_contractor + '/' + review_string).set({
+                user: user,
+                rating: rating,
+                review: comment
+            }, function(error) {
+                if (error) {
+                    console.log("error adding reviews")
+                }
+            });
+        }
     </script>
 </body>
 </html>

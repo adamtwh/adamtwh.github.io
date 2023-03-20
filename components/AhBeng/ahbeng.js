@@ -18,6 +18,19 @@ function signUserOut() {
     window.location.href='../../index.html'
 }
 
+const firebaseConfig = {
+    apiKey: "AIzaSyAgc4cPFAh8WSRRq-_vmNHhn_eu1oJrUd4",
+    authDomain: "ttj-7-7cd30.firebaseapp.com",
+    databaseURL: "https://ttj-7-7cd30-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "ttj-7-7cd30",
+    storageBucket: "ttj-7-7cd30.appspot.com",
+    messagingSenderId: "907698280256",
+    appId: "1:907698280256:web:529dcb3bdd2673f0360ca5",
+    measurementId: "G-RJ3J8HV2SH"
+};
+firebase.initializeApp(firebaseConfig);
+var reviewsDB = firebase.database().ref('reviews');
+
 
 const app = Vue.createApp({
 
@@ -273,36 +286,36 @@ const app = Vue.createApp({
             },
 
             review_arr: [
-                {
-                    "user": "Tammy",
-                    "review": "Contractor was about 15 minutes late but was very experienced and quickly fixed my toilet. Overall service was ok.",
-                    "rating": 4
-                },
-                {
-                    "user": "SkyWalker111",
-                    "review": "Got him to install some UV fluorscent lights. After installation, he turned on the lights for a few seconds to show me that it was working and left hurriedly. The lights started to flicker after 10 minutes of use and I requested for him to return to fix the problem but he declined, stating that he had already tested before leaving. Now my house is like a disco room... Wouldnt recommend his services",
-                    "rating": 1
-                },
-                {
-                    "user": "Hock Guan",
-                    "review": "I locked myself out of my apartment and called this locksmith for help. The locksmith arrived within 20 minutes and quickly opened the door without damaging the lock. He was friendly, professional, and knowledgeable, and his price was reasonable. I was impressed with the service and would recommend them to others.",
-                    "rating": 5
-                },
-                {
-                    "user": "Anonymous",
-                    "review": "Hired this painter to paint my living room, and the quality of work was terrible. The paint was applied unevenly, and there were areas where the old color was showing through. The painter also left several drips and smudges on the walls and didn't clean up properly. I had to hire another painter to fix the job, and it ended up costing me more money.",
-                    "rating": 1
-                },
-                {
-                    "user": "Reyna",
-                    "review": "Got electrician to install some new light fixtures in my home, and I was very satisfied with the service. The electrician was prompt, professional, and courteous, and he did an excellent job. He explained the process clearly and made sure that I was happy with the work before leaving. I would definitely use this electrician again.",
-                    "rating": 4
-                },
-                {
-                    "user": "Hippo9569",
-                    "review": "They worked quickly and efficiently, and they did an excellent job cleaning my home. Although they went above and beyond by organizing some cluttered areas, I was not comfortable with them touching my things.",
-                    "rating": 2
-                },
+                // {
+                //     "user": "Tammy",
+                //     "review": "Contractor was about 15 minutes late but was very experienced and quickly fixed my toilet. Overall service was ok.",
+                //     "rating": 4
+                // },
+                // {
+                //     "user": "SkyWalker111",
+                //     "review": "Got him to install some UV fluorscent lights. After installation, he turned on the lights for a few seconds to show me that it was working and left hurriedly. The lights started to flicker after 10 minutes of use and I requested for him to return to fix the problem but he declined, stating that he had already tested before leaving. Now my house is like a disco room... Wouldnt recommend his services",
+                //     "rating": 1
+                // },
+                // {
+                //     "user": "Hock Guan",
+                //     "review": "I locked myself out of my apartment and called this locksmith for help. The locksmith arrived within 20 minutes and quickly opened the door without damaging the lock. He was friendly, professional, and knowledgeable, and his price was reasonable. I was impressed with the service and would recommend them to others.",
+                //     "rating": 5
+                // },
+                // {
+                //     "user": "Anonymous",
+                //     "review": "Hired this painter to paint my living room, and the quality of work was terrible. The paint was applied unevenly, and there were areas where the old color was showing through. The painter also left several drips and smudges on the walls and didn't clean up properly. I had to hire another painter to fix the job, and it ended up costing me more money.",
+                //     "rating": 1
+                // },
+                // {
+                //     "user": "Reyna",
+                //     "review": "Got electrician to install some new light fixtures in my home, and I was very satisfied with the service. The electrician was prompt, professional, and courteous, and he did an excellent job. He explained the process clearly and made sure that I was happy with the work before leaving. I would definitely use this electrician again.",
+                //     "rating": 4
+                // },
+                // {
+                //     "user": "Hippo9569",
+                //     "review": "They worked quickly and efficiently, and they did an excellent job cleaning my home. Although they went above and beyond by organizing some cluttered areas, I was not comfortable with them touching my things.",
+                //     "rating": 2
+                // },
             ],
 
             selected_brand: "",
@@ -390,24 +403,26 @@ const app = Vue.createApp({
     //     })
     //     }
     // }
+    async mounted() {
+        firebase.database().ref('reviews').child(this.currentContractor).get().then((snapshot) => {
+            if (snapshot.exists()) {
+              reviews_arr = snapshot.val();
+              console.log(snapshot.val())
+              for (const review in reviews_arr) {
+                this.review_arr.push(reviews_arr[review])
+              }
+            } else {
+              console.log("No data available");
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
+    }
 })
 
 app.mount(".main")
 
 
-// storing booking details into firebase
-const firebaseConfig = {
-    apiKey: "AIzaSyAgc4cPFAh8WSRRq-_vmNHhn_eu1oJrUd4",
-    authDomain: "ttj-7-7cd30.firebaseapp.com",
-    databaseURL: "https://ttj-7-7cd30-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "ttj-7-7cd30",
-    storageBucket: "ttj-7-7cd30.appspot.com",
-    messagingSenderId: "907698280256",
-    appId: "1:907698280256:web:529dcb3bdd2673f0360ca5",
-    measurementId: "G-RJ3J8HV2SH"
-};
-
-firebase.initializeApp(firebaseConfig);
 
 //The following example demostrates how to add data
 // function registerBooking() {
