@@ -1,6 +1,6 @@
 # adamtwh.github.io
 
-Hi! Welcome to IS216-G9 Group 7's Project -- Homemate!
+Hi! Welcome to IS216-G9 Group 7's Project -- HandyHeroes!
 
 Here, we hosted our full working application on Github! (https://adamtwh.github.io/)
 
