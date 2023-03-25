@@ -304,7 +304,7 @@ function dynamicPending() {
 
                                             <a onclick="rejectQuote('${booking_name}')" class="btn btn-primary btn-danger" style="font-weight: bold;">Reject</a>
 
-                                            <a onclick="acceptQuote('${booking_name}')" class="btn btn-primary btn-success" style="font-weight: bold;" data-bs-toggle="modal" data-bs-target="#recommendationModal">Accept</a>
+                                            <a onclick="acceptQuote('${booking_name}','${service}')" class="btn btn-primary btn-success" style="font-weight: bold;" data-service="${service}" data-bs-toggle="modal" data-bs-target="#recommendationModal">Accept</a>
                                         </div>
                                     </div>
                                 </div>
@@ -443,7 +443,8 @@ function rejectQuote(booking_name) {
     location.reload();
 }
 
-function acceptQuote(booking_name) {
+function acceptQuote(booking_name, service) {
+    sessionStorage.setItem('accepted_service', service);
     var accept_quote = true;
     var status = "current";
     var updates = {};
@@ -500,7 +501,28 @@ function setReviewContractor(name) {
 const app = Vue.createApp({
     data(){
         return {
-            recommendations: ["ServisHero Home Cleaning", "ServisHero Painting", "ServisHero Air Conditioning", "ServisHero Professional Disinfection"],
+            current_service: sessionStorage.getItem('accepted_service'),
+            recommendations: {
+                "Overall": [
+                    "ServisHero Home Cleaning", 
+                    "ServisHero Painting", 
+                    "ServisHero Air Conditioning", 
+                    "ServisHero Electrical",
+                    "ServisHero Professional Disinfection"
+                ],
+                "Painting": [
+                    "ServisHero Air Conditioning",
+                    "ServisHero Electrical",
+                    "ServisHero Home Cleaning",
+                    "ServisHero Professional Disinfection"
+                ],
+                "Home Cleaning": [
+                    "ServisHero Air Conditioning",
+                    "ServisHero Professional Disinfection",
+                    "ServisHero Electrical",
+                    "ServisHero Painting",
+                ]
+            },
             inhouse_services: {
                 "ServisHero Home Cleaning": {
                     image: "../../images/home_cleaning.png",
@@ -513,7 +535,23 @@ const app = Vue.createApp({
                 },
                 "ServisHero Professional Disinfection": {
                     image: "../../images/home_disinfection.png",
-                },                
+                },
+                "ServisHero Electrical": {
+                    image: "../../images/electrical.jpg",
+                },               
+            }
+        }
+    },
+    computed: {
+        bestRecommendations() {
+            var current_service = sessionStorage.getItem('accepted_service')
+
+            if (current_service == null) {
+                return recommendations["Overall"]
+            } else if (current_service in this.recommendations) {
+                return this.recommendations[current_service]
+            } else {
+                return this.recommendations["Overall"]
             }
         }
     }

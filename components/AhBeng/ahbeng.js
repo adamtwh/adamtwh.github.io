@@ -283,6 +283,21 @@ const app = Vue.createApp({
                     "@servishero",
                     ["Professional Disinfection"]
                 ],
+                "ServisHero Electrical": [
+                    "../../images/electrical.jpg",
+                    "Fast",
+                    "Responsive",
+                    `<i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-fill pri-color"></i>
+                    <i class="bi bi-star-half pri-color"></i>`,
+                    "HDB,Condominium,Landed",
+                    "../AhBeng/ahbeng.html",
+                    "9432 4534",
+                    "@servishero",
+                    ["Electrical"]
+                ],
             },
 
             review_arr: [

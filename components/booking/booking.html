@@ -260,9 +260,9 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Compliment your booking with our related services</p>
+                        <p>Compliment your {{ current_service }} booking with our related services</p>
                         <div class="owl-carousel owl-theme">
-                            <div class="item text-center" v-for="recommendation in recommendations">
+                            <div class="item text-center" v-for="recommendation in bestRecommendations">
                                 <button class="mx-auto border-0" style="background-color: white;" onclick="sendContractor(this.id)" :id="recommendation">
                                     <img :src="inhouse_services[recommendation]['image']">
                                     <div>
