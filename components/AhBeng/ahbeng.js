@@ -192,7 +192,7 @@ const app = Vue.createApp({
                 "@genfix",
                 ["Painting", "Moving"]
                 ],
-                "Ultra Clean Co.": [
+                "Ultra Clean Co": [
                     "../../images/defaultpic.jpg",
                     "Fast",
                     "Responsive",

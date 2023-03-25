@@ -501,7 +501,6 @@ function setReviewContractor(name) {
 const app = Vue.createApp({
     data(){
         return {
-            current_service: sessionStorage.getItem('accepted_service'),
             recommendations: {
                 "Overall": [
                     "ServisHero Home Cleaning", 
@@ -547,7 +546,7 @@ const app = Vue.createApp({
             var current_service = sessionStorage.getItem('accepted_service')
 
             if (current_service == null) {
-                return recommendations["Overall"]
+                return this.recommendations["Overall"]
             } else if (current_service in this.recommendations) {
                 return this.recommendations[current_service]
             } else {
