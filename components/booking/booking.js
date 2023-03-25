@@ -444,6 +444,7 @@ function rejectQuote(booking_name) {
 }
 
 function acceptQuote(booking_name, service) {
+    console.log("Accepting Quote")
     sessionStorage.setItem('accepted_service', service);
     var accept_quote = true;
     var status = "current";
