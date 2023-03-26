@@ -452,8 +452,6 @@ function acceptQuote(booking_name, service) {
     updates['/bookings/' + booking_name + "/" + 'accept_quote'] = accept_quote;
     updates['/bookings/' + booking_name + "/" + 'status'] = status;
     firebase.database().ref().update(updates);
-
-    location.reload();
 }
 
 function userCompleteBooking(booking_name) {
