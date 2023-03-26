@@ -539,7 +539,8 @@ const app = Vue.createApp({
                 "ServisHero Electrical": {
                     image: "../../images/electrical.jpg",
                 },               
-            }
+            },
+            current_service: sessionStorage.getItem('accepted_service')
         }
     },
     computed: {
